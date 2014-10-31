@@ -1,0 +1,5 @@
+m_durys_gupek:
+    resource: "@MDurysGupekBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
