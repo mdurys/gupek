@@ -10,7 +10,7 @@ class GameController extends Controller
     /**
      * @Route("/game")
      */
-    public function indexAction($name)
+    public function indexAction()
     {
         return $this->render('MDurysGupekBundle:Game:index.html.twig', []);
     }
