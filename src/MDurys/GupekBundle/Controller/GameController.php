@@ -4,16 +4,14 @@ namespace MDurys\GupekBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class DefaultController extends Controller
+class GameController extends Controller
 {
     /**
-     * @Route("/hello/{name}")
-     * @Template()
+     * @Route("/game")
      */
     public function indexAction($name)
     {
-        return array('name' => $name);
+        return $this->render('MDurysGupekBundle:Game:index.html.twig', []);
     }
 }
