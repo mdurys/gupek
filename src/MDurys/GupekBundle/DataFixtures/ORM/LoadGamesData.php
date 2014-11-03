@@ -22,6 +22,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'merchants' => ['Merchants of the Middle Ages', 2, 4],
             'pokolenia' => ['Pokolenia', 2, 4],
             'imperial2030' => ['Imperial 2030', 2, 6],
+            'samuraj' => ['Samuraj', 2, 4],
         ];
 
         foreach ($data as $id => $row) {
