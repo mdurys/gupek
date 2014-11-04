@@ -12,4 +12,25 @@ use Doctrine\ORM\EntityRepository;
  */
 class MeetingRepository extends EntityRepository
 {
+    /**
+     * Get query builder, which selects all meetings from given season.
+     *
+     * @param int $seasonId
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function queryBySeason($seasonId)
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+            ->select('m')
+            ->from($this->getEntityName(), 'm')
+            ->where('m.season = :season')
+            ->setParameter('season', $seasonId);
+    }
+
+    public function getBySeason($seasonId)
+    {
+        return $this->queryBySeason($seasonId)
+            ->getQuery()
+            ->getResult();
+    }
 }
