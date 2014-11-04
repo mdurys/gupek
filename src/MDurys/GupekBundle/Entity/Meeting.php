@@ -30,6 +30,13 @@ class Meeting
      */
     private $date;
 
+    /**
+     * @ORM\OneToOne(targetEntity="MDurys\GupekBundle\Entity\Season")
+     * @ORM\JoinColumn(referencedColumnName="id")
+     * @Assert\NotNull()
+     */
+    private $season;
+
 
     /**
      * Get id
@@ -62,5 +69,28 @@ class Meeting
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set season
+     *
+     * @param \MDurys\GupekBundle\Entity\Season $season
+     * @return Meeting
+     */
+    public function setSeason(\MDurys\GupekBundle\Entity\Season $season = null)
+    {
+        $this->season = $season;
+
+        return $this;
+    }
+
+    /**
+     * Get season
+     *
+     * @return \MDurys\GupekBundle\Entity\Season
+     */
+    public function getSeason()
+    {
+        return $this->season;
     }
 }
