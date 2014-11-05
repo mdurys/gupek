@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class SeasonRepository extends EntityRepository
 {
+    /**
+     * Get basic information about given season: start date, end date and number of meetings.
+     *
+     * @param int $seasonId
+     * @return array|null
+     */
+    public function getInfo($seasonId)
+    {
+        $qb = $this->getEntityManager()
+            ->getRepository('MDurysGupekBundle:Meeting')
+            ->queryBySeason($seasonId);
+        return $qb
+            ->select([$qb->expr()->min('m.date'), $qb->expr()->max('m.date'), $qb->expr()->count('m.id')])
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }
