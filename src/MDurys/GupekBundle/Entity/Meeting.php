@@ -31,7 +31,7 @@ class Meeting
     private $date;
 
     /**
-     * @ORM\OneToOne(targetEntity="MDurys\GupekBundle\Entity\Season")
+     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Season")
      * @ORM\JoinColumn(referencedColumnName="id")
      * @Assert\NotNull()
      */

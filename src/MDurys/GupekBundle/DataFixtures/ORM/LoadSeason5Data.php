@@ -29,7 +29,7 @@ class LoadSeason5Data extends AbstractFixture implements OrderedFixtureInterface
             $meeting = new Meeting();
             $meeting
                 ->setSeason($season)
-                ->setDate($row[0]);
+                ->setDate(new \DateTime($row[0]));
             $em->persist($meeting);
             $em->flush();
         }
