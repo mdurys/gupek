@@ -4,6 +4,7 @@ namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Game
@@ -21,6 +22,12 @@ class Game
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\Column(name="slug", type="string", length=100, unique=true)
+     * @Gedmo\Slug(fields={"name"}, updatable=true)
+     */
+    private $slug;
 
     /**
      * @var string
@@ -54,6 +61,16 @@ class Game
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**
