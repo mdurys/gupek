@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use MDurys\GupekBundle\Entity\Meeting;
 
-class MetingController extends Controller
+class MeetingController extends Controller
 {
     /**
      * @Route("/meeting")
