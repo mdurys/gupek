@@ -1,5 +1,7 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
 m_durys_gupek:
     resource: "@MDurysGupekBundle/Controller/"
     type:     annotation
     prefix:   /
-
