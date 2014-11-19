@@ -46,6 +46,7 @@ class LoadSeason5Data extends AbstractFixture implements OrderedFixtureInterface
                 ]
             ],
         ];
+
         foreach ($meetings as $row) {
             $meeting = new Meeting();
             $meeting

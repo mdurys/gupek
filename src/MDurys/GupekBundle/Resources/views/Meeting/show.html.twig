@@ -2,6 +2,8 @@
 
 {% block body %}
 
+<a href="{{ path("mdurys_gupek_season_show", { "id": meeting.season.id }) }}">sezon {{ meeting.season.id }}</a>
+
 <h2>{{ meeting.date|date() }}</h2>
 
 {% for bout in meeting.bouts %}
