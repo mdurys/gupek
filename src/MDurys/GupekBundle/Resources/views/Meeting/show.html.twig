@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+<h2>{{ meeting.date|date() }}</h2>
+
+{% for bout in meeting.bouts %}
+    <h3>{{ bout.game.name }}</h3>
+{% endfor %}
+
+{% endblock %}

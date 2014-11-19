@@ -17,4 +17,13 @@ class MeetingController extends Controller
     {
         return $this->render('MDurysGupekBundle:Meeting:index.html.twig', []);
     }
+
+    /**
+     * @Route("/meeting/{id}")
+     * @Method("GET")
+     */
+    public function showAction(Meeting $meeting)
+    {
+        return $this->render('MDurysGupekBundle:Meeting:show.html.twig', ['meeting' => $meeting]);
+    }
 }

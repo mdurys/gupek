@@ -3,6 +3,7 @@
 namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -32,11 +33,23 @@ class Meeting
 
     /**
      * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Season")
-     * @ORM\JoinColumn(referencedColumnName="id")
+     * @ORM\JoinColumn(referencedColumnName="id", nullable=false)
      * @Assert\NotNull()
      */
     private $season;
 
+    /**
+     * @ORM\OneToMany(targetEntity="MDurys\GupekBundle\Entity\Bout", mappedBy="meeting")
+     */
+    private $bouts;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->bouts = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -92,5 +105,38 @@ class Meeting
     public function getSeason()
     {
         return $this->season;
+    }
+
+    /**
+     * Add bouts
+     *
+     * @param \MDurys\GupekBundle\Entity\Bout $bouts
+     * @return Meeting
+     */
+    public function addBout(\MDurys\GupekBundle\Entity\Bout $bouts)
+    {
+        $this->bouts[] = $bouts;
+
+        return $this;
+    }
+
+    /**
+     * Remove bouts
+     *
+     * @param \MDurys\GupekBundle\Entity\Bout $bouts
+     */
+    public function removeBout(\MDurys\GupekBundle\Entity\Bout $bouts)
+    {
+        $this->bouts->removeElement($bouts);
+    }
+
+    /**
+     * Get bouts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBouts()
+    {
+        return $this->bouts;
     }
 }
