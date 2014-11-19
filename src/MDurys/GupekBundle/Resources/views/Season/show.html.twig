@@ -6,4 +6,16 @@
 
 <h2>{{ "season.meetings"|trans }}</h2>
 
+<table>
+{% for meeting in meetings %}
+    <tr>
+        <td>
+            <a href="{{ path('mdurys_gupek_meeting_show', { 'id': meeting.id }) }}">{{ meeting.date|date }}</a>
+        </td>
+        <td>
+            {{ meeting.bouts }}
+        </td>
+{% endfor %}
+</table>
+
 {% endblock %}

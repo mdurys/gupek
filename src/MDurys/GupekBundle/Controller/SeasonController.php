@@ -24,6 +24,10 @@ class SeasonController extends Controller
      */
     public function showAction(Season $season)
     {
-        return $this->render('MDurysGupekBundle:Season:show.html.twig', ['season' => $season]);
+        $meetings = $this->getDoctrine()
+            ->getRepository('MDurysGupekBundle:Meeting')
+            ->getDetailsBySeason($season->getId());
+
+        return $this->render('MDurysGupekBundle:Season:show.html.twig', ['season' => $season, 'meetings' => $meetings]);
     }
 }
