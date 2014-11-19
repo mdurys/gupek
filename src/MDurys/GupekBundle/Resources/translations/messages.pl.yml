@@ -1,3 +1,11 @@
 season:
     ranking: Ranking
     meetings: Spotkania
+
+form:
+    meeting:
+        date: Data i godzina
+    button:
+        create: Dodaj
+        update: Aktualizuj
+        delete: Usuń
