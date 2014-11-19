@@ -22,6 +22,11 @@ class Season
     private $id;
 
 
+    public function __toString()
+    {
+        return strval($this->id);
+    }
+
     /**
      * Get id
      *
