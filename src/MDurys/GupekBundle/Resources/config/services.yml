@@ -1,0 +1,5 @@
+services:
+    gupek.logic.meeting:
+        class:      MDurys\GupekBundle\Logic\MeetingLogic
+        calls:
+            - [setContainer, ["@service_container"]]

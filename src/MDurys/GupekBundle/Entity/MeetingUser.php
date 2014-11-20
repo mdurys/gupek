@@ -4,12 +4,14 @@ namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * MeetingUser
  *
  * @ORM\Table(name="meetings_users")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MDurys\GupekBundle\Entity\MeetingUserRepository")
+ * @UniqueEntity({"meeting", "user", "bout"})
  */
 class MeetingUser
 {

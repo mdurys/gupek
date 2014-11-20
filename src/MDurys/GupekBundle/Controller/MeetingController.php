@@ -6,13 +6,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use MDurys\GupekBundle\Entity\Meeting;
 use MDurys\GupekBundle\Form\MeetingType;
+use MDurys\GupekBundle\Logic\Exception\MeetingException;
 
 /**
  * Meeting controller.
  *
  * @Route("/meeting")
+ * @Security("is_authenticated()")
  */
 class MeetingController extends Controller
 {
@@ -156,6 +159,48 @@ class MeetingController extends Controller
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
             ]);
+    }
+
+    /**
+     * Add currently logged in user to meeting.
+     *
+     * @Route("/join/{id}")
+     * @Method("GET")
+     */
+    public function joinAction(Meeting $meeting)
+    {
+        $logic = $this->get('gupek.logic.meeting');
+        $user = $this->getUser();
+
+        try {
+            $logic->addUser($meeting, $user);
+            $this->getDoctrine()->getManager()->flush();
+        } catch (MeetingException $e) {
+            $this->get('session')->getFlashBag()->add('error', $e->getTransMessage());
+        } finally {
+            return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
+        }
+    }
+
+    /**
+     * Remove currently logged in user from meeting.
+     *
+     * @Route("/leave/{id}")
+     * @Method("GET")
+     */
+    public function leaveAction(Meeting $meeting)
+    {
+        $logic = $this->get('gupek.logic.meeting');
+        $user = $this->getUser();
+
+        try {
+            $logic->removeUser($meeting, $user);
+            $this->getDoctrine()->getManager()->flush();
+        } catch (MeetingException $e) {
+            $this->get('session')->getFlashBag()->add('error', $e->getTransMessage());
+        } finally {
+            return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
+        }
     }
 
     /**
