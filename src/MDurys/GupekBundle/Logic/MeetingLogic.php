@@ -51,10 +51,10 @@ class MeetingLogic extends BaseLogic
 
         foreach ($result as $mu) {
             if (null !== $mu->getPlace()) {
-                // throw new Exception\MeetingException('user_is_ranked');
+                throw new Exception\MeetingException('user_is_ranked');
             }
             if (null !== $mu->getBout()) {
-                // throw new Exception\MeetingException('user_is_engaged');
+                throw new Exception\MeetingException('user_is_engaged');
             }
             $em->remove($mu);
         }

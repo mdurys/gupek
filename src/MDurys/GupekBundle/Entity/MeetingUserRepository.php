@@ -15,24 +15,32 @@ use MDurys\GupekBundle\Entity\User;
 class MeetingUserRepository extends EntityRepository
 {
     /**
+     * Select all MeetingUser records matching given meeting and user
+     * combination.
+     *
      * @param \MDurys\GupekBundle\Entity\Meeting|int $meeting
      * @param \MDurys\GupekBundle\Entity\User|int $user
      * @return \Doctrine\ORM\QueryBuilder
      */
     public function queryByMeetingAndUser($meeting, $user)
     {
-        $meetingId = $this->getMeetingId($meeting);
-        $userId = $this->getUserId($user);
-
         return $this->getEntityManager()->createQueryBuilder()
             ->select('mu')
             ->from($this->getEntityName(), 'mu')
             ->where('mu.meeting = :meeting')
             ->andWhere('mu.user = :user')
-            ->setParameter('meeting', $meetingId)
-            ->setParameter('user', $userId);
+            ->setParameter('meeting', $this->getMeetingId($meeting))
+            ->setParameter('user', $this->getUserId($user));
     }
 
+    /**
+     * Get all MeetingUser records matching given meeting and user
+     * combination.
+     *
+     * @param \MDurys\GupekBundle\Entity\Meeting|int $meeting
+     * @param \MDurys\GupekBundle\Entity\User|int $user
+     * @return \Doctrine\ORM\QueryBuilder
+     */
     public function getByMeetingAndUser($meeting, $user)
     {
         return $this->queryByMeetingAndUser($meeting, $user)
@@ -40,6 +48,13 @@ class MeetingUserRepository extends EntityRepository
             ->getResult();
     }
 
+    /**
+     * Check if given user participates in given meeting.
+     *
+     * @param \MDurys\GupekBundle\Entity\Meeting|int $meeting
+     * @param \MDurys\GupekBundle\Entity\User|int $user
+     * @return bool
+     */
     public function existsMeetingAndUser($meeting, $user)
     {
         return (bool)$this->queryByMeetingAndUser($meeting, $user)
