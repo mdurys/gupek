@@ -6,6 +6,18 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class MeetingControllerTest extends WebTestCase
 {
+    public function testLoginRedirect()
+    {
+        // Create a new client to browse the application
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/meeting/1');
+        $this->assertEquals(302, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /meeting/1");
+        $this->assertInstanceOf('Symfony\Component\HttpFoundation\RedirectResponse', $client->getResponse(), 'Unexpected Response object for /meeting/1');
+
+        $crawler = $client->followRedirect();
+    }
+
     /*
     public function testCompleteScenario()
     {
