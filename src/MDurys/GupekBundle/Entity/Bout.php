@@ -39,11 +39,25 @@ class Bout
     private $game;
 
     /**
+     * @ORM\OneToMany(targetEntity="MDurys\GupekBundle\Entity\MeetingUser", mappedBy="bout")
+     */
+    private $meetingUsers;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="max_players", type="integer")
      */
     private $maxPlayers;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->meetingUsers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -122,5 +136,38 @@ class Bout
     public function getGame()
     {
         return $this->game;
+    }
+
+    /**
+     * Add meetingUser
+     *
+     * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
+     * @return Bout
+     */
+    public function addMeetingUser(\MDurys\GupekBundle\Entity\MeetingUser $meetingUser)
+    {
+        $this->meetingUsers[] = $meetingUser;
+
+        return $this;
+    }
+
+    /**
+     * Remove meetingUser
+     *
+     * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
+     */
+    public function removeMeetingUser(\MDurys\GupekBundle\Entity\MeetingUser $meetingUser)
+    {
+        $this->meetingUsers->removeElement($meetingUser);
+    }
+
+    /**
+     * Get meetingUsers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMeetingUsers()
+    {
+        return $this->meetingUsers;
     }
 }

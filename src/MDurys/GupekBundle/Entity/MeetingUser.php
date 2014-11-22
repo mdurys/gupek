@@ -47,9 +47,16 @@ class MeetingUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="place", type="integer", nullable=true)
+     * @ORM\Column(name="place", type="smallint", nullable=true)
      */
     private $place;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="score", type="decimal", nullable=true)
+     */
+    private $score;
 
 
     /**
@@ -152,5 +159,28 @@ class MeetingUser
     public function getPlace()
     {
         return $this->place;
+    }
+
+    /**
+     * Set score
+     *
+     * @param string $score
+     * @return MeetingUser
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+
+        return $this;
+    }
+
+    /**
+     * Get score
+     *
+     * @return string 
+     */
+    public function getScore()
+    {
+        return $this->score;
     }
 }

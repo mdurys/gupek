@@ -3,3 +3,7 @@ services:
         class:      MDurys\GupekBundle\Logic\MeetingLogic
         calls:
             - [setContainer, ["@service_container"]]
+    gupek.logic.bout:
+        class:      MDurys\GupekBundle\Logic\BoutLogic
+        calls:
+            - [setContainer, ["@service_container"]]
