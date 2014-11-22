@@ -6,8 +6,13 @@
 
 <h2>{{ meeting.date|date() }}</h2>
 
-{% for bout in meeting.bouts %}
+{% for bout in bouts %}
     <h3>{{ bout.game.name }}</h3>
+    {% for mu in bout.meetingUsers %}
+        <div>
+            {{ mu.place }} {{ mu.user.username }} {{ mu.score }}
+        </div>
+    {% endfor %}
 {% endfor %}
 
 {% endblock %}

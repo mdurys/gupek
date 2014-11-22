@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * During a meeting one or more bouts are played.
  *
  * @ORM\Table(name="bouts")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MDurys\GupekBundle\Entity\BoutRepository")
  */
 class Bout
 {

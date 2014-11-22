@@ -10,7 +10,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Game
  *
  * @ORM\Table(name="games")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MDurys\GupekBundle\Entity\GameRepository")
  */
 class Game
 {

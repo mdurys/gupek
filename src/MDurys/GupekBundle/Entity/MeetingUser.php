@@ -39,7 +39,7 @@ class MeetingUser
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Bout")
+     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Bout", inversedBy="meetingUsers")
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     private $bout;

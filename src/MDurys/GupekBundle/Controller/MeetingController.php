@@ -209,7 +209,10 @@ class MeetingController extends Controller
      */
     public function showAction(Meeting $meeting)
     {
-        return $this->render('MDurysGupekBundle:Meeting:show.html.twig', ['meeting' => $meeting]);
+        $em = $this->getDoctrine()->getManager();
+        $bouts = $em->getRepository('MDurysGupekBundle:Bout')
+            ->getJoinUserAndGameByMeeting($meeting);
+        return $this->render('MDurysGupekBundle:Meeting:show.html.twig', ['meeting' => $meeting, 'bouts' => $bouts]);
     }
 
     /**
