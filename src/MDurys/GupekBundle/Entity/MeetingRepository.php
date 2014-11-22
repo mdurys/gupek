@@ -39,7 +39,8 @@ class MeetingRepository extends EntityRepository
         $qb = $this->queryBySeason($seasonId);
         $qb
             ->select('m.id, m.date, COUNT(b.id) AS bouts')
-            ->innerJoin('m.bouts', 'b');
+            ->innerJoin('m.bouts', 'b')
+            ->groupBy('m.id');
 
         return $qb->getQuery()->getResult();
     }
