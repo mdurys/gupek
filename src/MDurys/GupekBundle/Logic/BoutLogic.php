@@ -21,12 +21,12 @@ class BoutLogic extends BaseLogic
         $numberOfPlayers = $bout->getMeetingUsers()->count();
 
         // calculate score for each place
-        $placeToPoints = [];
+        $placeData = [];
         for ($n = 1; $n < $numberOfPlayers + 1; $n++) {
-            $placeToPoints[$n]['points'] = $n == 1
+            $placeData[$n]['points'] = $n == 1
                 ? $numberOfPlayers
                 : $numberOfPlayers - $n;
-            $placeToPoints[$n]['players'] = 0;
+            $placeData[$n]['players'] = 0;
         }
 
         // count how many players got given place
@@ -37,20 +37,20 @@ class BoutLogic extends BaseLogic
             if ($mu->getPlace() < 1 || $mu->getPlace() > $numberOfPlayers) {
                 throw new Exception\BoutException('illegal_place');
             }
-            $placeToPoints[$mu->getPlace()]['players']++;
+            $placeData[$mu->getPlace()]['players']++;
         }
 
         // calculate score for each player
         foreach ($bout->getMeetingUsers() as $mu) {
-            if ($placeToPoints[$mu->getPlace()]['players'] == 1) {
-                $score = $placeToPoints[$mu->getPlace()]['points'];
+            if ($placeData[$mu->getPlace()]['players'] == 1) {
+                $score = $placeData[$mu->getPlace()]['points'];
             } else {
                 $score = 0;
                 $place = $mu->getPlace();
-                for ($n = $place; $n < $place + $placeToPoints[$place]['players']; $n++) {
-                    $score += $placeToPoints[$n]['points'];
+                for ($n = $place; $n < $place + $placeData[$place]['players']; $n++) {
+                    $score += $placeData[$n]['points'];
                 }
-                $score = $score / $placeToPoints[$place]['players'];
+                $score = $score / $placeData[$place]['players'];
             }
             $mu->setScore($score);
             $em->persist($mu);
