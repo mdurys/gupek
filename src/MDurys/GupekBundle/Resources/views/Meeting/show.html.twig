@@ -7,7 +7,7 @@
 <h2>{{ meeting.date|date() }}</h2>
 
 {% for bout in bouts %}
-    <h3>{{ bout.game.name }}</h3>
+    <h3><a href="{{ path("mdurys_gupek_game_show", { "slug": bout.game.slug }) }}">{{ bout.game.name }}</a></h3>
     {% for mu in bout.meetingUsers %}
         <div>
             {{ mu.place }} {{ mu.user.username }} {{ mu.score }}
