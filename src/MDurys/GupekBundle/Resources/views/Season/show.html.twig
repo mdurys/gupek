@@ -24,8 +24,8 @@
             <td>{{ player.wins|number_format(2, ',') }}</td>
             <td>{{ player.meetings }}</td>
             <td>{{ player.bouts }}</td>
-            <td>{{ player.power|number_format(2, ',') }}</td>
-            <td>{{ player.efficiency|number_format(0) }}%</td>
+            <td>{{ player.power|localizednumber }}</td>
+            <td>{{ player.efficiency|localizednumber('percent') }}%</td>
         </tr>
 {% endfor %}
     </tbody>
@@ -46,7 +46,7 @@
 {% for meeting in meetings %}
         <tr>
             <td>
-                <a href="{{ path('mdurys_gupek_meeting_show', { 'id': meeting.id }) }}">{{ meeting.date|date }}</a>
+                <a href="{{ path('mdurys_gupek_meeting_show', { 'id': meeting.id }) }}">{{ meeting.date|localizeddate('long', 'none') }}</a>
             </td>
             <td>
                {{ meeting.users }}
