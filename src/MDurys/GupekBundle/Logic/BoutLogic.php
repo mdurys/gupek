@@ -18,7 +18,10 @@ class BoutLogic extends BaseLogic
     public function calculateScores(Bout $bout)
     {
         $em = $this->getEntityManager();
-        $numberOfPlayers = $bout->getMeetingUsers()->count();
+
+        if (0 == $numberOfPlayers = $bout->getMeetingUsers()->count()) {
+            throw new Exception\BoutException('no_players');
+        }
 
         // calculate score for each place
         $placeData = [];
