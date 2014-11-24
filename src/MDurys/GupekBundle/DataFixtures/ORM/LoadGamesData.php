@@ -25,6 +25,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'imperial2030' => ['Imperial 2030', 2, 6],
             'samuraj' => ['Samuraj', 2, 4],
             'hacienda' => ['Hacienda', 2, 5],
+            'navigator' => ['Navigator', 2, 5],
             'rheinlander' => ['Rheinländer', 3, 5],
             'mumia' => ['Mumia — Wyścig w bandażach', 2, 6],
             'wysokie_napiecie' => ['Wysokie napięcie', 2, 6],

@@ -85,7 +85,7 @@ class LoadSeason5Data extends AbstractFixture implements OrderedFixtureInterface
                         ]
                     ],
                     [
-                        'game' => 'hacienda',
+                        'game' => 'navigator',
                         'players' => [
                             'mk' => [1, 4],
                             'jd' => [2, 4],
