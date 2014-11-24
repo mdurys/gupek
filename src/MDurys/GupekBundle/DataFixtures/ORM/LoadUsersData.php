@@ -34,11 +34,17 @@ class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface, 
             'rj' => ['rafal@migmail.pl', 'Player RJ'],
             'jg' => ['janek@migmail.pl', 'Player JG'],
             'tk' => ['tomek@migmail.pl', 'Player TK'],
+            'jb' => ['jarek@migmail.pl', 'Player JB'],
             'kc' => ['krzysiek@migmail.pl', 'Player KC'],
             'eg' => ['eryk@migmail.pl', 'Player EG'],
             'ml' => ['marek@migmail.pl', 'Player ML'],
             'mk' => ['maciek@migmail.pl', 'Player MK'],
             'ab' => ['adam@migmail.pl', 'Player AB'],
+            'sh' => ['szymon@migmail.pl', 'Player SH'],
+            'tp' => ['tomekp@migmail.pl', 'Player TP'],
+            'jd' => ['jakub@migmail.pl', 'Player JD'],
+            'al' => ['andrzej@migmail.pl', 'Player AL'],
+            'mn' => ['maciekn@migmail.pl', 'Player MN'],
         ];
 
         $userManager = $this->container->get('fos_user.user_manager');

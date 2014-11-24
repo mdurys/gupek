@@ -60,6 +60,15 @@ class LoadSeason5Data extends AbstractFixture implements OrderedFixtureInterface
                             'tk' => [4, 4],
                         ]
                     ],
+                    [
+                        'game' => 'finca',
+                        'players' => [
+                            'tp' => [1, 4],
+                            'jb' => [2, 4],
+                            'sh' => [3, 4],
+                            'rj' => [4, 4],
+                        ]
+                    ],
                 ]
             ],
             [
@@ -73,6 +82,60 @@ class LoadSeason5Data extends AbstractFixture implements OrderedFixtureInterface
                             'tk' => [3, 5],
                             'eg' => [4, 5],
                             'md' => [5, 4],
+                        ]
+                    ],
+                    [
+                        'game' => 'hacienda',
+                        'players' => [
+                            'mk' => [1, 4],
+                            'jd' => [2, 4],
+                            'jb' => [3, 4],
+                            'ab' => [4, 4],
+                            'al' => [5, 4],
+                        ]
+                    ],
+                ]
+            ],
+            [
+                '2014-09-18 19:30:00',
+                'bouts' => [
+                    [
+                        'game' => 'wysokie_napiecie',
+                        'players' => [
+                            'md' => [1, 5],
+                            'sh' => [2, 5],
+                            'rj' => [3, 5],
+                            'jb' => [4, 5],
+                            'jg' => [5, 4],
+                        ]
+                    ],
+                ]
+            ],
+            [
+                '2014-10-16 19:30:00',
+                'bouts' => [
+                    [
+                        'game' => 'waterdeep',
+                        'players' => [
+                            'eg' => [1, 5],
+                            'mn' => [2, 5],
+                            'md' => [3, 5],
+                        ]
+                    ],
+                ]
+            ],
+            [
+                '2014-11-13 19:30:00',
+                'bouts' => [
+                    [
+                        'game' => 'keyflower',
+                        'players' => [
+                            'md' => [1, 5],
+                            'tk' => [2, 5],
+                            'mn' => [2, 5],
+                            'tp' => [4, 5],
+                            'rj' => [5, 5],
+                            'al' => [6, 5],
                         ]
                     ],
                 ]
