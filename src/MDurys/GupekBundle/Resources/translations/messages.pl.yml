@@ -1,5 +1,13 @@
 season:
     ranking: Ranking
+    ranking_table:
+        player: Gracz
+        points: Punkty
+        wins: Zwycięstwa
+        meetings: Obecności
+        bouts: Gry
+        power: Moc
+        efficiency: Skuteczność
     meetings: Spotkania
 
 form:

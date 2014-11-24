@@ -4,6 +4,29 @@
 
 <h2>{{ "season.ranking"|trans }}</h2>
 
+<table>
+    <tr>
+        <th>{{ "season.ranking_table.player"|trans }}</th>
+        <th>{{ "season.ranking_table.points"|trans }}</th>
+        <th>{{ "season.ranking_table.wins"|trans }}</th>
+        <th>{{ "season.ranking_table.meetings"|trans }}</th>
+        <th>{{ "season.ranking_table.bouts"|trans }}</th>
+        <th>{{ "season.ranking_table.power"|trans }}</th>
+        <th>{{ "season.ranking_table.efficiency"|trans }}</th>
+    </tr>
+{% for player in ranking %}
+    <tr>
+        <td>{{ player.username }}</td>
+        <td>{{ player.points }}</td>
+        <td>{{ player.wins }}</td>
+        <td>{{ player.meetings }}</td>
+        <td>{{ player.bouts }}</td>
+        <td>{{ player.power|number_format(2, ',') }}</td>
+        <td>{{ player.efficiency|number_format(0) }}%</td>
+    </tr>
+{% endfor %}
+</table>
+
 <h2>{{ "season.meetings"|trans }}</h2>
 
 <table>

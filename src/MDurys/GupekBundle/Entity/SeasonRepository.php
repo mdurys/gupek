@@ -18,14 +18,35 @@ class SeasonRepository extends EntityRepository
      * @param int $seasonId
      * @return array|null
      */
-    public function getInfo($seasonId)
+    public function getInfo($season)
     {
         $qb = $this->getEntityManager()
             ->getRepository('MDurysGupekBundle:Meeting')
-            ->queryBySeason($seasonId);
+            ->queryBySeason($season);
         return $qb
             ->select([$qb->expr()->min('m.date'), $qb->expr()->max('m.date'), $qb->expr()->count('m.id')])
             ->getQuery()
             ->getOneOrNullResult();
+    }
+
+    /**
+     * Get player ranking (with details) for given season.
+     *
+     * @param int|\MDurys\GupekBundle\Entity\Season $season
+     * @return array|null
+     */
+    public function getUserRanking($season)
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+            ->select('u.id, u.username, SUM(mu.score) AS points, SUM(mu.win) AS wins, COUNT(m.id) AS meetings, COUNT(mu.id) AS bouts, (SUM(mu.score) / COUNT(mu.id)) AS power, (SUM(mu.win) / COUNT(mu.id) * 100) AS efficiency')
+            ->from('MDurysGupekBundle:MeetingUser', 'mu')
+            ->innerJoin('mu.meeting', 'm')
+            ->innerJoin('m.season', 's')
+            ->innerJoin('mu.user', 'u')
+            ->where('s.id = :season')
+            ->groupBy('u.id')
+            ->setParameter('season', $season)
+            ->getQuery()
+            ->getResult();
     }
 }
