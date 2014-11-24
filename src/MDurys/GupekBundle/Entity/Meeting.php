@@ -41,6 +41,11 @@ class Meeting
     private $season;
 
     /**
+     * @ORM\OneToMany(targetEntity="MDurys\GupekBundle\Entity\MeetingUser", mappedBy="meeting")
+     */
+    private $meetingUsers;
+
+    /**
      * @ORM\OneToMany(targetEntity="MDurys\GupekBundle\Entity\Bout", mappedBy="meeting")
      */
     private $bouts;
@@ -50,6 +55,7 @@ class Meeting
      */
     public function __construct()
     {
+        $this->meetingUsers = new ArrayCollection();
         $this->bouts = new ArrayCollection();
     }
 
@@ -107,6 +113,39 @@ class Meeting
     public function getSeason()
     {
         return $this->season;
+    }
+
+    /**
+     * Add meetingUser
+     *
+     * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
+     * @return Bout
+     */
+    public function addMeetingUser(\MDurys\GupekBundle\Entity\MeetingUser $meetingUser)
+    {
+        $this->meetingUsers[] = $meetingUser;
+
+        return $this;
+    }
+
+    /**
+     * Remove meetingUser
+     *
+     * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
+     */
+    public function removeMeetingUser(\MDurys\GupekBundle\Entity\MeetingUser $meetingUser)
+    {
+        $this->meetingUsers->removeElement($meetingUser);
+    }
+
+    /**
+     * Get meetingUsers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMeetingUsers()
+    {
+        return $this->meetingUsers;
     }
 
     /**

@@ -25,7 +25,7 @@ class MeetingUser
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Meeting")
+     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Meeting", inversedBy="meetingUsers")
      * @ORM\JoinColumn(referencedColumnName="id", nullable=false)
      * @Assert\NotNull()
      */

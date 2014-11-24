@@ -34,12 +34,17 @@ class MeetingRepository extends EntityRepository
             ->getResult();
     }
 
+    /**
+     *
+     *
+     */
     public function getDetailsBySeason($seasonId)
     {
         $qb = $this->queryBySeason($seasonId);
         $qb
-            ->select('m.id, m.date, COUNT(b.id) AS bouts')
+            ->select('m.id, m.date, COUNT(DISTINCT b.id) AS bouts, COUNT(DISTINCT b.game) AS games, COUNT(DISTINCT mu.user) AS users')
             ->innerJoin('m.bouts', 'b')
+            ->innerJoin('m.meetingUsers', 'mu')
             ->groupBy('m.id');
 
         return $qb->getQuery()->getResult();

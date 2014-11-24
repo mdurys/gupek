@@ -9,6 +9,11 @@ season:
         power: Moc
         efficiency: Skuteczność
     meetings: Spotkania
+    meetings_table:
+        date: Data
+        users: Gracze
+        bouts: Rozgrywki
+        games: Gry
 
 form:
     meeting:
