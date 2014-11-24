@@ -52,7 +52,9 @@ class BoutLogic extends BaseLogic
                 }
                 $score = $score / $placeData[$place]['players'];
             }
-            $mu->setScore($score);
+            $mu
+                ->setScore($score)
+                ->setWin($mu->getPlace() == 1 ? 1 / $placeData[1]['players'] : 0);
             $em->persist($mu);
         }
     }

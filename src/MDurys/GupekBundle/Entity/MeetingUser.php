@@ -52,12 +52,26 @@ class MeetingUser
     private $place;
 
     /**
+     * Number of points scored in this bout. Usually it is an integer but in
+     * case of a draw it can be a decimal number.
+     *
      * @var float
      *
      * @ORM\Column(name="score", type="decimal", nullable=true)
      */
     private $score;
 
+    /**
+     * Share of win for this bout. Usually only one user wins a game and that
+     * counts as 1 win in statistics. If more than one user wins a game 1
+     * "win point" is shared between all winning players.
+     *
+     * @var float
+     *
+     * @ORM\Column(name="win", type="decimal", nullable=true)
+     * @Assert\Range(min=0, max=1)
+     */
+    private $win;
 
     /**
      * Get id
@@ -164,7 +178,7 @@ class MeetingUser
     /**
      * Set score
      *
-     * @param string $score
+     * @param float $score
      * @return MeetingUser
      */
     public function setScore($score)
@@ -177,10 +191,33 @@ class MeetingUser
     /**
      * Get score
      *
-     * @return string 
+     * @return float
      */
     public function getScore()
     {
         return $this->score;
+    }
+
+    /**
+     * Set win
+     *
+     * @param float $win
+     * @return MeetingUser
+     */
+    public function setWin($win)
+    {
+        $this->win = $win;
+
+        return $this;
+    }
+
+    /**
+     * Get win
+     *
+     * @return float
+     */
+    public function getWin()
+    {
+        return $this->win;
     }
 }
