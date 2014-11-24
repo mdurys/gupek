@@ -12,9 +12,9 @@
         <div>
             {{ mu.place }}
             {{ mu.user.username }}
-            {{ mu.score }}
-            {% if mu.win %}
-                {{ mu.win }}
+            {{ mu.score|number_format(2, ',') }}
+            {% if mu.win > 0 %}
+                {{ mu.win|number_format(2, ',') }}
             {% endif %}
         </div>
     {% endfor %}
