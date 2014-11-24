@@ -57,7 +57,7 @@ class MeetingUser
      *
      * @var float
      *
-     * @ORM\Column(name="score", type="decimal", nullable=true)
+     * @ORM\Column(name="score", type="decimal", scale=4, nullable=true)
      */
     private $score;
 
@@ -68,7 +68,7 @@ class MeetingUser
      *
      * @var float
      *
-     * @ORM\Column(name="win", type="decimal", nullable=true)
+     * @ORM\Column(name="win", type="decimal", scale=4, nullable=true)
      * @Assert\Range(min=0, max=1)
      */
     private $win;
