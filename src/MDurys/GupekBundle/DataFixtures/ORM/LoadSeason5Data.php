@@ -112,6 +112,27 @@ class LoadSeason5Data extends AbstractFixture implements OrderedFixtureInterface
                 ]
             ],
             [
+                '2014-10-09 19:30:00',
+                'bouts' => [
+                    [
+                        'game' => 'pokolenia',
+                        'players' => [
+                            'mk' => [1, 5],
+                            'md' => [2, 5],
+                            'mn' => [3, 5],
+                        ]
+                    ],
+                    [
+                        'game' => 'pokolenia',
+                        'players' => [
+                            'tp' => [1, 5],
+                            'kc' => [2, 5],
+                            'ab' => [3, 5],
+                        ]
+                    ],
+                ]
+            ],
+            [
                 '2014-10-16 19:30:00',
                 'bouts' => [
                     [
