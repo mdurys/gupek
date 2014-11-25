@@ -8,16 +8,18 @@
 
 {% for bout in bouts %}
     <h3><a href="{{ path("mdurys_gupek_game_show", { "slug": bout.game.slug }) }}">{{ bout.game.name }}</a></h3>
-    {% for mu in bout.meetingUsers %}
-        <div>
-            {{ mu.place }}
-            {{ mu.user.username }}
-            {{ mu.score|number_format(2, ',') }}
-            {% if mu.win > 0 %}
-                {{ mu.win|number_format(2, ',') }}
-            {% endif %}
-        </div>
-    {% endfor %}
+    <table class="table">
+        <tbody>
+            {% for mu in bout.meetingUsers %}
+                <tr>
+                    <td>{{ mu.place }}</td>
+                    <td>{{ mu.user.username }}</td>
+                    <td>{{ mu.score|round(2)|localizednumber }}</td>
+                    <td>{% if mu.win > 0 %}{{ mu.win|round(2)|localizednumber }}{% endif %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endfor %}
 
 {% endblock %}
