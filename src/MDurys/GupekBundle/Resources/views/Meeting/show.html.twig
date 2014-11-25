@@ -4,22 +4,28 @@
 
 <a href="{{ path("mdurys_gupek_season_show", { "id": meeting.season.id }) }}">sezon {{ meeting.season.id }}</a>
 
-<h2>{{ meeting.date|date() }}</h2>
+<h2>{{ meeting.date|localizeddate('long', 'short') }}</h2>
 
-{% for bout in bouts %}
-    <h3><a href="{{ path("mdurys_gupek_game_show", { "slug": bout.game.slug }) }}">{{ bout.game.name }}</a></h3>
-    <table class="table">
+<table class="table table-striped table-hover">
+    {% for bout in bouts %}
+        <thead>
+            <tr>
+                <th colspan="4">
+                    <a href="{{ path("mdurys_gupek_game_show", { "slug": bout.game.slug }) }}">{{ bout.game.name }}</a>
+                </th>
+            </tr>
+        </thead>
         <tbody>
             {% for mu in bout.meetingUsers %}
                 <tr>
-                    <td>{{ mu.place }}</td>
+                    <td>{{ mu.place|localizednumber('ordinal') }}</td>
                     <td>{{ mu.user.username }}</td>
                     <td>{{ mu.score|round(2)|localizednumber }}</td>
                     <td>{% if mu.win > 0 %}{{ mu.win|round(2)|localizednumber }}{% endif %}</td>
                 </tr>
             {% endfor %}
         </tbody>
-    </table>
-{% endfor %}
+    {% endfor %}
+</table>
 
 {% endblock %}
