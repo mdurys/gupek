@@ -24,6 +24,8 @@ class SeasonController extends Controller
      */
     public function showAction(Season $season)
     {
+        $flash = $this->get('braincrafted_bootstrap.flash');
+        $flash->alert('This is an alert flash message.');
         $ranking = $this->getDoctrine()
             ->getRepository('MDurysGupekBundle:Season')
             ->getUserRanking($season);
