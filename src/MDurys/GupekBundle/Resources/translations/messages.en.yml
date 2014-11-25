@@ -1,0 +1,24 @@
+season:
+    ranking: Ranking
+    ranking_table:
+        player: Player
+        points: Points
+        wins: Wins
+        meetings: Meetings
+        bouts: Games
+        power: Power
+        efficiency: Efficiency
+    meetings: Meetings
+    meetings_table:
+        date: Date
+        users: 'No. players'
+        bouts: 'No. bouts'
+        games: 'No. games'
+
+form:
+    meeting:
+        date: Date and time
+    button:
+        create: Create
+        update: Update
+        delete: Delete
