@@ -20,12 +20,12 @@
 {% for player in ranking %}
         <tr>
             <td>{{ player.username }}</td>
-            <td>{{ player.points|number_format(2, ',') }}</td>
-            <td>{{ player.wins|number_format(2, ',') }}</td>
+            <td>{{ player.points|round(2)|localizednumber }}</td>
+            <td>{{ player.wins|round(2)|localizednumber }}</td>
             <td>{{ player.meetings }}</td>
             <td>{{ player.bouts }}</td>
-            <td>{{ player.power|localizednumber }}</td>
-            <td>{{ player.efficiency|localizednumber('percent') }}%</td>
+            <td>{{ player.power|round(2)|localizednumber }}</td>
+            <td>{{ player.efficiency|round(2)|localizednumber('percent') }}</td>
         </tr>
 {% endfor %}
     </tbody>

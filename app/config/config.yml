@@ -25,6 +25,10 @@ framework:
     http_method_override: true
 
 services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
     # Doctrine Extension listeners to handle behaviors
     gedmo.listener.timestampable:
         class: Gedmo\Timestampable\TimestampableListener

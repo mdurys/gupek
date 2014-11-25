@@ -22,7 +22,7 @@ class SeasonRepository extends EntityRepository
     {
         $qb = $this->getEntityManager()
             ->getRepository('MDurysGupekBundle:Meeting')
-            ->queryBySeason($season);
+            ->queryBySeason($seasonId);
         return $qb
             ->select([$qb->expr()->min('m.date'), $qb->expr()->max('m.date'), $qb->expr()->count('m.id')])
             ->getQuery()
@@ -38,7 +38,7 @@ class SeasonRepository extends EntityRepository
     public function getUserRanking($season)
     {
         return $this->getEntityManager()->createQueryBuilder()
-            ->select('u.id, u.username, SUM(mu.score) AS points, SUM(mu.win) AS wins, COUNT(m.id) AS meetings, COUNT(mu.id) AS bouts, (SUM(mu.score) / COUNT(mu.id)) AS power, (SUM(mu.win) / COUNT(mu.id) * 100) AS efficiency')
+            ->select('u.id, u.username, SUM(mu.score) AS points, SUM(mu.win) AS wins, COUNT(m.id) AS meetings, COUNT(mu.id) AS bouts, (SUM(mu.score) / COUNT(mu.id)) AS power, (SUM(mu.win) / COUNT(mu.id)) AS efficiency')
             ->from('MDurysGupekBundle:MeetingUser', 'mu')
             ->innerJoin('mu.meeting', 'm')
             ->innerJoin('m.season', 's')
