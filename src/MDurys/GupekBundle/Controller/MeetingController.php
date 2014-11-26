@@ -63,11 +63,7 @@ class MeetingController extends Controller
      */
     private function createCreateForm(Meeting $entity)
     {
-        $form = $this->createForm(new MeetingType(), $entity, array(
-            'action' => $this->generateUrl('meeting_create'),
-            'method' => 'POST',
-        ));
-
+        $form = $this->get('gupek.logic.meeting')->createCreateForm($entity);
         $form->add('submit', 'submit', ['label' => 'form.button.create']);
 
         return $form;

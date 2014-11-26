@@ -5,6 +5,7 @@ namespace MDurys\GupekBundle\Logic;
 use MDurys\GupekBundle\Entity\Meeting;
 use MDurys\GupekBundle\Entity\MeetingUser;
 use MDurys\GupekBundle\Entity\User;
+use MDurys\GupekBundle\Form\MeetingType;
 
 class MeetingLogic extends BaseLogic
 {
@@ -58,5 +59,20 @@ class MeetingLogic extends BaseLogic
             }
             $em->remove($mu);
         }
+    }
+
+    /**
+     * Create meeting form.
+     *
+     * @param \MDurys\GupekBundle\Entity\Meeting $meeting
+     * @return \Symfony\Component\Form\Form The form
+     */
+    public function createCreateForm(Meeting $meeting)
+    {
+        return $this->getFormFactory()
+            ->create(new MeetingType(), $meeting, [
+                'action' => $this->generateUrl('meeting_create'),
+                'method' => 'POST'
+                ]);
     }
 }
