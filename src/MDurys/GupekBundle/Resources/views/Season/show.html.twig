@@ -9,9 +9,9 @@
         <tr>
             <th>{{ "season.ranking_table.player"|trans }}</th>
             <th>{{ "season.ranking_table.points"|trans }}</th>
-            <th>{{ "season.ranking_table.wins"|trans }}</th>
-            <th>{{ "season.ranking_table.meetings"|trans }}</th>
-            <th>{{ "season.ranking_table.bouts"|trans }}</th>
+            <th class="hidden-xs">{{ "season.ranking_table.wins"|trans }}</th>
+            <th class="hidden-xs">{{ "season.ranking_table.meetings"|trans }}</th>
+            <th class="hidden-xs">{{ "season.ranking_table.bouts"|trans }}</th>
             <th>{{ "season.ranking_table.power"|trans }}</th>
             <th>{{ "season.ranking_table.efficiency"|trans }}</th>
         </tr>
@@ -21,9 +21,9 @@
         <tr>
             <td>{{ player.username }}</td>
             <td>{{ player.points|round(2)|localizednumber }}</td>
-            <td>{{ player.wins|round(2)|localizednumber }}</td>
-            <td>{{ player.meetings }}</td>
-            <td>{{ player.bouts }}</td>
+            <td class="hidden-xs">{{ player.wins|round(2)|localizednumber }}</td>
+            <td class="hidden-xs">{{ player.meetings }}</td>
+            <td class="hidden-xs">{{ player.bouts }}</td>
             <td>{{ player.power|round(2)|localizednumber }}</td>
             <td>{{ player.efficiency|round(2)|localizednumber('percent') }}</td>
         </tr>
