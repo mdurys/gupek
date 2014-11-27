@@ -173,7 +173,7 @@ class MeetingController extends Controller
             $this->getDoctrine()->getManager()->flush();
         } catch (MeetingException $e) {
             $this->get('session')->getFlashBag()->add('error', $e->getTransMessage());
-        // } finally {
+        } finally {
             return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
         }
     }
@@ -194,7 +194,7 @@ class MeetingController extends Controller
             $this->getDoctrine()->getManager()->flush();
         } catch (MeetingException $e) {
             $this->get('session')->getFlashBag()->add('error', $e->getTransMessage());
-        // } finally {
+        } finally {
             return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
         }
     }

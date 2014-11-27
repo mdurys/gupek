@@ -6,6 +6,13 @@
 
 <h2>{{ meeting.date|localizeddate('long', 'short') }}</h2>
 
+<a href="{{ path("mdurys_gupek_meeting_join", { "id": meeting.id }) }}" class="btn btn-success" role="button">
+    {{ "form.button.join"|trans }}
+</a>
+<a href="{{ path("mdurys_gupek_meeting_leave", { "id": meeting.id }) }}" class="btn btn-warning" role="button">
+    {{ "form.button.leave"|trans }}
+</a>
+
 <table class="table table-striped table-hover">
     {% for bout in bouts %}
         <thead>

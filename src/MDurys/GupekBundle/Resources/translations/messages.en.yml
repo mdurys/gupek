@@ -22,3 +22,10 @@ form:
         create: Create
         update: Update
         delete: Delete
+        join: Join
+        leave: Leave
+
+exception:
+    meeting:
+        user_already_joined: Player already participates in this meeting.
+        user_is_ranked: "Player can't leave a meeting if the bout is already scored"
