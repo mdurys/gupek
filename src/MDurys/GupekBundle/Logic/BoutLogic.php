@@ -3,9 +3,57 @@
 namespace MDurys\GupekBundle\Logic;
 
 use MDurys\GupekBundle\Entity\Bout;
+use MDurys\GupekBundle\Entity\User;
+use MDurys\GupekBundle\Entity\MeetingUser;
 
 class BoutLogic extends BaseLogic
 {
+    /**
+     * Add user to bout.
+     *
+     * @param \MDurys\GupekBundle\Entity\Bout $bout
+     * @param \MDurys\GupekBundle\Entity\User $user
+     * @return \MDurys\GupekBundle\Entity\MeetingUser
+     * @throws \MDurys\GupekBundle\Logic\Exception\BoutException
+     */
+    public function addUser(Bout $bout, User $user)
+    {
+        $em = $this->getEntityManager();
+
+        if (null === $meeting = $bout->getMeeting()) {
+            throw new Exception\BoutException('no_meeting');
+        }
+
+        if (null !== $meetingUsers = $this->getRepository('MeetingUser')->getByMeetingAndUser($meeting, $user)) {
+            // make sure that user doesn't already participate in given bout
+            foreach ($meetingUsers as $mu) {
+                if ($mu->getBout()->getId() == $bout->getId()) {
+                    throw new Exception\BoutException('already_joined');
+                }
+            }
+
+            // search for a MeetingUser entity without a bout
+            foreach ($meetingUsers as $mu) {
+                if (null === $mu->getBout()) {
+                    $mu->setBout($bout);
+                    $em->persist($mu);
+
+                    return $mu;
+                }
+            }
+        }
+
+        // crate new MeetingUser entity
+        $mu = new MeetingUser();
+        $mu
+            ->setMeeting($meeting)
+            ->setBout($bout)
+            ->setUser($user);
+        $em->persist($mu);
+
+        return $mu;
+    }
+
     /**
      * Calculate user scores for given bout.
      *

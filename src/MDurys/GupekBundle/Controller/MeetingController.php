@@ -171,11 +171,12 @@ class MeetingController extends Controller
         try {
             $logic->addUser($meeting, $user);
             $this->getDoctrine()->getManager()->flush();
+            $this->get('session')->getFlashBag()->add('success', 'meeting.message.user_join');
         } catch (MeetingException $e) {
             $this->get('session')->getFlashBag()->add('error', $e->getTransMessage());
-        } finally {
-            return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
         }
+
+        return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
     }
 
     /**
@@ -192,11 +193,12 @@ class MeetingController extends Controller
         try {
             $logic->removeUser($meeting, $user);
             $this->getDoctrine()->getManager()->flush();
+            $this->get('session')->getFlashBag()->add('success', 'meeting.message.user_leave');
         } catch (MeetingException $e) {
             $this->get('session')->getFlashBag()->add('error', $e->getTransMessage());
-        } finally {
-            return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
         }
+
+        return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
     }
 
     /**

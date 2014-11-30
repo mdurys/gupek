@@ -3,6 +3,7 @@
 namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\AbstractQuery;
 use MDurys\GupekBundle\Entity\Meeting;
 use MDurys\GupekBundle\Entity\User;
 
@@ -61,6 +62,40 @@ class MeetingUserRepository extends EntityRepository
             ->select('mu.id')
             ->setMaxResults(1)
             ->getQuery()
-            ->getSingleScalarResult();
+            ->getOneOrNullResult(AbstractQuery::HYDRATE_SCALAR);
+    }
+
+    /**
+     * Select all MeetingUser records matching given bout and user
+     * combination.
+     *
+     * @param \MDurys\GupekBundle\Entity\Bout|int $bout
+     * @param \MDurys\GupekBundle\Entity\User|int $user
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function queryByBoutAndUser($bout, $user)
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+            ->select('mu')
+            ->from($this->getEntityName(), 'mu')
+            ->where('mu.bout = :bout')
+            ->andWhere('mu.user = :user')
+            ->setParameter('bout', $bout)
+            ->setParameter('user', $user);
+    }
+
+    /**
+     * Get all MeetingUser records matching given bout and user
+     * combination.
+     *
+     * @param \MDurys\GupekBundle\Entity\User|int $user
+     * @param \MDurys\GupekBundle\Entity\Bout|int $bout
+     * @return array
+     */
+    public function getByBoutAndUser($bout, $user)
+    {
+        return $this->queryByBoutAndUser($bout, $user)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }

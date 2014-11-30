@@ -15,6 +15,11 @@ season:
         bouts: 'No. bouts'
         games: 'No. games'
 
+meeting:
+    message:
+        user_join: User has joined meeting.
+        user_leave: User has been removed from meeting.
+
 form:
     meeting:
         date: Date and time
@@ -29,3 +34,4 @@ exception:
     meeting:
         user_already_joined: Player already participates in this meeting.
         user_is_ranked: "Player can't leave a meeting if the bout is already scored"
+        user_not_joined: "Player doesn't participate in this meeting."
