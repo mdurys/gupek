@@ -46,7 +46,7 @@ class MeetingLogic extends BaseLogic
         $em = $this->getEntityManager();
 
         $result = $this->getRepository('MeetingUser')->getByMeetingAndUser($meeting, $user);
-        if (null === $result) {
+        if (empty($result)) {
             throw new Exception\MeetingException('user_not_joined');
         }
 
