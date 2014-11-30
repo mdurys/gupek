@@ -29,8 +29,8 @@ class MeetingUserRepository extends EntityRepository
             ->from($this->getEntityName(), 'mu')
             ->where('mu.meeting = :meeting')
             ->andWhere('mu.user = :user')
-            ->setParameter('meeting', $this->getMeetingId($meeting))
-            ->setParameter('user', $this->getUserId($user));
+            ->setParameter('meeting', $meeting)
+            ->setParameter('user', $user);
     }
 
     /**
@@ -62,19 +62,5 @@ class MeetingUserRepository extends EntityRepository
             ->setMaxResults(1)
             ->getQuery()
             ->getSingleScalarResult();
-    }
-
-    private function getMeetingId($meeting)
-    {
-        return $meeting instanceof Meeting
-            ? $meeting->getId()
-            : $meeting;
-    }
-
-    private function getUserId($user)
-    {
-        return $user instanceof User
-            ? $user->getId()
-            : $user;
     }
 }
