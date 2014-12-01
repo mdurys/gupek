@@ -32,6 +32,11 @@ class BoutLogic extends BaseLogic
                 }
             }
 
+            // check if player limit is observed
+            if (count($meetingUsers) >= $bout->getMaxPlayers()) {
+                throw new Exception\BoutException('max_players');
+            }
+
             // search for a MeetingUser entity without a bout
             foreach ($meetingUsers as $mu) {
                 if (null === $mu->getBout()) {
