@@ -15,18 +15,24 @@ class MeetingRepository extends EntityRepository
     /**
      * Get query builder, which selects all meetings from given season.
      *
-     * @param int $seasonId
+     * @param int|\MDurys\GupekBundle\Entity\Season $season
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function queryBySeason($seasonId)
+    public function queryBySeason($season)
     {
         return $this->getEntityManager()->createQueryBuilder()
             ->select('m')
             ->from($this->getEntityName(), 'm')
             ->where('m.season = :season')
-            ->setParameter('season', $seasonId);
+            ->setParameter('season', $season);
     }
 
+    /**
+     * Get meetings from given season.
+     *
+     * @param int|\MDurys\GupekBundle\Entity\Season $season
+     * @return array
+     */
     public function getBySeason($seasonId)
     {
         return $this->queryBySeason($seasonId)
@@ -35,16 +41,24 @@ class MeetingRepository extends EntityRepository
     }
 
     /**
+     * Get list of meeting statistics for given season. Each array row has the
+     * following keys:
+     * - id
+     * - date
+     * - bouts
+     * - games
+     * - users
      *
-     *
+     * @param int|\MDurys\GupekBundle\Entity\Season $season
+     * @return array
      */
-    public function getDetailsBySeason($seasonId)
+    public function getDetailsBySeason($season)
     {
-        $qb = $this->queryBySeason($seasonId);
+        $qb = $this->queryBySeason($season);
         $qb
             ->select('m.id, m.date, COUNT(DISTINCT b.id) AS bouts, COUNT(DISTINCT b.game) AS games, COUNT(DISTINCT mu.user) AS users')
-            ->innerJoin('m.bouts', 'b')
-            ->innerJoin('m.meetingUsers', 'mu')
+            ->leftJoin('m.bouts', 'b')
+            ->leftJoin('m.meetingUsers', 'mu')
             ->groupBy('m.id');
 
         return $qb->getQuery()->getResult();

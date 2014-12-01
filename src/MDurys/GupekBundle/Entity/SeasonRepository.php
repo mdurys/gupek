@@ -39,8 +39,8 @@ class SeasonRepository extends EntityRepository
     {
         return $this->getEntityManager()->createQueryBuilder()
             ->select('u.id, u.username, SUM(mu.score) AS points, SUM(mu.win) AS wins, COUNT(m.id) AS meetings, COUNT(mu.id) AS bouts, (SUM(mu.score) / COUNT(mu.id)) AS power, (SUM(mu.win) / COUNT(mu.id)) AS efficiency')
-            ->from('MDurysGupekBundle:MeetingUser', 'mu')
-            ->innerJoin('mu.meeting', 'm')
+            ->from('MDurysGupekBundle:Meeting', 'm')
+            ->innerJoin('m.meetingUsers', 'mu')
             ->innerJoin('m.season', 's')
             ->innerJoin('mu.user', 'u')
             ->where('s.id = :season')
