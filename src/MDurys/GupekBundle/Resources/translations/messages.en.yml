@@ -16,6 +16,11 @@ season:
         games: 'No. games'
 
 meeting:
+    bout_table:
+        place: '#'
+        player: 'Player'
+        points: 'Points'
+        win: 'Win'
     message:
         user_join: User has joined meeting.
         user_leave: User has been removed from meeting.
