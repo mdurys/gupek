@@ -11,9 +11,9 @@ season:
     meetings: Meetings
     meetings_table:
         date: Date
-        users: 'No. players'
-        bouts: 'No. bouts'
-        games: 'No. games'
+        users: 'Players'
+        bouts: 'Bouts'
+        games: 'Games'
 
 meeting:
     bout_table:
