@@ -16,6 +16,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
     {
         $data = [
             'apacze' => ['Apacze i Komancze', 2, 4],
+            'atak_zombie' => ['Atak zombie', 2, 4],
             'basketboss' => ['BasketBoss', 2, 5],
             'carson' => ['Carson City', 2, 5],
             'catan' => ['Osadnicy z Catanu', 2, 4],
@@ -32,6 +33,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'posrod_gwiazd' => ['Pośród gwiazd', 2, 4],
             'rheinlander' => ['Rheinländer', 3, 5],
             'samuraj' => ['Samuraj', 2, 4],
+            'szogun' => ['Szogun', 3, 5],
             'terra_mystica' => ['Terra Mystica', 2, 5],
             'tikal' => ['Tikal', 2, 4],
             'trajan' => ['Trajan', 2, 4],

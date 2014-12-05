@@ -196,6 +196,29 @@ class LoadSeason5Data extends AbstractFixture implements OrderedFixtureInterface
                     ],
                 ]
             ],
+            [
+                '2014-12-04 19:30:00',
+                'bouts' => [
+                    [
+                        'game' => 'atak_zombie',
+                        'players' => [
+                            'mk' => [1, 5],
+                            'md' => [2, 4],
+                            'tk' => [3, 4],
+                            'ab' => [4, 4],
+                        ]
+                    ],
+                    [
+                        'game' => 'szogun',
+                        'players' => [
+                            'jg' => [1, 5],
+                            'al' => [2, 5],
+                            'rj' => [3, 5],
+                            'sh' => [4, 5],
+                        ]
+                    ],
+                ]
+            ],
         ];
 
         foreach ($meetings as $row) {
