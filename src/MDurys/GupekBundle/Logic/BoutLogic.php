@@ -60,6 +60,48 @@ class BoutLogic extends BaseLogic
     }
 
     /**
+     * Remove user from bout.
+     *
+     * @param \MDurys\GupekBundle\Entity\Bout $bout
+     * @param \MDurys\GupekBundle\Entity\User $user
+     * @return boolean TRUE for success
+     * @throws \MDurys\GupekBundle\Logic\Exception\BoutException
+     * @throws \MDurys\GupekBundle\Logic\Exception\MeetingException
+     */
+    public function removeUser(Bout $bout, User $user)
+    {
+        $em = $this->getEntityManager();
+
+        if (null === $meeting = $bout->getMeeting()) {
+            throw new Exception\BoutException('no_meeting');
+        }
+
+        if (null === $meetingUsers = $this->getRepository('MeetingUser')->getByMeetingAndUser($meeting, $user)) {
+            throw new Exception\MeetingException('user_not_joined');
+        }
+
+        foreach ($meetingUsers as $mu) {
+            if ($mu->getBout()->getId() == $bout->getId()) {
+                $bout->removeMeetingUser($mu);
+                if (1 == count($meetingUsers)) {
+                    // if user takes part in just one bout then we remove him
+                    // from this bout but he is still member of a meeting
+                    $mu->setBout(null);
+                } else {
+                    // if he takes part in more than one bout then we simply
+                    // delete MeetingUser entity
+                    $em->remove($mu);
+                }
+                $em->persist($bout);
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Calculate user scores for given bout.
      *
      * Scoring algorhythm: winner gets as many points as there were players.
