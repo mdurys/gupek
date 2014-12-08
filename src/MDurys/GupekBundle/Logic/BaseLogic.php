@@ -27,7 +27,7 @@ class BaseLogic
     }
 
     /**
-     * @return \Symfony\Component\Form\FormFactory
+     * @return \Doctrine\ORM\EntityRepository
      */
     public function getRepository($name)
     {
