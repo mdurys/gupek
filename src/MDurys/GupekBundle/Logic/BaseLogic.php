@@ -26,11 +26,17 @@ class BaseLogic
         return $this->container->get('doctrine')->getManager();
     }
 
+    /**
+     * @return \Doctrine\ORM\EntityRepository
+     */
     public function getRepository($name)
     {
         return $this->getEntityManager()->getRepository('MDurysGupekBundle:'.$name);
     }
 
+    /**
+     * @return \Symfony\Component\Form\FormFactory
+     */
     public function getFormFactory()
     {
         return $this->container->get('form.factory');
