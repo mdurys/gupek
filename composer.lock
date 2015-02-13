@@ -320,7 +320,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -417,7 +417,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1049,12 +1049,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "acbf585de09e1ec44b3e362291b9db4eb6cfca6c"
+                "reference": "61a13a7d5febaae676519c595b6caeda1e23ff4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/acbf585de09e1ec44b3e362291b9db4eb6cfca6c",
-                "reference": "acbf585de09e1ec44b3e362291b9db4eb6cfca6c",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/61a13a7d5febaae676519c595b6caeda1e23ff4c",
+                "reference": "61a13a7d5febaae676519c595b6caeda1e23ff4c",
                 "shasum": ""
             },
             "require": {
@@ -1119,7 +1119,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-01-29 15:01:49"
+            "time": "2015-02-10 16:59:37"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1799,12 +1799,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "e73c5546a94a26bc28544ac998f5caf1a2d7aef5"
+                "reference": "2cca8617b966e99d6d27d7700a6b727d9b28ff44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/e73c5546a94a26bc28544ac998f5caf1a2d7aef5",
-                "reference": "e73c5546a94a26bc28544ac998f5caf1a2d7aef5",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/2cca8617b966e99d6d27d7700a6b727d9b28ff44",
+                "reference": "2cca8617b966e99d6d27d7700a6b727d9b28ff44",
                 "shasum": ""
             },
             "require": {
@@ -1907,7 +1907,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-02-05 08:35:03"
+            "time": "2015-02-12 11:03:23"
         },
         {
             "name": "twbs/bootstrap",
@@ -1915,12 +1915,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "27677fab5b704d8c61c4561dd7dd55d54fbcc8f2"
+                "reference": "763f8293da90a4c4102f9fae049232662ca2696f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/27677fab5b704d8c61c4561dd7dd55d54fbcc8f2",
-                "reference": "27677fab5b704d8c61c4561dd7dd55d54fbcc8f2",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/763f8293da90a4c4102f9fae049232662ca2696f",
+                "reference": "763f8293da90a4c4102f9fae049232662ca2696f",
                 "shasum": ""
             },
             "replace": {
@@ -1958,7 +1958,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2015-02-04 15:38:17"
+            "time": "2015-02-12 18:41:16"
         },
         {
             "name": "twig/extensions",
@@ -2073,17 +2073,17 @@
     "packages-dev": [
         {
             "name": "sensio/generator-bundle",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "target-dir": "Sensio/Bundle/GeneratorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "9e23fc3de265ae013690d84aab98e7a84f46edcd"
+                "reference": "4b09746520a826a7bf34a466ba31c7d8740fef7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/9e23fc3de265ae013690d84aab98e7a84f46edcd",
-                "reference": "9e23fc3de265ae013690d84aab98e7a84f46edcd",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/4b09746520a826a7bf34a466ba31c7d8740fef7e",
+                "reference": "4b09746520a826a7bf34a466ba31c7d8740fef7e",
                 "shasum": ""
             },
             "require": {
@@ -2117,7 +2117,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2015-01-13 07:33:46"
+            "time": "2015-02-11 07:21:23"
         }
     ],
     "aliases": [],
@@ -2130,7 +2130,6 @@
         "components/jquery": 20
     },
     "prefer-stable": false,
-    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.3"
     },
