@@ -9,6 +9,7 @@ use MDurys\GupekBundle\Entity\Game;
 
 class GameController extends Controller
 {
+
     /**
      * @Route("/game")
      * @Method("GET")
