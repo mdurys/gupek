@@ -320,7 +320,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -417,7 +417,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1804,12 +1804,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "38a5ebdb058319f8bc7769226719088deb25263b"
+                "reference": "eb99c7835839c64b9ec0f6209d79db8427ce8d0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/38a5ebdb058319f8bc7769226719088deb25263b",
-                "reference": "38a5ebdb058319f8bc7769226719088deb25263b",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/eb99c7835839c64b9ec0f6209d79db8427ce8d0a",
+                "reference": "eb99c7835839c64b9ec0f6209d79db8427ce8d0a",
                 "shasum": ""
             },
             "require": {
@@ -1913,7 +1913,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-03-02 10:19:04"
+            "time": "2015-03-03 08:30:41"
         },
         {
             "name": "twbs/bootstrap",
@@ -1921,12 +1921,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "c80872235faaeaf1e8029665fb7674c2e1ba1d8c"
+                "reference": "ddd09f6fe773c4a99929c169b80882ed955a6227"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/c80872235faaeaf1e8029665fb7674c2e1ba1d8c",
-                "reference": "c80872235faaeaf1e8029665fb7674c2e1ba1d8c",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ddd09f6fe773c4a99929c169b80882ed955a6227",
+                "reference": "ddd09f6fe773c4a99929c169b80882ed955a6227",
                 "shasum": ""
             },
             "replace": {
@@ -1964,7 +1964,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2015-03-02 02:28:46"
+            "time": "2015-03-03 06:03:42"
         },
         {
             "name": "twig/extensions",
