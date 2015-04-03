@@ -10,6 +10,24 @@ use MDurys\GupekBundle\Form\MeetingType;
 class MeetingLogic extends BaseLogic
 {
     /**
+     * Check if given user participates in a meeting.
+     *
+     * @param \MDurys\GupekBundle\Entity\Meeting $meeting
+     * @param \MDurys\GupekBundle\Entity\User $user
+     * @return bool
+     */
+    public function isUserParticipating(Meeting $meeting, User $user)
+    {
+        foreach ($meeting->getMeetingUsers() as $mu) {
+            if ($mu->getUser() == $user) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Add user to meeting.
      *
      * @param \MDurys\GupekBundle\Entity\Meeting $meeting
@@ -21,7 +39,7 @@ class MeetingLogic extends BaseLogic
     {
         $em = $this->getEntityManager();
 
-        if ($this->getRepository('MeetingUser')->existsMeetingAndUser($meeting, $user)) {
+        if (true === $this->isUserParticipating($meeting, $user)) {
             throw new Exception\MeetingException('user_already_joined');
         }
 
@@ -30,6 +48,8 @@ class MeetingLogic extends BaseLogic
             ->setMeeting($meeting)
             ->setUser($user);
         $em->persist($mu);
+
+        $meeting->addMeetingUser($mu);
 
         return $mu;
     }
@@ -45,6 +65,9 @@ class MeetingLogic extends BaseLogic
     {
         $em = $this->getEntityManager();
 
+        // if (false === $this->isUserParticipating($meeting, $user)) {
+        //     throw new Exception\MeetingException('user_not_joined');
+        // }
         $result = $this->getRepository('MeetingUser')->getByMeetingAndUser($meeting, $user);
         if (empty($result)) {
             throw new Exception\MeetingException('user_not_joined');

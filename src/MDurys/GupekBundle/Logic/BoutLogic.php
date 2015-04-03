@@ -18,30 +18,31 @@ class BoutLogic extends BaseLogic
      */
     public function addUser(Bout $bout, User $user)
     {
-        $em = $this->getEntityManager();
+        // $em = $this->getEntityManager();
 
+        // bout has to be assigned to a meeting
         if (null === $meeting = $bout->getMeeting()) {
             throw new Exception\BoutException('no_meeting');
         }
 
-        if (null !== $meetingUsers = $this->getRepository('MeetingUser')->getByMeetingAndUser($meeting, $user)) {
-            // make sure that user doesn't already participate in given bout
-            foreach ($meetingUsers as $mu) {
-                if ($mu->getBout()->getId() == $bout->getId()) {
-                    throw new Exception\BoutException('already_joined');
-                }
+        // make sure that user doesn't already participate in given bout
+        foreach ($bout->getMeetingUsers() as $mu) {
+            if ($mu->getUser()->getId() == $user->getId()) {
+                throw new Exception\BoutException('already_joined');
             }
+        }
 
-            // check if player limit is observed
-            if (count($meetingUsers) >= $bout->getMaxPlayers()) {
-                throw new Exception\BoutException('max_players');
-            }
+        // check if player limit is observed
+        if (count($bout->getMeetingUsers()) >= $bout->getMaxPlayers()) {
+            throw new Exception\BoutException('max_players');
+        }
 
-            // search for a MeetingUser entity without a bout
-            foreach ($meetingUsers as $mu) {
+        // search for a MeetingUser entity without a bout
+        foreach ($meeting->getMeetingUsers() as $mu) {
+            if ($mu->getUser()->getId() == $user->getId()) {
                 if (null === $mu->getBout()) {
                     $mu->setBout($bout);
-                    $em->persist($mu);
+                    // $em->persist($mu);
 
                     return $mu;
                 }
@@ -54,7 +55,9 @@ class BoutLogic extends BaseLogic
             ->setMeeting($meeting)
             ->setBout($bout)
             ->setUser($user);
-        $em->persist($mu);
+        // $em->persist($mu);
+
+        $bout->addMeetingUser($mu);
 
         return $mu;
     }
