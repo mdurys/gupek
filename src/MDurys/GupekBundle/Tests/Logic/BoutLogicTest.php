@@ -49,7 +49,7 @@ class BoutLogicTest extends LogicTestCase
         // this time user should be added to bout
         $bout->setMeeting($meeting);
         $mu = $this->logic->addUser($bout, $user1->reveal());
-        $this->assertInstanceOf(MeetingUser::class, $mu);
+        $this->assertInstanceOf('MDurys\GupekBundle\Entity\MeetingUser', $mu);
         $this->assertCount(1, $bout->getMeetingUsers());
 
         // $bout->getMeeting()->willReturn($meeting);
