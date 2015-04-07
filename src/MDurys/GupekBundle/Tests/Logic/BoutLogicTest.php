@@ -92,4 +92,35 @@ class BoutLogicTest extends LogicTestCase
         $bout = $this->prophesize('MDurys\GupekBundle\Entity\Bout')->reveal();
         $this->logic->removeUser($bout, $user);
     }
+
+    public function testCalculateScores()
+    {
+        $bout = new Bout();
+        $bout->setMaxPlayers(4);
+
+        // no users in bout
+        try {
+            $this->logic->calculateScores($bout);
+        } catch (BoutException $e) {
+            $this->assertEquals('no_players', $e->getMessage());
+        }
+
+        $mu1 = new MeetingUser();
+        $bout->addMeetingUser($mu1);
+
+        // no place
+        try {
+            $this->logic->calculateScores($bout);
+        } catch (BoutException $e) {
+            $this->assertEquals('no_place', $e->getMessage());
+        }
+
+        // illegal place
+        $mu1->setPlace(99);
+        try {
+            $this->logic->calculateScores($bout);
+        } catch (BoutException $e) {
+            $this->assertEquals('illegal_place', $e->getMessage());
+        }
+    }
 }
