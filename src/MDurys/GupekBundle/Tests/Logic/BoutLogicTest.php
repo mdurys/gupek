@@ -66,7 +66,6 @@ class BoutLogicTest extends LogicTestCase
 
         // add 2 more users
         $this->logic->addUser($bout, $user2->reveal());
-        $this->assertCount(2, $bout->getMeetingUsers());
         $this->logic->addUser($bout, $user3->reveal());
         $this->assertCount(3, $bout->getMeetingUsers());
 
