@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3825740ba53f46c302057a41e4201d5a",
+    "hash": "492b6561aedd3109bde0b56e2e763d2b",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -108,7 +108,7 @@
         },
         {
             "name": "components/jquery",
-            "version": "dev-master",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jquery.git",
@@ -320,7 +320,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -1097,16 +1097,16 @@
         },
         {
             "name": "gedmo/doctrine-extensions",
-            "version": "dev-master",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "53b8b1d768343d0811bf3ce7f9106c0b93d76eb2"
+                "reference": "08af8a990b683958651bc60f469ed95a35dbef93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/53b8b1d768343d0811bf3ce7f9106c0b93d76eb2",
-                "reference": "53b8b1d768343d0811bf3ce7f9106c0b93d76eb2",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/08af8a990b683958651bc60f469ed95a35dbef93",
+                "reference": "08af8a990b683958651bc60f469ed95a35dbef93",
                 "shasum": ""
             },
             "require": {
@@ -1172,7 +1172,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-03-30 09:21:01"
+            "time": "2015-03-26 20:58:50"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1463,17 +1463,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.20",
+            "version": "v3.0.21",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "48c76189fb0a76a20a4a67a750b513ed06074b55"
+                "reference": "da23c78093676a823a1ff43a214987ea3fbf83c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/48c76189fb0a76a20a4a67a750b513ed06074b55",
-                "reference": "48c76189fb0a76a20a4a67a750b513ed06074b55",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/da23c78093676a823a1ff43a214987ea3fbf83c8",
+                "reference": "da23c78093676a823a1ff43a214987ea3fbf83c8",
                 "shasum": ""
             },
             "require": {
@@ -1519,7 +1519,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-03-26 11:09:50"
+            "time": "2015-04-10 06:20:46"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -1860,12 +1860,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "dec2ac917e4835c7ff8604899413f0dcc813a80a"
+                "reference": "aeef0cd9a24f07a5e04c2d2aec3e28cd2a0babe3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/dec2ac917e4835c7ff8604899413f0dcc813a80a",
-                "reference": "dec2ac917e4835c7ff8604899413f0dcc813a80a",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/aeef0cd9a24f07a5e04c2d2aec3e28cd2a0babe3",
+                "reference": "aeef0cd9a24f07a5e04c2d2aec3e28cd2a0babe3",
                 "shasum": ""
             },
             "require": {
@@ -1969,7 +1969,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-04-02 18:01:15"
+            "time": "2015-04-10 06:43:32"
         },
         {
             "name": "twbs/bootstrap",
@@ -1977,12 +1977,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "38f48d6471ccf292252b03ded606eef0570d096c"
+                "reference": "4127b250db461e47639983e2ad177963316386e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/38f48d6471ccf292252b03ded606eef0570d096c",
-                "reference": "38f48d6471ccf292252b03ded606eef0570d096c",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/4127b250db461e47639983e2ad177963316386e1",
+                "reference": "4127b250db461e47639983e2ad177963316386e1",
                 "shasum": ""
             },
             "replace": {
@@ -2020,7 +2020,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2015-04-01 09:54:26"
+            "time": "2015-04-08 18:49:03"
         },
         {
             "name": "twig/extensions",
@@ -2186,10 +2186,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "symfony/symfony": 20,
-        "gedmo/doctrine-extensions": 20,
         "friendsofsymfony/user-bundle": 20,
-        "twbs/bootstrap": 20,
-        "components/jquery": 20
+        "twbs/bootstrap": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
