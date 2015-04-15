@@ -121,5 +121,77 @@ class BoutLogicTest extends LogicTestCase
         } catch (BoutException $e) {
             $this->assertEquals('illegal_place', $e->getMessage());
         }
+
+        // add remaining players
+        $mu2 = new MeetingUser();
+        $bout->addMeetingUser($mu2);
+        $mu3 = new MeetingUser();
+        $bout->addMeetingUser($mu3);
+        $mu4 = new MeetingUser();
+        $bout->addMeetingUser($mu4);
+
+        // case: each players gets a separate place
+        $mu1->setPlace(1);
+        $mu2->setPlace(2);
+        $mu3->setPlace(3);
+        $mu4->setPlace(4);
+        $this->logic->calculateScores($bout);
+
+        $this->assertEquals(4, $mu1->getScore());
+        $this->assertEquals(2, $mu2->getScore());
+        $this->assertEquals(1, $mu3->getScore());
+        $this->assertEquals(0, $mu4->getScore());
+        $this->assertEquals(1, $mu1->getWin());
+        $this->assertEquals(0, $mu2->getWin());
+        $this->assertEquals(0, $mu3->getWin());
+        $this->assertEquals(0, $mu4->getWin());
+
+        // case: two winners
+        $mu1->setPlace(1);
+        $mu2->setPlace(1);
+        $mu3->setPlace(3);
+        $mu4->setPlace(4);
+        $this->logic->calculateScores($bout);
+
+        $this->assertEquals(3, $mu1->getScore());
+        $this->assertEquals(3, $mu2->getScore());
+        $this->assertEquals(1, $mu3->getScore());
+        $this->assertEquals(0, $mu4->getScore());
+        $this->assertEquals(0.5, $mu1->getWin());
+        $this->assertEquals(0.5, $mu2->getWin());
+        $this->assertEquals(0, $mu3->getWin());
+        $this->assertEquals(0, $mu4->getWin());
+
+        // case: one winner, all others on 2nd place
+        $mu1->setPlace(1);
+        $mu2->setPlace(2);
+        $mu3->setPlace(2);
+        $mu4->setPlace(2);
+        $this->logic->calculateScores($bout);
+
+        $this->assertEquals(4, $mu1->getScore());
+        $this->assertEquals(1, $mu2->getScore());
+        $this->assertEquals(1, $mu3->getScore());
+        $this->assertEquals(1, $mu4->getScore());
+        $this->assertEquals(1, $mu1->getWin());
+        $this->assertEquals(0, $mu2->getWin());
+        $this->assertEquals(0, $mu3->getWin());
+        $this->assertEquals(0, $mu4->getWin());
+
+        // case: two 2nd places
+        $mu1->setPlace(1);
+        $mu2->setPlace(2);
+        $mu3->setPlace(2);
+        $mu4->setPlace(4);
+        $this->logic->calculateScores($bout);
+
+        $this->assertEquals(4, $mu1->getScore());
+        $this->assertEquals(1.5, $mu2->getScore());
+        $this->assertEquals(1.5, $mu3->getScore());
+        $this->assertEquals(0, $mu4->getScore());
+        $this->assertEquals(1, $mu1->getWin());
+        $this->assertEquals(0, $mu2->getWin());
+        $this->assertEquals(0, $mu3->getWin());
+        $this->assertEquals(0, $mu4->getWin());
     }
 }
