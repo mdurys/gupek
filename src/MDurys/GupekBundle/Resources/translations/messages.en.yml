@@ -14,6 +14,8 @@ season:
         users: 'Players'
         bouts: 'Bouts'
         games: 'Games'
+    button:
+        meeting_add: 'Add meeting'
 
 meeting:
     bout_table:
@@ -21,6 +23,8 @@ meeting:
         player: 'Player'
         points: 'Points'
         win: 'Win'
+    header:
+        new: Meeting creation
     message:
         user_join: User has joined meeting.
         user_leave: User has been removed from meeting.

@@ -14,6 +14,8 @@ season:
         users: Gracze
         bouts: Rozgrywki
         games: Gry
+    button:
+        meeting_add: Dodaj spotkanie
 
 form:
     meeting:

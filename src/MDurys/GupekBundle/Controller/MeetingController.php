@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use MDurys\GupekBundle\Entity\Meeting;
+use MDurys\GupekBundle\Entity\Season;
 use MDurys\GupekBundle\Form\MeetingType;
 use MDurys\GupekBundle\Logic\Exception\MeetingException;
 
@@ -31,12 +32,13 @@ class MeetingController extends Controller
     /**
      * Creates a new Meeting entity.
      *
-     * @Route("/", name="meeting_create")
+     * @Route("/{season}", name="meeting_create")
      * @Method("POST")
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request, Season $season)
     {
         $meeting = new Meeting();
+        $meeting->setSeason($season);
         $form = $this->createCreateForm($meeting);
         $form->handleRequest($request);
 
@@ -72,13 +74,15 @@ class MeetingController extends Controller
     /**
      * Displays a form to create a new Meeting entity.
      *
-     * @Route("/new")
+     * @Route("/new/{season}")
      * @Method("GET")
      */
-    public function newAction()
+    public function newAction(Season $season)
     {
         $meeting = new Meeting();
-        $meeting->setDate(new \DateTime());
+        $meeting
+            ->setSeason($season)
+            ->setDate(new \DateTime());
         $form   = $this->createCreateForm($meeting);
 
         return $this->render('MDurysGupekBundle:Meeting:new.html.twig', [

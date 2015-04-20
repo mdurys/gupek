@@ -94,8 +94,9 @@ class MeetingLogic extends BaseLogic
     {
         return $this->getFormFactory()
             ->create(new MeetingType(), $meeting, [
-                'action' => $this->generateUrl('meeting_create'),
+                'action' => $this->generateUrl('meeting_create', ['season' => $meeting->getSeason()->getId()]),
                 'method' => 'POST'
-                ]);
+                ])
+            ->remove('season');
     }
 }
