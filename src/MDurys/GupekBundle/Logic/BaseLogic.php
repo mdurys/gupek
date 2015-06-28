@@ -6,7 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-class BaseLogic
+abstract class BaseLogic
 {
     /**
      * @var ContainerInterface
