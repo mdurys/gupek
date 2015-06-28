@@ -47,7 +47,7 @@ class SeasonRepository extends EntityRepository
                 COUNT(mu.id) AS bouts,
                 (SUM(mu.score) / COUNT(mu.id)) AS power,
                 (SUM(mu.win) / COUNT(mu.id)) AS efficiency,
-                (CASE WHEN (COUNT(m.id) < 10) THEN 0 ELSE 1 END) AS is_classified
+                (CASE WHEN (COUNT(m.id) < :attendance) THEN 0 ELSE 1 END) AS is_classified
             ')
             ->from('MDurysGupekBundle:Meeting', 'm')
             ->innerJoin('m.meetingUsers', 'mu')
@@ -56,6 +56,7 @@ class SeasonRepository extends EntityRepository
             ->where('s.id = :season')
             ->groupBy('u.id')
             ->setParameter('season', $season)
+            ->setParameter('attendance', Season::MIN_ATTENDANCE)
             ->getQuery()
             ->getResult();
     }

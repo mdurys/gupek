@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Season
 {
+    // attendence required to be classified in a season
+    const MIN_ATTENDANCE = 10;
+
     /**
      * @var integer
      *
