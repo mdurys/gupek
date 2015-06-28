@@ -98,7 +98,7 @@ class Bout
      * @param \MDurys\GupekBundle\Entity\Meeting $meeting
      * @return Bout
      */
-    public function setMeeting(\MDurys\GupekBundle\Entity\Meeting $meeting = null)
+    public function setMeeting(Meeting $meeting = null)
     {
         $this->meeting = $meeting;
 
@@ -121,7 +121,7 @@ class Bout
      * @param \MDurys\GupekBundle\Entity\Game $game
      * @return Bout
      */
-    public function setGame(\MDurys\GupekBundle\Entity\Game $game = null)
+    public function setGame(Game $game = null)
     {
         $this->game = $game;
 
@@ -144,7 +144,7 @@ class Bout
      * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
      * @return Bout
      */
-    public function addMeetingUser(\MDurys\GupekBundle\Entity\MeetingUser $meetingUser)
+    public function addMeetingUser(MeetingUser $meetingUser)
     {
         $this->meetingUsers[] = $meetingUser;
 
@@ -156,7 +156,7 @@ class Bout
      *
      * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
      */
-    public function removeMeetingUser(\MDurys\GupekBundle\Entity\MeetingUser $meetingUser)
+    public function removeMeetingUser(MeetingUser $meetingUser)
     {
         $this->meetingUsers->removeElement($meetingUser);
     }

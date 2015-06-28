@@ -89,7 +89,7 @@ class MeetingUser
      * @param \MDurys\GupekBundle\Entity\Meeting $meeting
      * @return MeetingUser
      */
-    public function setMeeting(\MDurys\GupekBundle\Entity\Meeting $meeting = null)
+    public function setMeeting(Meeting $meeting = null)
     {
         $this->meeting = $meeting;
 
@@ -112,7 +112,7 @@ class MeetingUser
      * @param \MDurys\GupekBundle\Entity\User $user
      * @return MeetingUser
      */
-    public function setUser(\MDurys\GupekBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -135,7 +135,7 @@ class MeetingUser
      * @param \MDurys\GupekBundle\Entity\Bout $bout
      * @return MeetingUser
      */
-    public function setBout(\MDurys\GupekBundle\Entity\Bout $bout = null)
+    public function setBout(Bout $bout = null)
     {
         $this->bout = $bout;
 

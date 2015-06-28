@@ -98,7 +98,7 @@ class Meeting
      * @param \MDurys\GupekBundle\Entity\Season $season
      * @return Meeting
      */
-    public function setSeason(\MDurys\GupekBundle\Entity\Season $season = null)
+    public function setSeason(Season $season = null)
     {
         $this->season = $season;
 
@@ -121,7 +121,7 @@ class Meeting
      * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
      * @return Bout
      */
-    public function addMeetingUser(\MDurys\GupekBundle\Entity\MeetingUser $meetingUser)
+    public function addMeetingUser(MeetingUser $meetingUser)
     {
         $this->meetingUsers[] = $meetingUser;
 
@@ -133,7 +133,7 @@ class Meeting
      *
      * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
      */
-    public function removeMeetingUser(\MDurys\GupekBundle\Entity\MeetingUser $meetingUser)
+    public function removeMeetingUser(MeetingUser $meetingUser)
     {
         $this->meetingUsers->removeElement($meetingUser);
     }
@@ -154,7 +154,7 @@ class Meeting
      * @param \MDurys\GupekBundle\Entity\Bout $bouts
      * @return Meeting
      */
-    public function addBout(\MDurys\GupekBundle\Entity\Bout $bouts)
+    public function addBout(Bout $bouts)
     {
         $this->bouts[] = $bouts;
 
@@ -166,7 +166,7 @@ class Meeting
      *
      * @param \MDurys\GupekBundle\Entity\Bout $bouts
      */
-    public function removeBout(\MDurys\GupekBundle\Entity\Bout $bouts)
+    public function removeBout(Bout $bouts)
     {
         $this->bouts->removeElement($bouts);
     }
