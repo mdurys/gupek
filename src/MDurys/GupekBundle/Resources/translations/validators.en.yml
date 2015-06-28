@@ -1,0 +1,4 @@
+bout:
+    max_players:
+        too_few: Number of players is too low for the selected game
+        too_many: Number of players is too big for the selected game
