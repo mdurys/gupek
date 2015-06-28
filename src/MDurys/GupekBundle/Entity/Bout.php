@@ -51,7 +51,7 @@ class Bout
      * @var integer
      *
      * @ORM\Column(name="max_players", type="smallint")
-     * @Assert\Expression("this.getMaxPlayers() >= this.getGame().getMinPlayers()", message="bout.max_players.too_few)
+     * @Assert\Expression("this.getMaxPlayers() >= this.getGame().getMinPlayers()", message="bout.max_players.too_few")
      * @Assert\Expression("this.getMaxPlayers() <= this.getGame().getMaxPlayers()", message="bout.max_players.too_many")
      */
     private $maxPlayers;
