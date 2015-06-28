@@ -24,3 +24,5 @@ form:
         create: Dodaj
         update: Aktualizuj
         delete: Usuń
+        join: Dołącz
+        leave: Opuść

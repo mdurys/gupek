@@ -15,6 +15,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Bout
 {
+    const STATUS_NEW = 1;
+    const STATUS_FINISHED = 2;
+    const STATUS_ABORTED = 3;
+
     /**
      * @var integer
      *
@@ -46,7 +50,9 @@ class Bout
     /**
      * @var integer
      *
-     * @ORM\Column(name="max_players", type="integer")
+     * @ORM\Column(name="max_players", type="smallint")
+     * @Assert\Expression("this.getMaxPlayers() >= this.getGame().getMinPlayers()")
+     * @Assert\Expression("this.getMaxPlayers() <= this.getGame().getMaxPlayers()")
      */
     private $maxPlayers;
 

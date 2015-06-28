@@ -29,9 +29,17 @@ meeting:
         user_join: User has joined meeting.
         user_leave: User has been removed from meeting.
 
+bout:
+    header:
+        new: Bout creation
+
 form:
     meeting:
         date: Date and time
+    bout:
+        game: Game
+        max_players: Max players
+        max_players_help: Limit number of players that can join this bout
     button:
         create: Create
         update: Update
