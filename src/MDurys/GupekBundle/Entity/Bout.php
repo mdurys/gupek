@@ -56,6 +56,12 @@ class Bout
      */
     private $maxPlayers;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="smallint")
+     */
+    private $status;
 
     /**
      * Constructor
@@ -63,6 +69,7 @@ class Bout
     public function __construct()
     {
         $this->meetingUsers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->status = self::STATUS_NEW;
     }
 
     /**
@@ -175,5 +182,39 @@ class Bout
     public function getMeetingUsers()
     {
         return $this->meetingUsers;
+    }
+
+    /**
+     * Set status
+     *
+     * @param integer $status
+     *
+     * @return Bout
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return integer
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Check if status equals finished
+     *
+     * @return boolean
+     */
+    public function isFinished()
+    {
+        return $this->status == self::STATUS_FINISHED;
     }
 }

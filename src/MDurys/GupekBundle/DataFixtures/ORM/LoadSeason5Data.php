@@ -234,7 +234,8 @@ class LoadSeason5Data extends AbstractFixture implements OrderedFixtureInterface
                 $bout
                     ->setMeeting($meeting)
                     ->setGame($game)
-                    ->setMaxPlayers($game->getMaxPlayers());
+                    ->setMaxPlayers($game->getMaxPlayers())
+                    ->setStatus(Bout::STATUS_FINISHED);
                 $em->persist($bout);
 
                 foreach ($boutData['players'] as $playerId => $playerData) {

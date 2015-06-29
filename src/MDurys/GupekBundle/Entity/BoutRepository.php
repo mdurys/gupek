@@ -15,7 +15,7 @@ use MDurys\GupekBundle\Entity\Meeting;
 class BoutRepository extends EntityRepository
 {
     /**
-     * Get query builder, which selects a game by slug.
+     * Get query builder, which selects a bouts for given meeting.
      *
      * @param int $meeting
      * @return \Doctrine\ORM\QueryBuilder
@@ -29,13 +29,17 @@ class BoutRepository extends EntityRepository
             ->setParameter('meeting', $meeting);
     }
 
+    /**
+     * @param int $meeting
+     * @return array
+     */
     public function getJoinUserAndGameByMeeting($meeting)
     {
         $qb = $this->queryByMeeting($meeting);
         return $qb
             ->select('b, mu, u, g')
             ->innerJoin('b.meetingUsers', 'mu')
-            ->innerJoin('mu.user', 'u')
+            ->leftJoin('mu.user', 'u')
             ->innerJoin('b.game', 'g')
             ->orderBy('b.id, mu.place, u.username')
             ->getQuery()

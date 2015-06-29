@@ -158,5 +158,8 @@ class BoutLogic extends BaseLogic
                 ->setWin($mu->getPlace() == 1 ? 1 / $placeData[1]['players'] : 0);
             $em->persist($mu);
         }
+
+        $bout->setStatus(Bout::STATUS_FINISHED);
+        $em->persist($bout);
     }
 }
