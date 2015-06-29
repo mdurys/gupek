@@ -209,6 +209,16 @@ class Bout
     }
 
     /**
+     * Check if status equals new
+     *
+     * @return boolean
+     */
+    public function isNew()
+    {
+        return $this->status == self::STATUS_NEW;
+    }
+
+    /**
      * Check if status equals finished
      *
      * @return boolean

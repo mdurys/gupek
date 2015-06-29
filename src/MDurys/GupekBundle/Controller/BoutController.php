@@ -36,7 +36,7 @@ class BoutController extends Controller
             $em->persist($bout);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('bout_show', ['id' => $bout->getId()]));
+            return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
         }
 
         return $this->render('MDurysGupekBundle:Bout:new.html.twig', [
