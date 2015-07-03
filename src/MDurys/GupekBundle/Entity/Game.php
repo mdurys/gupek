@@ -42,6 +42,7 @@ class Game
      *
      * @ORM\Column(name="min_players", type="smallint")
      * @Assert\Range(min="1")
+     * @Assert\Expression("this.getMinPlayers() <= this.getMaxPlayers()", message="game.min_players.too_high")
      */
     private $minPlayers;
 
@@ -50,6 +51,7 @@ class Game
      *
      * @ORM\Column(name="max_players", type="smallint")
      * @Assert\Range(min="1")
+     * @Assert\Expression("this.getMaxPlayers() >= this.getMinPlayers()", message="game.max_players.too_low")
      */
     private $maxPlayers;
 
