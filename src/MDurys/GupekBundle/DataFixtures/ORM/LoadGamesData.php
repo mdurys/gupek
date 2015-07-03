@@ -33,6 +33,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'posrod_gwiazd' => ['Pośród gwiazd', 2, 4],
             'rheinlander' => ['Rheinländer', 3, 5],
             'samuraj' => ['Samuraj', 2, 4],
+            'splendor' => ['Splendor', 2, 4],
             'szogun' => ['Szogun', 3, 5],
             'terra_mystica' => ['Terra Mystica', 2, 5],
             'tikal' => ['Tikal', 2, 4],
@@ -41,12 +42,12 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'wysokie_napiecie' => ['Wysokie napięcie', 2, 6],
         ];
 
-        foreach ($data as $id => $row) {
+        foreach ($data as $id => list($name, $minPlayers, $maxPlayers)) {
             $game = new Game();
             $game
-                ->setName($row[0])
-                ->setMinPlayers($row[1])
-                ->setMaxPlayers($row[2]);
+                ->setName($name)
+                ->setMinPlayers($minPlayers)
+                ->setMaxPlayers($maxPlayers);
             $em->persist($game);
             $em->flush();
             $this->addReference('game-'.$id, $game);
