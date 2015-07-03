@@ -114,21 +114,13 @@ class BoutController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function editAction($id)
+    public function editAction(Bout $bout)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('MDurysGupekBundle:Bout')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Bout entity.');
-        }
-
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createEditForm($bout);
+        $deleteForm = $this->createDeleteForm($bout->getId());
 
         return [
-            'entity'      => $entity,
+            'entity'      => $bout,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ];
@@ -137,14 +129,14 @@ class BoutController extends Controller
     /**
     * Creates a form to edit a Bout entity.
     *
-    * @param Bout $entity The entity
+    * @param Bout $bout The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Bout $entity)
+    private function createEditForm(Bout $bout)
     {
-        $form = $this->createForm(new BoutType(), $entity, [
-            'action' => $this->generateUrl('bout_update', ['id' => $entity->getId()]),
+        $form = $this->createForm(new BoutType(), $bout, [
+            'action' => $this->generateUrl('bout_update', ['id' => $bout->getId()]),
             'method' => 'PUT',
         ]);
 
@@ -200,13 +192,13 @@ class BoutController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('MDurysGupekBundle:Bout')->find($id);
+            $bout = $em->getRepository('MDurysGupekBundle:Bout')->find($id);
 
-            if (!$entity) {
+            if (!$bout) {
                 throw $this->createNotFoundException('Unable to find Bout entity.');
             }
 
-            $em->remove($entity);
+            $em->remove($bout);
             $em->flush();
         }
 
