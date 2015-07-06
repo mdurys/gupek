@@ -20,6 +20,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'basketboss' => ['BasketBoss', 2, 5],
             'carson' => ['Carson City', 2, 5],
             'catan' => ['Osadnicy z Catanu', 2, 4],
+            'colt' => ['Colt Express', 2, 6],
             'finca' => ['Finca', 2, 4],
             'hacienda' => ['Hacienda', 2, 5],
             'imperial2030' => ['Imperial 2030', 2, 6],
@@ -38,6 +39,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'terra_mystica' => ['Terra Mystica', 2, 5],
             'tikal' => ['Tikal', 2, 4],
             'trajan' => ['Trajan', 2, 4],
+            'tytus' => ['Tytus, Romek i A\'tomek', 2, 5],
             'waterdeep' => ['Lords of Waterdeep', 2, 5],
             'wysokie_napiecie' => ['Wysokie napięcie', 2, 6],
         ];
