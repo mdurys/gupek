@@ -42,7 +42,8 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'wysokie_napiecie' => ['Wysokie napięcie', 2, 6],
         ];
 
-        foreach ($data as $id => list($name, $minPlayers, $maxPlayers)) {
+        foreach ($data as $id => $row) {
+            list($name, $minPlayers, $maxPlayers) = $row;
             $game = new Game();
             $game
                 ->setName($name)
