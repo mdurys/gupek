@@ -32,6 +32,9 @@ meeting:
 bout:
     header:
         new: Bout creation
+    message:
+        user_join: User has joined bout.
+        user_leave: User has been removed from bout.
 
 form:
     meeting:

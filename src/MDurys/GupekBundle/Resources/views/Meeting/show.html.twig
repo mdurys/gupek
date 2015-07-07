@@ -20,8 +20,11 @@
     </h3>
 
     {% if bout.isNew %}
-        <a href="{{ path("mdurys_gupek_meeting_join", { "id": bout.id }) }}" class="btn btn-success" role="button">
+        <a href="{{ path("bout_join", { "id": bout.id }) }}" class="btn btn-success" role="button">
             {{ "form.button.join"|trans }}
+        </a>
+        <a href="{{ path("bout_leave", { "id": bout.id }) }}" class="btn btn-warning" role="button">
+            {{ "form.button.leave"|trans }}
         </a>
     {% elseif bout.isFinished %}
         <table class="table table-striped table-hover">

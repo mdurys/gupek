@@ -10,6 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use MDurys\GupekBundle\Entity\Bout;
 use MDurys\GupekBundle\Entity\Meeting;
 use MDurys\GupekBundle\Form\BoutType;
+use MDurys\GupekBundle\Logic\Exception\BoutException;
+use MDurys\GupekBundle\Logic\Exception\MeetingException;
 
 /**
  * Bout controller.
@@ -220,5 +222,53 @@ class BoutController extends Controller
             ->add('submit', 'submit', ['label' => 'form.button.delete'])
             ->getForm()
         ;
+    }
+
+    /**
+     * Add currently logged in user to bout.
+     *
+     * @Route("/join/{id}", name="bout_join")
+     * @Method("GET")
+     */
+    public function joinAction(Bout $bout)
+    {
+        $logic = $this->get('gupek.logic.bout');
+        $user = $this->getUser();
+
+        try {
+            $em = $this->getDoctrine()->getManager();
+            $mu = $logic->addUser($bout, $user);
+            $em->persist($mu);
+            $em->flush();
+            $this->get('braincrafted_bootstrap.flash')->success('bout.message.user_join');
+        } catch (MeetingException $e) {
+            $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
+        }
+
+        return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]));
+    }
+
+    /**
+     * Remove currently logged in user from bout.
+     *
+     * @Route("/leave/{id}", name="bout_leave")
+     * @Method("GET")
+     */
+    public function leaveAction(Bout $bout)
+    {
+        $logic = $this->get('gupek.logic.bout');
+        $user = $this->getUser();
+
+        try {
+            $logic->removeUser($bout, $user);
+            $this->getDoctrine()->getManager()->flush();
+            $this->get('braincrafted_bootstrap.flash')->success('bout.message.user_leave');
+        } catch (BoutException $e) {
+            $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
+        } catch (MeetingException $e) {
+            $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
+        }
+
+        return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]));
     }
 }
