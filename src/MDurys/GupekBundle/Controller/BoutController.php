@@ -236,10 +236,8 @@ class BoutController extends Controller
         $user = $this->getUser();
 
         try {
-            $em = $this->getDoctrine()->getManager();
-            $mu = $logic->addUser($bout, $user);
-            $em->persist($mu);
-            $em->flush();
+            $logic->addUser($bout, $user);
+            $this->getDoctrine()->getManager()->flush();
             $this->get('braincrafted_bootstrap.flash')->success('bout.message.user_join');
         } catch (MeetingException $e) {
             $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());

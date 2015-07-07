@@ -18,7 +18,7 @@ class BoutLogic extends BaseLogic
      */
     public function addUser(Bout $bout, User $user)
     {
-        // $em = $this->getEntityManager();
+        $em = $this->getEntityManager();
 
         // bout has to be assigned to a meeting
         if (null === $meeting = $bout->getMeeting()) {
@@ -42,7 +42,7 @@ class BoutLogic extends BaseLogic
             if ($mu->getUser()->getId() == $user->getId()) {
                 if (null === $mu->getBout()) {
                     $mu->setBout($bout);
-                    // $em->persist($mu);
+                    $em->persist($mu);
 
                     return $mu;
                 }
@@ -55,9 +55,10 @@ class BoutLogic extends BaseLogic
             ->setMeeting($meeting)
             ->setBout($bout)
             ->setUser($user);
-        // $em->persist($mu);
+        $em->persist($mu);
 
         $bout->addMeetingUser($mu);
+        $em->persist($bout);
 
         return $mu;
     }
