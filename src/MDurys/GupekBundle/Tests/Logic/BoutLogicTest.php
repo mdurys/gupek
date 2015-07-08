@@ -78,7 +78,6 @@ class BoutLogicTest extends LogicTestCase
         }
 
         // $this->logic->addUser($bout, $user4->reveal());
-
     }
 
     /**
