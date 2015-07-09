@@ -25,6 +25,6 @@ class GameController extends Controller
      */
     public function showAction(Game $game)
     {
-        return $this->render('MDurysGupekBundle:Game:show.html.twig', compact($game));
+        return $this->render('MDurysGupekBundle:Game:show.html.twig', compact('game'));
     }
 }
