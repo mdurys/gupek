@@ -31,10 +31,6 @@ class SeasonController extends Controller
             ->getRepository('MDurysGupekBundle:Meeting')
             ->getDetailsBySeason($season->getId());
 
-        return $this->render('MDurysGupekBundle:Season:show.html.twig', [
-            'season' => $season,
-            'ranking' => $ranking,
-            'meetings' => $meetings
-            ]);
+        return $this->render('MDurysGupekBundle:Season:show.html.twig', compact($season, $ranking, $meetings));
     }
 }
