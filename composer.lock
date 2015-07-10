@@ -1030,16 +1030,16 @@
         },
         {
             "name": "gedmo/doctrine-extensions",
-            "version": "v2.4.2",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "a6f1d468fea2c4c48749bec43fcb9e13088e3889"
+                "reference": "fd7b5682f3e2c51660ca8964745eec3ed83c6654"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/a6f1d468fea2c4c48749bec43fcb9e13088e3889",
-                "reference": "a6f1d468fea2c4c48749bec43fcb9e13088e3889",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/fd7b5682f3e2c51660ca8964745eec3ed83c6654",
+                "reference": "fd7b5682f3e2c51660ca8964745eec3ed83c6654",
                 "shasum": ""
             },
             "require": {
@@ -1049,7 +1049,7 @@
             },
             "require-dev": {
                 "doctrine/common": ">=2.5.0",
-                "doctrine/mongodb-odm": ">=1.0.0-BETA13",
+                "doctrine/mongodb-odm": "dev-master",
                 "doctrine/orm": ">=2.5.0",
                 "phpunit/phpunit": "~4.4",
                 "phpunit/phpunit-mock-objects": "~2.3",
@@ -1105,7 +1105,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-06-18 17:24:25"
+            "time": "2015-07-07 08:17:38"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1796,12 +1796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "8c999b5c55e10f883058fab5378e99216f682292"
+                "reference": "c104bc291a2b691abd4408f8d5f9595c93a689ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/8c999b5c55e10f883058fab5378e99216f682292",
-                "reference": "8c999b5c55e10f883058fab5378e99216f682292",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/c104bc291a2b691abd4408f8d5f9595c93a689ae",
+                "reference": "c104bc291a2b691abd4408f8d5f9595c93a689ae",
                 "shasum": ""
             },
             "require": {
@@ -1910,7 +1910,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-07-02 06:17:05"
+            "time": "2015-07-09 16:32:09"
         },
         {
             "name": "twbs/bootstrap",
@@ -1918,12 +1918,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "f300f03f809eaf8bf64785edcc869c6412dfb9ca"
+                "reference": "cb7f569262acaf5d0d6c001146855eb595ffdd20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/f300f03f809eaf8bf64785edcc869c6412dfb9ca",
-                "reference": "f300f03f809eaf8bf64785edcc869c6412dfb9ca",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/cb7f569262acaf5d0d6c001146855eb595ffdd20",
+                "reference": "cb7f569262acaf5d0d6c001146855eb595ffdd20",
                 "shasum": ""
             },
             "replace": {
@@ -1961,7 +1961,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2015-06-27 13:21:55"
+            "time": "2015-07-07 04:43:37"
         },
         {
             "name": "twig/extensions",
