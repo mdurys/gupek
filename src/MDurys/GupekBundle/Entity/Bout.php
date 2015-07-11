@@ -44,6 +44,7 @@ class Bout
 
     /**
      * @ORM\OneToMany(targetEntity="MDurys\GupekBundle\Entity\MeetingUser", mappedBy="bout")
+     * @Assert\Valid
      */
     private $meetingUsers;
 

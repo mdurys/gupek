@@ -3,6 +3,10 @@
 {% block body %}
     <h1>{{ "bout.header.score"|trans }}</h1>
 
-    {{ form(form) }}
+    {{ form_start(form) }}
+    	{% for player in form.meetingUsers %}
+    		{{ form_row(player.place) }}
+    	{% endfor %}
+    {{ form_end(form) }}
 
 {% endblock %}
