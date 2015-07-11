@@ -48,8 +48,8 @@ class MeetingUser
      * @var integer
      *
      * @ORM\Column(name="place", type="smallint", nullable=true)
-     * @Assert\Range(min="1")
-     * @Assert\Expression("this.getPlace() <= this.getBout().getMaxPlayers()", message="bout.illegal_place")
+     * @Assert\Range(min="1", minMessage="bout.illegal_place")
+     * @Assert\Expression("this.getPlace() <= this.getBout().getMeetingUsers().count()", message="bout.illegal_place")
      */
     private $place;
 
