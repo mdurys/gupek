@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use MDurys\GupekBundle\Entity\Bout;
 use MDurys\GupekBundle\Entity\Meeting;
 use MDurys\GupekBundle\Form\BoutType;
+use MDurys\GupekBundle\Form\BoutScoreType;
 use MDurys\GupekBundle\Logic\Exception\BoutException;
 use MDurys\GupekBundle\Logic\Exception\MeetingException;
 
@@ -227,7 +228,7 @@ class BoutController extends Controller
     /**
      * Add currently logged in user to bout.
      *
-     * @Route("/join/{id}", name="bout_join")
+     * @Route("/{id}/join", name="bout_join")
      * @Method("GET")
      */
     public function joinAction(Bout $bout)
@@ -249,7 +250,7 @@ class BoutController extends Controller
     /**
      * Remove currently logged in user from bout.
      *
-     * @Route("/leave/{id}", name="bout_leave")
+     * @Route("/{id}/leave", name="bout_leave")
      * @Method("GET")
      */
     public function leaveAction(Bout $bout)
@@ -268,5 +269,42 @@ class BoutController extends Controller
         }
 
         return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]));
+    }
+
+    /**
+     * Assign scores to players in given bout.
+     *
+     * @Route("/{id}/score", name="bout_score")
+     * @Method({"GET", "POST"})
+     */
+    public function scoreAction(Request $request, Bout $bout)
+    {
+        $form = $this->createForm(new BoutScoreType(), $bout, [
+            'action' => $this->generateUrl('bout_score', ['id' => $bout->getId()]),
+            'method' => 'POST',
+        ]);
+
+        $form->add('submit', 'submit', ['label' => 'form.button.update']);
+
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            try {
+                $this->get('gupek.logic.bout')->calculateScores($bout);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($bout);
+                $em->flush();
+
+                $this->get('braincrafted_bootstrap.flash')->success('bout.message.scores_added');
+            } catch (BoutException $e) {
+                $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
+            }
+
+            return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]));
+        }
+
+        return $this->render('MDurysGupekBundle:Bout:score.html.twig', [
+            'bout' => $bout,
+            'form' => $form->createView()
+            ]);
     }
 }
