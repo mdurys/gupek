@@ -2,8 +2,6 @@
 
 {% block body %}
 
-<a href="{{ path("mdurys_gupek_season_show", { "id": meeting.season.id }) }}">sezon {{ meeting.season.id }}</a>
-
 <h2>{{ meeting.date|localizeddate('long', 'short') }}</h2>
 
 <a href="{{ path("mdurys_gupek_meeting_join", { "id": meeting.id }) }}" class="btn btn-success" role="button">
