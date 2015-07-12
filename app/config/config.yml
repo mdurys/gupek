@@ -69,6 +69,7 @@ braincrafted_bootstrap:
     less_filter: less
     assets_dir: %kernel.root_dir%/../vendor/twbs/bootstrap
     jquery_path: %kernel.root_dir%/../vendor/components/jquery/jquery.js
+    icon_prefix: fa
 
 # Doctrine Configuration
 doctrine:

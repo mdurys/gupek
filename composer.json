@@ -24,7 +24,8 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "braincrafted/bootstrap-bundle": "~2.0",
         "twbs/bootstrap": "3.3.*@dev",
-        "components/jquery": "~2.1"
+        "components/jquery": "~2.1",
+        "fortawesome/font-awesome": "~4.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
