@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "591c76fe0173a1fd17c264947d0663d0",
+    "hash": "429fe580d12d6d4d5386bd3462e9aae7",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -48,26 +48,26 @@
         },
         {
             "name": "braincrafted/bootstrap-bundle",
-            "version": "v2.1.2",
+            "version": "dev-fix-composer-hhvm",
             "target-dir": "Braincrafted/Bundle/BootstrapBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/braincrafted/bootstrap-bundle.git",
-                "reference": "c301bae8ba91b1a6f1045919b16f9cb9b62c7e7b"
+                "url": "https://github.com/mdurys/bootstrap-bundle.git",
+                "reference": "5e9fb2e680f73ce66f2959156d6304f8f5544803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/braincrafted/bootstrap-bundle/zipball/c301bae8ba91b1a6f1045919b16f9cb9b62c7e7b",
-                "reference": "c301bae8ba91b1a6f1045919b16f9cb9b62c7e7b",
+                "url": "https://api.github.com/repos/mdurys/bootstrap-bundle/zipball/5e9fb2e680f73ce66f2959156d6304f8f5544803",
+                "reference": "5e9fb2e680f73ce66f2959156d6304f8f5544803",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "symfony/console": "~2.3",
-                "symfony/finder": "~2.3",
-                "symfony/form": "~2.3",
-                "symfony/framework-bundle": "~2.3",
-                "symfony/twig-bundle": "~2.3"
+                "symfony/console": "~2.6",
+                "symfony/finder": "~2.6",
+                "symfony/form": "~2.6",
+                "symfony/framework-bundle": "~2.6",
+                "symfony/twig-bundle": "~2.6"
             },
             "require-dev": {
                 "knplabs/knp-menu": "~2.0@alpha",
@@ -75,7 +75,7 @@
                 "knplabs/knp-paginator-bundle": "dev-master",
                 "mockery/mockery": "0.9.*",
                 "phpunit/phpunit": "3.7.*",
-                "symfony/assetic-bundle": "~2.3"
+                "symfony/assetic-bundle": "~2.6"
             },
             "suggest": {
                 "knplabs/knp-menu": "Required to use KnpMenuBundle.",
@@ -89,7 +89,6 @@
                     "Braincrafted\\Bundle\\BootstrapBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -104,7 +103,10 @@
             "keywords": [
                 "bootstrap"
             ],
-            "time": "2015-03-06 12:14:13"
+            "support": {
+                "source": "https://github.com/mdurys/bootstrap-bundle/tree/fix-composer-hhvm"
+            },
+            "time": "2015-07-14 18:33:21"
         },
         {
             "name": "components/jquery",
@@ -1848,7 +1850,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/c104bc291a2b691abd4408f8d5f9595c93a689ae",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/bb54d8ce33ebafb505872061b591ecc17d943fa4",
                 "reference": "c104bc291a2b691abd4408f8d5f9595c93a689ae",
                 "shasum": ""
             },
@@ -2171,11 +2173,19 @@
             "time": "2015-03-17 06:36:52"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "2.1.2.0",
+            "alias_normalized": "2.1.2.0",
+            "version": "dev-fix-composer-hhvm",
+            "package": "braincrafted/bootstrap-bundle"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "symfony/symfony": 20,
         "friendsofsymfony/user-bundle": 20,
+        "braincrafted/bootstrap-bundle": 20,
         "twbs/bootstrap": 20
     },
     "prefer-stable": false,

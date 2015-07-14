@@ -22,7 +22,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "gedmo/doctrine-extensions": "~2.4",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "braincrafted/bootstrap-bundle": "~2.0",
+        "braincrafted/bootstrap-bundle": "dev-fix-composer-hhvm as 2.1.2.0",
         "twbs/bootstrap": "3.3.*@dev",
         "components/jquery": "~2.1",
         "fortawesome/font-awesome": "~4.3"
@@ -30,6 +30,12 @@
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mdurys/bootstrap-bundle"
+        }
+    ],
     "scripts": {
         "post-root-package-install": [
             "SymfonyStandard\\Composer::hookRootPackageInstall"
