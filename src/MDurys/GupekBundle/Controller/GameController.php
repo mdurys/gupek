@@ -7,11 +7,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use MDurys\GupekBundle\Entity\Game;
 
+/**
+ * Game controller.
+ *
+ * @Route("/game")
+ */
 class GameController extends Controller
 {
-
     /**
-     * @Route("/game")
+     * @Route("/")
      * @Method("GET")
      */
     public function indexAction()
@@ -20,7 +24,7 @@ class GameController extends Controller
     }
 
     /**
-     * @Route("/game/{slug}")
+     * @Route("/{slug}")
      * @Method("GET")
      */
     public function showAction(Game $game)
