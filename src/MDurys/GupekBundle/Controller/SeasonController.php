@@ -7,10 +7,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use MDurys\GupekBundle\Entity\Season;
 
+/**
+ * @Route("/season")
+ */
 class SeasonController extends Controller
 {
     /**
-     * @Route("/season")
+     * @Route("/")
      * @Method("GET")
      */
     public function indexAction()
@@ -19,7 +22,7 @@ class SeasonController extends Controller
     }
 
     /**
-     * @Route("/season/{id}")
+     * @Route("/{id}")
      * @Method("GET")
      */
     public function showAction(Season $season)

@@ -65,12 +65,6 @@ assetic:
         #yui_css:
         #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
-braincrafted_bootstrap:
-    less_filter: less
-    assets_dir: %kernel.root_dir%/../vendor/twbs/bootstrap
-    jquery_path: %kernel.root_dir%/../vendor/components/jquery/jquery.js
-    icon_prefix: fa
-
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -98,3 +92,9 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: MDurys\GupekBundle\Entity\User
+
+braincrafted_bootstrap:
+    less_filter: less
+    assets_dir: %kernel.root_dir%/../vendor/twbs/bootstrap
+    jquery_path: %kernel.root_dir%/../vendor/components/jquery/jquery.js
+    icon_prefix: fa
