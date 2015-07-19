@@ -1334,16 +1334,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.14.0",
+            "version": "1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "b287fbbe1ca27847064beff2bad7fb6920bf08cc"
+                "reference": "dc5150cc608f2334c72c3b6a553ec9668a4156b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/b287fbbe1ca27847064beff2bad7fb6920bf08cc",
-                "reference": "b287fbbe1ca27847064beff2bad7fb6920bf08cc",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/dc5150cc608f2334c72c3b6a553ec9668a4156b0",
+                "reference": "dc5150cc608f2334c72c3b6a553ec9668a4156b0",
                 "shasum": ""
             },
             "require": {
@@ -1380,7 +1380,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.14.x-dev"
+                    "dev-master": "1.15.x-dev"
                 }
             },
             "autoload": {
@@ -1406,7 +1406,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-06-19 13:29:54"
+            "time": "2015-07-12 13:54:09"
         },
         {
             "name": "psr/log",
@@ -1846,12 +1846,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "c104bc291a2b691abd4408f8d5f9595c93a689ae"
+                "reference": "99f3475a2acf859ee14c8183b884c0cd25bb5853"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/bb54d8ce33ebafb505872061b591ecc17d943fa4",
-                "reference": "c104bc291a2b691abd4408f8d5f9595c93a689ae",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/99f3475a2acf859ee14c8183b884c0cd25bb5853",
+                "reference": "99f3475a2acf859ee14c8183b884c0cd25bb5853",
                 "shasum": ""
             },
             "require": {
@@ -1960,7 +1960,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-07-09 16:32:09"
+            "time": "2015-07-16 12:21:55"
         },
         {
             "name": "twbs/bootstrap",
@@ -1968,12 +1968,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "cb7f569262acaf5d0d6c001146855eb595ffdd20"
+                "reference": "66543ed112e9344d59eba343e3a45200e3ebd839"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/cb7f569262acaf5d0d6c001146855eb595ffdd20",
-                "reference": "cb7f569262acaf5d0d6c001146855eb595ffdd20",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/66543ed112e9344d59eba343e3a45200e3ebd839",
+                "reference": "66543ed112e9344d59eba343e3a45200e3ebd839",
                 "shasum": ""
             },
             "replace": {
@@ -2011,7 +2011,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2015-07-07 04:43:37"
+            "time": "2015-07-13 02:53:04"
         },
         {
             "name": "twig/extensions",
