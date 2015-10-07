@@ -15,7 +15,7 @@ class MeetingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', 'datetime', ['label' => 'form.meeting.date'])
+            ->add('date', 'datetime', ['label' => 'form.meeting.date', 'minutes' => [0, 30]])
             ->add('season')
         ;
     }
