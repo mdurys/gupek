@@ -4,7 +4,7 @@ namespace MDurys\GupekBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MeetingUserType extends AbstractType
 {
@@ -24,15 +24,15 @@ class MeetingUserType extends AbstractType
             // ->add('bout')
         ;
     }
-    
+
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'MDurys\GupekBundle\Entity\MeetingUser'
-        ));
+        ]);
     }
 
     /**
