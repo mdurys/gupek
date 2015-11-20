@@ -84,6 +84,7 @@ class BoutLogic extends BaseLogic
         }
 
         foreach ($meetingUsers as $mu) {
+            /** @var \MDurys\GupekBundle\Entity\MeetingUser $mu */
             if ($mu->getBout()->getId() == $bout->getId()) {
                 $bout->removeMeetingUser($mu);
                 if (1 == count($meetingUsers)) {

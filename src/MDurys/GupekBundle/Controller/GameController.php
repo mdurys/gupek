@@ -17,6 +17,8 @@ class GameController extends Controller
     /**
      * @Route("/")
      * @Method("GET")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
@@ -26,6 +28,9 @@ class GameController extends Controller
     /**
      * @Route("/{slug}")
      * @Method("GET")
+     *
+     * @param Game $game
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Game $game)
     {
