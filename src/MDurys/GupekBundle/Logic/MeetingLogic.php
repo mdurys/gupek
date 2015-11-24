@@ -74,6 +74,7 @@ class MeetingLogic extends BaseLogic
         }
 
         foreach ($result as $mu) {
+            /** @var \MDurys\GupekBundle\Entity\MeetingUser $mu */
             if (null !== $mu->getPlace()) {
                 throw new Exception\MeetingException('user_is_ranked');
             }

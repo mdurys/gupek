@@ -16,3 +16,5 @@
 /phpunit.xml
 /composer.phar
 .idea/
+*.sublime-workspace
+*.sublime-project

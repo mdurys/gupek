@@ -15,6 +15,8 @@ class SeasonController extends Controller
     /**
      * @Route("/")
      * @Method("GET")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
@@ -24,6 +26,9 @@ class SeasonController extends Controller
     /**
      * @Route("/{id}")
      * @Method("GET")
+     *
+     * @param Season $season
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Season $season)
     {
