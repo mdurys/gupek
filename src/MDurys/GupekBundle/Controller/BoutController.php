@@ -39,7 +39,7 @@ class BoutController extends Controller
             $em->persist($bout);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
+            return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]);
         }
 
         return $this->render('MDurysGupekBundle:Bout:new.html.twig', [
@@ -172,7 +172,7 @@ class BoutController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('bout_edit', ['id' => $id]));
+            return $this->redirectToRoute('bout_edit', ['id' => $id]);
         }
 
         return [
@@ -205,7 +205,7 @@ class BoutController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('bout'));
+        return $this->redirectToRoute('bout');
     }
 
     /**
@@ -244,7 +244,7 @@ class BoutController extends Controller
             $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
         }
 
-        return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]));
+        return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]);
     }
 
     /**
@@ -268,7 +268,7 @@ class BoutController extends Controller
             $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
         }
 
-        return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]));
+        return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]);
     }
 
     /**
@@ -299,7 +299,7 @@ class BoutController extends Controller
                 $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
             }
 
-            return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]));
+            return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]);
         }
 
         return $this->render('MDurysGupekBundle:Bout:score.html.twig', [

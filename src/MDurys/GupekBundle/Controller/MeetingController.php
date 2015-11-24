@@ -47,7 +47,7 @@ class MeetingController extends Controller
             $em->persist($meeting);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
+            return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]);
         }
 
         return $this->render('MDurysGupekBundle:Meeting:new.html.twig', [
@@ -151,7 +151,7 @@ class MeetingController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('mdurys_gupek_meeting_edit', ['id' => $id]));
+            return $this->redirectToRoute('mdurys_gupek_meeting_edit', ['id' => $id]);
         }
 
         return $this->render('MDurysGupekBundle:Meeting:edit.html.twig', [
@@ -180,7 +180,7 @@ class MeetingController extends Controller
             $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
         }
 
-        return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
+        return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]);
     }
 
     /**
@@ -202,7 +202,7 @@ class MeetingController extends Controller
             $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
         }
 
-        return $this->redirect($this->generateUrl('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]));
+        return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $meeting->getId()]);
     }
 
     /**
@@ -240,7 +240,7 @@ class MeetingController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('meeting'));
+        return $this->redirectToRoute('meeting');
     }
 
     /**
