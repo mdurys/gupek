@@ -29,21 +29,21 @@ class Bout
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Meeting", inversedBy="bouts")
+     * @ORM\ManyToOne(targetEntity="Meeting", inversedBy="bouts")
      * @ORM\JoinColumn(referencedColumnName="id", nullable=false)
      * @Assert\NotNull()
      */
     private $meeting;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Game")
+     * @ORM\ManyToOne(targetEntity="Game")
      * @ORM\JoinColumn(referencedColumnName="id", nullable=false)
      * @Assert\NotNull()
      */
     private $game;
 
     /**
-     * @ORM\OneToMany(targetEntity="MDurys\GupekBundle\Entity\MeetingUser", mappedBy="bout")
+     * @ORM\OneToMany(targetEntity="MeetingUser", mappedBy="bout")
      * @Assert\Valid
      */
     private $meetingUsers;

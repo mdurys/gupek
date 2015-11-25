@@ -25,21 +25,21 @@ class MeetingUser
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Meeting", inversedBy="meetingUsers")
+     * @ORM\ManyToOne(targetEntity="Meeting", inversedBy="meetingUsers")
      * @ORM\JoinColumn(referencedColumnName="id", nullable=false)
      * @Assert\NotNull()
      */
     private $meeting;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(referencedColumnName="id", nullable=false)
      * @Assert\NotNull()
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Bout", inversedBy="meetingUsers")
+     * @ORM\ManyToOne(targetEntity="Bout", inversedBy="meetingUsers")
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     private $bout;

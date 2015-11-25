@@ -34,19 +34,19 @@ class Meeting
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MDurys\GupekBundle\Entity\Season")
+     * @ORM\ManyToOne(targetEntity="Season")
      * @ORM\JoinColumn(referencedColumnName="id", nullable=false)
      * @Assert\NotNull()
      */
     private $season;
 
     /**
-     * @ORM\OneToMany(targetEntity="MDurys\GupekBundle\Entity\MeetingUser", mappedBy="meeting")
+     * @ORM\OneToMany(targetEntity="MeetingUser", mappedBy="meeting")
      */
     private $meetingUsers;
 
     /**
-     * @ORM\OneToMany(targetEntity="MDurys\GupekBundle\Entity\Bout", mappedBy="meeting")
+     * @ORM\OneToMany(targetEntity="Bout", mappedBy="meeting")
      */
     private $bouts;
 
