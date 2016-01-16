@@ -26,7 +26,7 @@ class MeetingType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'MDurys\GupekBundle\Entity\Meeting'
+            'data_class' => \MDurys\GupekBundle\Entity\Meeting::class
         ]);
     }
 

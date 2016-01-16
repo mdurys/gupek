@@ -35,7 +35,7 @@ class BoutType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'MDurys\GupekBundle\Entity\Bout'
+            'data_class' => \MDurys\GupekBundle\Entity\Bout::class
         ]);
     }
 

@@ -31,7 +31,7 @@ class MeetingUserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'MDurys\GupekBundle\Entity\MeetingUser'
+            'data_class' => \MDurys\GupekBundle\Entity\MeetingUser::class
         ]);
     }
 
