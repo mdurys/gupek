@@ -8,12 +8,13 @@
     },
     "require": {
         "php": ">=5.4.0",
-        "symfony/symfony": "2.7.x-dev",
+        "symfony/symfony": "2.8.x-dev",
         "doctrine/orm": "~2.2,>=2.2.3,<2.5",
         "doctrine/dbal": "<2.5",
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "twig/extensions": "~1.0",
+        "symfony/polyfill-apcu": "~1.0@dev",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
@@ -25,7 +26,7 @@
         "braincrafted/bootstrap-bundle": "dev-fix-composer-hhvm as 2.1.2.0",
         "twbs/bootstrap": "3.3.*@dev",
         "components/jquery": "~2.1",
-        "fortawesome/font-awesome": "~4.3"
+        "fortawesome/font-awesome": "~4.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -74,7 +75,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.7-dev"
+            "dev-master": "2.8-dev"
         }
     }
 }
