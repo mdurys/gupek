@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "28a2edd1884390a3a246da300c9d0c83",
-    "content-hash": "a46ff4974bf86cfd82463deba467bd18",
+    "hash": "76fac02c92529c238e9345f41b16dd47",
+    "content-hash": "cadec562bd55c12fc5c0b92f1917fdfc",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -54,29 +54,30 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mdurys/bootstrap-bundle.git",
-                "reference": "5e9fb2e680f73ce66f2959156d6304f8f5544803"
+                "reference": "d04c5a9c66d06f3b417298450a3ae37ed06d4129"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mdurys/bootstrap-bundle/zipball/5e9fb2e680f73ce66f2959156d6304f8f5544803",
-                "reference": "5e9fb2e680f73ce66f2959156d6304f8f5544803",
+                "url": "https://api.github.com/repos/mdurys/bootstrap-bundle/zipball/d04c5a9c66d06f3b417298450a3ae37ed06d4129",
+                "reference": "d04c5a9c66d06f3b417298450a3ae37ed06d4129",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "symfony/console": "~2.6",
-                "symfony/finder": "~2.6",
-                "symfony/form": "~2.6",
-                "symfony/framework-bundle": "~2.6",
-                "symfony/twig-bundle": "~2.6"
+                "symfony/console": "~2.6|~3.0",
+                "symfony/finder": "~2.6|~3.0",
+                "symfony/form": "~2.6|~3.0",
+                "symfony/framework-bundle": "~2.6|~3.0",
+                "symfony/twig-bundle": "~2.6|~3.0",
+                "twig/twig": "~1.12|~2.0@dev"
             },
             "require-dev": {
                 "knplabs/knp-menu": "~2.0@alpha",
                 "knplabs/knp-menu-bundle": "~2.0@alpha",
                 "knplabs/knp-paginator-bundle": "dev-master",
-                "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "3.7.*",
-                "symfony/assetic-bundle": "~2.6"
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~3.7",
+                "symfony/assetic-bundle": "~2.6|~3.0"
             },
             "suggest": {
                 "knplabs/knp-menu": "Required to use KnpMenuBundle.",
@@ -107,7 +108,7 @@
             "support": {
                 "source": "https://github.com/mdurys/bootstrap-bundle/tree/fix-composer-hhvm"
             },
-            "time": "2015-07-14 18:33:21"
+            "time": "2016-01-07 14:10:40"
         },
         {
             "name": "components/jquery",
@@ -2800,6 +2801,61 @@
             ],
             "description": "This bundle generates code for you",
             "time": "2015-03-17 06:36:52"
+        },
+        {
+            "name": "symfony/phpunit-bridge",
+            "version": "v3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/phpunit-bridge.git",
+                "reference": "0226673bcf0be649c03db2998752c5b2082e0ad4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/0226673bcf0be649c03db2998752c5b2082e0ad4",
+                "reference": "0226673bcf0be649c03db2998752c5b2082e0ad4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "suggest": {
+                "symfony/debug": "For tracking deprecated interfaces usages at runtime with DebugClassLoader"
+            },
+            "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Bridge\\PhpUnit\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony PHPUnit Bridge",
+            "homepage": "https://symfony.com",
+            "time": "2015-12-15 02:03:07"
         }
     ],
     "aliases": [
