@@ -38,6 +38,10 @@ bout:
         user_leave: User has been removed from bout.
         scores_added: Bout scores were updated.
 
+game:
+    header:
+        new: Game creation
+
 form:
     meeting:
         date: Date and time
@@ -45,6 +49,10 @@ form:
         game: Game
         max_players: Max players
         max_players_help: Limit number of players that can join this bout
+    game:
+        name: Name
+        min_players: Min players
+        max_players: Max players
     button:
         create: Create
         update: Update

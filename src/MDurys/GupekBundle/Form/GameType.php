@@ -17,9 +17,15 @@ class GameType extends AbstractType
     {
         $builder
 //            ->add('slug')
-            ->add('name')
-            ->add('minPlayers')
-            ->add('maxPlayers')
+            ->add('name', 'text', [
+                'label' => 'form.game.name',
+            ])
+            ->add('minPlayers', 'integer', [
+                'label' => 'form.game.min_players',
+            ])
+            ->add('maxPlayers', 'integer', [
+                'label' => 'form.game.max_players',
+            ])
         ;
     }
     
