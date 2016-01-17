@@ -11,9 +11,9 @@ class BoutLogic extends BaseLogic
     /**
      * Add user to bout.
      *
-     * @param \MDurys\GupekBundle\Entity\Bout $bout
-     * @param \MDurys\GupekBundle\Entity\User $user
-     * @return \MDurys\GupekBundle\Entity\MeetingUser
+     * @param Bout $bout
+     * @param User $user
+     * @return MeetingUser
      * @throws \MDurys\GupekBundle\Logic\Exception\BoutException
      */
     public function addUser(Bout $bout, User $user)
@@ -66,8 +66,8 @@ class BoutLogic extends BaseLogic
     /**
      * Remove user from bout.
      *
-     * @param \MDurys\GupekBundle\Entity\Bout $bout
-     * @param \MDurys\GupekBundle\Entity\User $user
+     * @param Bout $bout
+     * @param User $user
      * @return boolean TRUE for success
      * @throws \MDurys\GupekBundle\Logic\Exception\BoutException
      */
@@ -112,7 +112,7 @@ class BoutLogic extends BaseLogic
      * Second best player gets 2 points less than the winner. Each
      * subsequent players get 1 point less.
      *
-     * @param \MDurys\GupekBundle\Entity\Bout $bout
+     * @param Bout $bout
      */
     public function calculateScores(Bout $bout)
     {

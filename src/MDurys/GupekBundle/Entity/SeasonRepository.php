@@ -15,14 +15,15 @@ class SeasonRepository extends EntityRepository
     /**
      * Get basic information about given season: start date, end date and number of meetings.
      *
-     * @param int $seasonId
+     * @param int $season
      * @return array|null
      */
     public function getInfo($season)
     {
+        /** @var \Doctrine\ORM\QueryBuilder $qb */
         $qb = $this->getEntityManager()
             ->getRepository('MDurysGupekBundle:Meeting')
-            ->queryBySeason($seasonId);
+            ->queryBySeason($season);
         return $qb
             ->select([$qb->expr()->min('m.date'), $qb->expr()->max('m.date'), $qb->expr()->count('m.id')])
             ->getQuery()
@@ -32,8 +33,8 @@ class SeasonRepository extends EntityRepository
     /**
      * Get player ranking (with details) for given season.
      *
-     * @param int|\MDurys\GupekBundle\Entity\Season $season
-     * @return array|null
+     * @param int | Season $season
+     * @return array | null
      */
     public function getUserRanking($season)
     {

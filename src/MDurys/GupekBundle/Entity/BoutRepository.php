@@ -4,8 +4,6 @@ namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
-use MDurys\GupekBundle\Entity\Meeting;
-
 /**
  * BoutRepository
  *

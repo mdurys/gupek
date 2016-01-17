@@ -30,7 +30,7 @@ class MeetingRepository extends EntityRepository
     /**
      * Get meetings from given season.
      *
-     * @param int|\MDurys\GupekBundle\Entity\Season $season
+     * @param int | Season $seasonId
      * @return array
      */
     public function getBySeason($seasonId)

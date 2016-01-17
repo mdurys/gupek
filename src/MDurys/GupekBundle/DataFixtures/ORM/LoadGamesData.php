@@ -24,6 +24,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'drake' => ['Francis Drake', 3, 5],
             'finca' => ['Finca', 2, 4],
             'hacienda' => ['Hacienda', 2, 5],
+            'hollywood' => ['Hollywood', 2, 6],
             'imperial2030' => ['Imperial 2030', 2, 6],
             'keyflower' => ['Keyflower', 2, 6],
             'kolejka' => ['Kolejka', 2, 5],
@@ -54,7 +55,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
                 ->setMaxPlayers($maxPlayers);
             $em->persist($game);
             $em->flush();
-            $this->addReference('game-'.$id, $game);
+            $this->addReference('game-' . $id, $game);
         }
     }
 

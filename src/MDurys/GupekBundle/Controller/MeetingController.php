@@ -34,6 +34,10 @@ class MeetingController extends Controller
      *
      * @Route("/{season}", name="meeting_create")
      * @Method("POST")
+     *
+     * @param Request $request
+     * @param Season $season
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function createAction(Request $request, Season $season)
     {
@@ -65,6 +69,7 @@ class MeetingController extends Controller
      */
     private function createCreateForm(Meeting $entity)
     {
+        /** @var \Symfony\Component\Form\Form $form */
         $form = $this->get('gupek.logic.meeting')->createCreateForm($entity);
         $form->add('submit', 'submit', ['label' => 'form.button.create']);
 
@@ -76,6 +81,9 @@ class MeetingController extends Controller
      *
      * @Route("/new/{season}")
      * @Method("GET")
+     *
+     * @param Season $season
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Season $season)
     {
@@ -96,6 +104,9 @@ class MeetingController extends Controller
      *
      * @Route("/edit/{id}")
      * @Method("GET")
+     *
+     * @param Meeting $meeting
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Meeting $meeting)
     {
@@ -133,6 +144,10 @@ class MeetingController extends Controller
      *
      * @Route("/{id}")
      * @Method("PUT")
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function updateAction(Request $request, $id)
     {
@@ -166,6 +181,9 @@ class MeetingController extends Controller
      *
      * @Route("/join/{id}")
      * @Method("GET")
+     *
+     * @param Meeting $meeting
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function joinAction(Meeting $meeting)
     {
@@ -188,6 +206,9 @@ class MeetingController extends Controller
      *
      * @Route("/leave/{id}")
      * @Method("GET")
+     *
+     * @param Meeting $meeting
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function leaveAction(Meeting $meeting)
     {
@@ -208,6 +229,9 @@ class MeetingController extends Controller
     /**
      * @Route("/{id}")
      * @Method("GET")
+     *
+     * @param Meeting $meeting
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Meeting $meeting)
     {
@@ -222,6 +246,10 @@ class MeetingController extends Controller
      *
      * @Route("/{id}", name="meeting_delete")
      * @Method("DELETE")
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, $id)
     {

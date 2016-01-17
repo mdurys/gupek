@@ -2,6 +2,7 @@
 
 namespace MDurys\GupekBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -69,7 +70,7 @@ class Bout
      */
     public function __construct()
     {
-        $this->meetingUsers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->meetingUsers = new ArrayCollection();
         $this->status = self::STATUS_NEW;
     }
 

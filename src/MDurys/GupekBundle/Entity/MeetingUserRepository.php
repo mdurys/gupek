@@ -4,8 +4,6 @@ namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\AbstractQuery;
-use MDurys\GupekBundle\Entity\Meeting;
-use MDurys\GupekBundle\Entity\User;
 
 /**
  * MeetingUserRepository
@@ -19,8 +17,8 @@ class MeetingUserRepository extends EntityRepository
      * Select all MeetingUser records matching given meeting and user
      * combination.
      *
-     * @param \MDurys\GupekBundle\Entity\Meeting|int $meeting
-     * @param \MDurys\GupekBundle\Entity\User|int $user
+     * @param Meeting | int $meeting
+     * @param User | int $user
      * @return \Doctrine\ORM\QueryBuilder
      */
     public function queryByMeetingAndUser($meeting, $user)
@@ -38,8 +36,8 @@ class MeetingUserRepository extends EntityRepository
      * Get all MeetingUser records matching given meeting and user
      * combination.
      *
-     * @param \MDurys\GupekBundle\Entity\Meeting|int $meeting
-     * @param \MDurys\GupekBundle\Entity\User|int $user
+     * @param Meeting | int $meeting
+     * @param User | int $user
      * @return \Doctrine\ORM\QueryBuilder
      */
     public function getByMeetingAndUser($meeting, $user)
@@ -52,8 +50,8 @@ class MeetingUserRepository extends EntityRepository
     /**
      * Check if given user participates in given meeting.
      *
-     * @param \MDurys\GupekBundle\Entity\Meeting|int $meeting
-     * @param \MDurys\GupekBundle\Entity\User|int $user
+     * @param Meeting | int $meeting
+     * @param User | int $user
      * @return bool
      */
     public function existsMeetingAndUser($meeting, $user)
@@ -69,8 +67,8 @@ class MeetingUserRepository extends EntityRepository
      * Select all MeetingUser records matching given bout and user
      * combination.
      *
-     * @param \MDurys\GupekBundle\Entity\Bout|int $bout
-     * @param \MDurys\GupekBundle\Entity\User|int $user
+     * @param Bout | int $bout
+     * @param User | int $user
      * @return \Doctrine\ORM\QueryBuilder
      */
     public function queryByBoutAndUser($bout, $user)
@@ -88,8 +86,8 @@ class MeetingUserRepository extends EntityRepository
      * Get all MeetingUser records matching given bout and user
      * combination.
      *
-     * @param \MDurys\GupekBundle\Entity\User|int $user
-     * @param \MDurys\GupekBundle\Entity\Bout|int $bout
+     * @param User | int $user
+     * @param Bout | int $bout
      * @return array
      */
     public function getByBoutAndUser($bout, $user)

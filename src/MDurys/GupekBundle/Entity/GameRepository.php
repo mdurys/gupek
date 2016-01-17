@@ -15,7 +15,7 @@ class GameRepository extends EntityRepository
     /**
      * Get query builder, which selects a game by slug.
      *
-     * @param int $seasonId
+     * @param string $slug
      * @return \Doctrine\ORM\QueryBuilder
      */
     public function queryBySlug($slug)
