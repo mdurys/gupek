@@ -5,6 +5,7 @@ namespace MDurys\GupekBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use MDurys\GupekBundle\Entity\Bout;
 
 class BoutScoreType extends AbstractType
 {
@@ -25,7 +26,7 @@ class BoutScoreType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => \MDurys\GupekBundle\Entity\Bout::class
+            'data_class' => Bout::class
         ]);
     }
 
