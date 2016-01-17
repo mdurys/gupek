@@ -95,7 +95,7 @@ fos_user:
     user_class: MDurys\GupekBundle\Entity\User
 
 braincrafted_bootstrap:
-    less_filter: less
+#    less_filter: less
     assets_dir: %kernel.root_dir%/../vendor/twbs/bootstrap
     jquery_path: %kernel.root_dir%/../vendor/components/jquery/jquery.js
     icon_prefix: fa
