@@ -6,4 +6,6 @@
 
 <p>{{ game.minPlayers }} - {{ game.maxPlayers }}</p>
 
+<a class="btn btn-default" href="{{ path('game_edit', { 'id': game.id }) }}">Edit</a>
+
 {% endblock %}

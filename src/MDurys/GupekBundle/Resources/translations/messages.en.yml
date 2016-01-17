@@ -41,6 +41,10 @@ bout:
 game:
     header:
         new: Game creation
+        edit: Game edit
+    message:
+        created: Game has been created
+        updated: Game has been updated
 
 form:
     meeting:

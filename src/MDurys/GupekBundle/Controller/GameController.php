@@ -5,6 +5,7 @@ namespace MDurys\GupekBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
 use MDurys\GupekBundle\Entity\Game;
 use MDurys\GupekBundle\Form\GameType;
 
@@ -45,8 +46,9 @@ class GameController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($game);
             $em->flush();
+            $this->get('braincrafted_bootstrap.flash')->success('game.message.created');
 
-            return $this->redirectToRoute('game_show', ['id' => $game->getSlug()]);
+            return $this->redirectToRoute('game_show', ['slug' => $game->getSlug()]);
         }
 
         return $this->render('MDurysGupekBundle:Bout:new.html.twig', [
@@ -89,6 +91,76 @@ class GameController extends Controller
         return $this->render('MDurysGupekBundle:Game:new.html.twig', [
             'game' => $game,
             'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * Displays a form to edit an existing Game entity.
+     *
+     * @Route("/{id}/edit", name="game_edit")
+     * @Method("GET")
+     *
+     * @param Game $game
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editAction(Game $game)
+    {
+        $editForm = $this->createEditForm($game);
+//        $deleteForm = $this->createDeleteForm($game->getId());
+
+        return $this->render('MDurysGupekBundle:Game:edit.html.twig', [
+            'entity'      => $game,
+            'edit_form'   => $editForm->createView(),
+//            'delete_form' => $deleteForm->createView(),
+        ]);
+    }
+
+    /**
+     * Creates a form to edit a Bout entity.
+     *
+     * @param Game $game The entity
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createEditForm(Game $game)
+    {
+        $form = $this->createForm(new GameType(), $game, [
+            'action' => $this->generateUrl('game_update', ['id' => $game->getId()]),
+            'method' => 'PUT',
+        ]);
+
+        $form->add('submit', 'submit', ['label' => 'form.button.update']);
+
+        return $form;
+    }
+
+    /**
+     * Edits an existing Game entity.
+     *
+     * @Route("/{id}", name="game_update")
+     * @Method("PUT")
+     *
+     * @param Request $request
+     * @param Game $game
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function updateAction(Request $request, Game $game)
+    {
+//        $deleteForm = $this->createDeleteForm($id);
+        $form = $this->createEditForm($game);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            $this->get('braincrafted_bootstrap.flash')->success('game.message.updated');
+
+            return $this->redirectToRoute('game_edit', ['id' => $game->getId()]);
+        }
+
+        return $this->render('MDurysGupekBundle:Game:edit.html.twig', [
+            'entity'      => $game,
+            'edit_form'   => $form->createView(),
+//            'delete_form' => $deleteForm->createView(),
         ]);
     }
 

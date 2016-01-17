@@ -16,7 +16,6 @@ class GameType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-//            ->add('slug')
             ->add('name', 'text', [
                 'label' => 'form.game.name',
             ])
