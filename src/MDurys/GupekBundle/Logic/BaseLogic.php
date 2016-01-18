@@ -2,31 +2,42 @@
 
 namespace MDurys\GupekBundle\Logic;
 
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Doctrine\ORM\EntityManager;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\Form\FormFactory;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 abstract class BaseLogic
 {
     /**
-     * @var ContainerInterface
+     * @var EntityManager
      */
-    protected $container;
+    private $entityManager;
 
     /**
-     * {@inheritDoc}
+     * @var FormFactory
      */
-    public function setContainer(ContainerInterface $container = null)
+    private $formFactory;
+
+    /**
+     * @var Router
+     */
+    private $router;
+
+    /**
+     * @param EntityManager $entityManager
+     */
+    public function setEntityManager(EntityManager $entityManager)
     {
-        $this->container = $container;
+        $this->entityManager = $entityManager;
     }
 
     /**
-     * @return \Doctrine\ORM\EntityManager
+     * @return EntityManager
      */
     public function getEntityManager()
     {
-        return $this->container->get('doctrine')->getManager();
+        return $this->entityManager;
     }
 
     /**
@@ -34,15 +45,31 @@ abstract class BaseLogic
      */
     public function getRepository($name)
     {
-        return $this->getEntityManager()->getRepository('MDurysGupekBundle:'.$name);
+        return $this->entityManager->getRepository('MDurysGupekBundle:'.$name);
     }
 
     /**
-     * @return \Symfony\Component\Form\FormFactory
+     * @param FormFactory $formFactory
+     */
+    public function setFormFactory(FormFactory $formFactory)
+    {
+        $this->formFactory = $formFactory;
+    }
+
+    /**
+     * @return FormFactory
      */
     public function getFormFactory()
     {
-        return $this->container->get('form.factory');
+        return $this->formFactory;
+    }
+
+    /**
+     * @param Router $router
+     */
+    public function setRouter(Router $router)
+    {
+        $this->router = $router;
     }
 
     /**
@@ -58,6 +85,6 @@ abstract class BaseLogic
      */
     public function generateUrl($route, $parameters = array(), $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
     {
-        return $this->container->get('router')->generate($route, $parameters, $referenceType);
+        return $this->router->generate($route, $parameters, $referenceType);
     }
 }

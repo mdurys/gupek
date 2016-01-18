@@ -11,18 +11,6 @@ use MDurys\GupekBundle\Form\MeetingType;
 
 class MeetingLogic extends BaseLogic
 {
-    private $meetingRepository;
-
-    /**
-     * MeetingLogic constructor.
-     *
-     * @param MeetingRepository $meetingRepository
-     */
-    public function __construct(MeetingRepository $meetingRepository)
-    {
-        $this->meetingRepository = $meetingRepository;
-    }
-
     /**
      * @var MeetingRepository
      */
@@ -95,6 +83,7 @@ class MeetingLogic extends BaseLogic
      * @param Meeting $meeting
      * @param User    $user
      *
+     * @return MeetingUser|mixed
      * @throws \MDurys\GupekBundle\Logic\Exception\MeetingException
      */
     public function removeUser(Meeting $meeting, User $user)
