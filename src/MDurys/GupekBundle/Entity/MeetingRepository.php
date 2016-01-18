@@ -15,7 +15,7 @@ class MeetingRepository extends EntityRepository
     /**
      * Get query builder, which selects all meetings from given season.
      *
-     * @param int|\MDurys\GupekBundle\Entity\Season $season
+     * @param int | Season $season
      * @return \Doctrine\ORM\QueryBuilder
      */
     public function queryBySeason($season)
@@ -30,12 +30,12 @@ class MeetingRepository extends EntityRepository
     /**
      * Get meetings from given season.
      *
-     * @param int | Season $seasonId
+     * @param int | Season $season
      * @return array
      */
-    public function getBySeason($seasonId)
+    public function getBySeason($season)
     {
-        return $this->queryBySeason($seasonId)
+        return $this->queryBySeason($season)
             ->getQuery()
             ->getResult();
     }

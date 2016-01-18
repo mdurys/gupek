@@ -3,17 +3,42 @@
 namespace MDurys\GupekBundle\Logic;
 
 use MDurys\GupekBundle\Entity\Meeting;
+use MDurys\GupekBundle\Entity\MeetingRepository;
 use MDurys\GupekBundle\Entity\MeetingUser;
+use MDurys\GupekBundle\Entity\MeetingUserRepository;
 use MDurys\GupekBundle\Entity\User;
 use MDurys\GupekBundle\Form\MeetingType;
 
 class MeetingLogic extends BaseLogic
 {
     /**
+     * @var MeetingRepository
+     */
+    private $meetingRepository;
+
+    /**
+     * @var MeetingUserRepository
+     */
+    private $meetingUserRepository;
+
+
+    /**
+     * MeetingLogic constructor.
+     *
+     * @param MeetingRepository     $meetingRepository
+     * @param MeetingUserRepository $meetingUserRepository
+     */
+    public function __construct(MeetingRepository $meetingRepository, MeetingUserRepository $meetingUserRepository)
+    {
+        $this->meetingRepository = $meetingRepository;
+        $this->meetingUserRepository = $meetingUserRepository;
+    }
+
+    /**
      * Check if given user participates in a meeting.
      *
-     * @param \MDurys\GupekBundle\Entity\Meeting $meeting
-     * @param \MDurys\GupekBundle\Entity\User $user
+     * @param Meeting $meeting
+     * @param User $user
      * @return bool
      */
     public function isUserParticipating(Meeting $meeting, User $user)
@@ -30,9 +55,9 @@ class MeetingLogic extends BaseLogic
     /**
      * Add user to meeting.
      *
-     * @param \MDurys\GupekBundle\Entity\Meeting $meeting
-     * @param \MDurys\GupekBundle\Entity\User $user
-     * @return \MDurys\GupekBundle\Entity\MeetingUser
+     * @param Meeting $meeting
+     * @param User $user
+     * @return MeetingUser
      * @throws \MDurys\GupekBundle\Logic\Exception\MeetingException
      */
     public function addUser(Meeting $meeting, User $user)
@@ -57,8 +82,8 @@ class MeetingLogic extends BaseLogic
     /**
      * Remove user from meeting.
      *
-     * @param \MDurys\GupekBundle\Entity\Meeting $meeting
-     * @param \MDurys\GupekBundle\Entity\User $user
+     * @param Meeting $meeting
+     * @param User $user
      * @throws \MDurys\GupekBundle\Logic\Exception\MeetingException
      */
     public function removeUser(Meeting $meeting, User $user)
@@ -68,7 +93,8 @@ class MeetingLogic extends BaseLogic
         // if (false === $this->isUserParticipating($meeting, $user)) {
         //     throw new Exception\MeetingException('user_not_joined');
         // }
-        $result = $this->getRepository('MeetingUser')->getByMeetingAndUser($meeting, $user);
+//        $result = $this->getRepository('MeetingUser')->getByMeetingAndUser($meeting, $user);
+        $result = $this->meetingUserRepository->getByMeetingAndUser($meeting, $user);
         if (empty($result)) {
             throw new Exception\MeetingException('user_not_joined');
         }
@@ -88,7 +114,7 @@ class MeetingLogic extends BaseLogic
     /**
      * Create meeting form.
      *
-     * @param \MDurys\GupekBundle\Entity\Meeting $meeting
+     * @param Meeting $meeting
      * @return \Symfony\Component\Form\Form The form
      */
     public function createCreateForm(Meeting $meeting)

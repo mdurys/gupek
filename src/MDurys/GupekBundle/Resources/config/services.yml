@@ -3,6 +3,7 @@ services:
         class:      MDurys\GupekBundle\Logic\MeetingLogic
         arguments:
             - @gupek.repository.meeting
+            - @gupek.repository.meeting_user
         calls:
             - [setContainer, ["@service_container"]]
     gupek.logic.bout:
@@ -15,3 +16,9 @@ services:
         factory_method: getRepository
         arguments:
             - MDurys\GupekBundle\Entity\Meeting
+    gupek.repository.meeting_user:
+        class: MDurys\GupekBundle\Entity\MeetingUserRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - MDurys\GupekBundle\Entity\MeetingUser
