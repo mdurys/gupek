@@ -31,7 +31,7 @@ class GameRepository extends EntityRepository
      * Get Game entity by slug.
      *
      * @param string $slug
-     * @return null|\MDurys\GupekBundle\Entity\Game
+     * @return null | Game
      */
     public function getBySlug($slug)
     {

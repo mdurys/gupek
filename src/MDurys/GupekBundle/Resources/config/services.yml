@@ -1,17 +1,31 @@
 services:
+
+    gupek.logic.base:
+        abstract: true
+        calls:
+            - [setContainer, ["@service_container"]]
+
     gupek.logic.meeting:
         class:      MDurys\GupekBundle\Logic\MeetingLogic
+        parent:     gupek.logic.base
         arguments:
             - @gupek.repository.meeting
-        calls:
-            - [setContainer, ["@service_container"]]
+            - @gupek.repository.meeting_user
+
     gupek.logic.bout:
         class:      MDurys\GupekBundle\Logic\BoutLogic
-        calls:
-            - [setContainer, ["@service_container"]]
+        parent:     gupek.logic.base
+
     gupek.repository.meeting:
         class: MDurys\GupekBundle\Entity\MeetingRepository
         factory_service: doctrine.orm.default_entity_manager
         factory_method: getRepository
         arguments:
             - MDurys\GupekBundle\Entity\Meeting
+
+    gupek.repository.meeting_user:
+        class: MDurys\GupekBundle\Entity\MeetingUserRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - MDurys\GupekBundle\Entity\MeetingUser

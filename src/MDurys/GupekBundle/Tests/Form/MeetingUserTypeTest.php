@@ -3,6 +3,7 @@
 namespace MDurys\GupekBundle\Tests\Form;
 
 use Symfony\Component\Form\Test\TypeTestCase;
+use MDurys\GupekBundle\Entity\MeetingUser;
 use MDurys\GupekBundle\Form\MeetingUserType;
 
 class MeetingUserTypeTest extends TypeTestCase
@@ -20,7 +21,7 @@ class MeetingUserTypeTest extends TypeTestCase
         $form->submit($formData);
 
         $this->assertTrue($form->isSynchronized());
-        $this->assertInstanceOf('MDurys\GupekBundle\Entity\MeetingUser', $form->getData());
+        $this->assertInstanceOf(MeetingUser::class, $form->getData());
 
         $view = $form->createView();
         $children = $view->children;
