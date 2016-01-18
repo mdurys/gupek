@@ -62,7 +62,7 @@ class Meeting
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -73,7 +73,8 @@ class Meeting
      * Set date
      *
      * @param \DateTime $date
-     * @return Meeting
+     *
+     * @return $this
      */
     public function setDate($date)
     {
@@ -85,7 +86,7 @@ class Meeting
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -95,8 +96,9 @@ class Meeting
     /**
      * Set season
      *
-     * @param \MDurys\GupekBundle\Entity\Season $season
-     * @return Meeting
+     * @param Season $season
+     *
+     * @return $this
      */
     public function setSeason(Season $season = null)
     {
@@ -108,7 +110,7 @@ class Meeting
     /**
      * Get season
      *
-     * @return \MDurys\GupekBundle\Entity\Season
+     * @return Season
      */
     public function getSeason()
     {
@@ -118,8 +120,9 @@ class Meeting
     /**
      * Add meetingUser
      *
-     * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
-     * @return Bout
+     * @param MeetingUser $meetingUser
+     *
+     * @return $this
      */
     public function addMeetingUser(MeetingUser $meetingUser)
     {
@@ -131,7 +134,7 @@ class Meeting
     /**
      * Remove meetingUser
      *
-     * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
+     * @param MeetingUser $meetingUser
      */
     public function removeMeetingUser(MeetingUser $meetingUser)
     {
@@ -152,23 +155,24 @@ class Meeting
      * Add bouts
      *
      * @param \MDurys\GupekBundle\Entity\Bout $bouts
-     * @return Meeting
+     *
+     * @return $this
      */
-    public function addBout(Bout $bouts)
+    public function addBout(Bout $bout)
     {
-        $this->bouts[] = $bouts;
+        $this->bouts[] = $bout;
 
         return $this;
     }
 
     /**
-     * Remove bouts
+     * Remove bout
      *
-     * @param \MDurys\GupekBundle\Entity\Bout $bouts
+     * @param Bout $bout
      */
-    public function removeBout(Bout $bouts)
+    public function removeBout(Bout $bout)
     {
-        $this->bouts->removeElement($bouts);
+        $this->bouts->removeElement($bout);
     }
 
     /**

@@ -14,7 +14,7 @@
 
 {% for bout in bouts %}
     <h3>
-        <a href="{{ path("mdurys_gupek_game_show", { "slug": bout.game.slug }) }}">{{ bout.game.name }}</a>
+        <a href="{{ path("game_show", { "slug": bout.game.slug }) }}">{{ bout.game.name }}</a>
     </h3>
 
     {% if bout.isNew %}
