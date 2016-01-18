@@ -75,9 +75,9 @@ abstract class BaseLogic
     /**
      * Generates a URL from the given parameters.
      *
-     * @param string         $route         The name of the route
-     * @param mixed          $parameters    An array of parameters
-     * @param Boolean|string $referenceType The type of reference (one of the constants in UrlGeneratorInterface)
+     * @param string           $route         The name of the route
+     * @param mixed            $parameters    An array of parameters
+     * @param boolean | string $referenceType The type of reference (one of the constants in UrlGeneratorInterface)
      *
      * @return string The generated URL
      *
