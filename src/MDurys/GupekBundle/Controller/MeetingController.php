@@ -7,8 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use MDurys\GupekBundle\Entity\Bout;
 use MDurys\GupekBundle\Entity\Meeting;
 use MDurys\GupekBundle\Entity\Season;
+use MDurys\GupekBundle\Entity\User;
 use MDurys\GupekBundle\Form\MeetingType;
 use MDurys\GupekBundle\Logic\Exception\MeetingException;
 
@@ -247,9 +249,12 @@ class MeetingController extends Controller
     public function showAction(Meeting $meeting)
     {
         $em = $this->getDoctrine()->getManager();
-        $bouts = $em->getRepository('MDurysGupekBundle:Bout')
+        $bouts = $em->getRepository(Bout::class)
             ->getJoinUserAndGameByMeeting($meeting);
-        return $this->render('MDurysGupekBundle:Meeting:show.html.twig', ['meeting' => $meeting, 'bouts' => $bouts]);
+        $users = $em->getRepository(User::class)
+            ->getByMeeting($meeting);
+
+        return $this->render('MDurysGupekBundle:Meeting:show.html.twig', compact('meeting', 'users', 'bouts'));
     }
 
     /**

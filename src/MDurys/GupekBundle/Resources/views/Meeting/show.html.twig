@@ -11,6 +11,12 @@
     {{ "form.button.leave"|trans }}
 </a>
 
+<p>
+    Participants ({{ users|length }}):
+    {% for user in users %}
+        {{ user.username }}
+    {% endfor %}
+</p>
 
 {% for bout in bouts %}
     <h3>
