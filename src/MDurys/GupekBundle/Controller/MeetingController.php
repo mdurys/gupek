@@ -254,7 +254,10 @@ class MeetingController extends Controller
         $users = $em->getRepository(User::class)
             ->getByMeeting($meeting);
 
-        return $this->render('MDurysGupekBundle:Meeting:show.html.twig', compact('meeting', 'users', 'bouts'));
+        $logic = $this->get('gupek.logic.meeting');
+        $hasUserJoined = $logic->isUserParticipating($meeting, $this->getUser());
+
+        return $this->render('MDurysGupekBundle:Meeting:show.html.twig', compact('meeting', 'users', 'bouts', 'hasUserJoined'));
     }
 
     /**

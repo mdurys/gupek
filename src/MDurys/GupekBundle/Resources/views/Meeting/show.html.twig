@@ -1,46 +1,67 @@
 {% extends '::base.html.twig' %}
 
+{#
+## @var Meeting $meeting       Meeting object
+## @var User[]  $users         Users particpiating in this meeting
+## @var Bout[]  $bouts         Bouts assigned to given meeting
+## @var bool    $hasUserJoined TRUE if currently logged user is participating in a meeting
+#}
+
 {% block body %}
 
-<h2>{{ meeting.date|localizeddate('long', 'short') }}</h2>
+    <h2>{{ meeting.date|localizeddate('long', 'short') }}</h2>
 
-<a href="{{ path("mdurys_gupek_meeting_join", { "id": meeting.id }) }}" class="btn btn-success" role="button">
-    {{ "form.button.join"|trans }}
-</a>
-<a href="{{ path("mdurys_gupek_meeting_leave", { "id": meeting.id }) }}" class="btn btn-warning" role="button">
-    {{ "form.button.leave"|trans }}
-</a>
-
-<p>
-    Participants ({{ users|length }}):
-    {% for user in users %}
-        {{ user.username }}
-    {% endfor %}
-</p>
-
-{% for bout in bouts %}
-    <h3>
-        <a href="{{ path("game_show", { "slug": bout.game.slug }) }}">{{ bout.game.name }}</a>
-    </h3>
-
-    {% if bout.isNew %}
-        <a href="{{ path("bout_join", { "id": bout.id }) }}" class="btn btn-success" role="button">
-            {{ "form.button.join"|trans }}
+    {% if not hasUserJoined %}
+        <a href="{{ path("mdurys_gupek_meeting_join", { "id": meeting.id }) }}" class="btn btn-success" role="button">
+            {{ icon('plus') }}
+            <span class="hidden-xs">
+                {{ "form.button.join"|trans }}
+            </span>
         </a>
-        <a href="{{ path("bout_leave", { "id": bout.id }) }}" class="btn btn-warning" role="button">
-            {{ "form.button.leave"|trans }}
+    {% else %}
+        <a href="{{ path("mdurys_gupek_meeting_leave", { "id": meeting.id }) }}" class="btn btn-warning" role="button">
+            {{ icon('minus') }}
+            <span class="hidden-xs">
+                {{ "form.button.leave"|trans }}
+            </span>
         </a>
-    {% elseif bout.isFinished %}
-        <table class="table table-striped table-hover">
-            <thead>
+    {% endif %}
+
+    <a href="{{ path("bout_new", { "meeting": meeting.id }) }}" class="btn btn-default" role="button">
+        {{ "form.button.bout"|trans }}
+    </a>
+
+    <p>
+        Participants <span class="label label-info">{{ users|length }}</span>:
+        {% for user in users %}
+            {{ user.username }}
+        {% endfor %}
+    </p>
+
+    {% for bout in bouts %}
+        <h3>
+            <a href="{{ path("game_show", { "slug": bout.game.slug }) }}">{{ bout.game.name }}</a>
+        </h3>
+        <p>Players: {{ bout.meetingUsers|length }} / {{ bout.maxPlayers }}</p>
+
+        {% if bout.isNew %}
+            <a href="{{ path("bout_join", { "id": bout.id }) }}" class="btn btn-success" role="button">
+                {{ "form.button.join"|trans }}
+            </a>
+            <a href="{{ path("bout_leave", { "id": bout.id }) }}" class="btn btn-warning" role="button">
+                {{ "form.button.leave"|trans }}
+            </a>
+        {% elseif bout.isFinished %}
+            <table class="table table-striped table-hover">
+                <thead>
                 <tr>
                     <th class="col-md-1">{{ "meeting.bout_table.place"|trans }}</th>
                     <th>{{ "meeting.bout_table.player"|trans }}</th>
                     <th class="col-md-1">{{ "meeting.bout_table.points"|trans }}</th>
                     <th class="col-md-1">{{ "meeting.bout_table.win"|trans }}</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 {% for mu in bout.meetingUsers %}
                     <tr>
                         <td>{{ mu.place|localizednumber('ordinal') }}</td>
@@ -49,9 +70,9 @@
                         <td>{% if mu.win > 0 %}{{ mu.win|round(2)|localizednumber }}{% endif %}</td>
                     </tr>
                 {% endfor %}
-            </tbody>
-        </table>
-    {% endif %}
-{% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endfor %}
 
 {% endblock %}
