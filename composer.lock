@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "76fac02c92529c238e9345f41b16dd47",
-    "content-hash": "cadec562bd55c12fc5c0b92f1917fdfc",
+    "hash": "19f9c57ff8ec5cd339a9a1bb9aae02a5",
+    "content-hash": "907502f112d0684c59ec7c4ddfbf02a8",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2460,12 +2460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "3223c2517e0330efef501af0efd7af4c49d96eb0"
+                "reference": "295f5ee6264c843a49e6bff27c90e6783ea0921f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/3223c2517e0330efef501af0efd7af4c49d96eb0",
-                "reference": "3223c2517e0330efef501af0efd7af4c49d96eb0",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/295f5ee6264c843a49e6bff27c90e6783ea0921f",
+                "reference": "295f5ee6264c843a49e6bff27c90e6783ea0921f",
                 "shasum": ""
             },
             "require": {
@@ -2586,7 +2586,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-01-15 17:05:52"
+            "time": "2016-01-21 09:35:25"
         },
         {
             "name": "twbs/bootstrap",
@@ -2594,12 +2594,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "880a3c1a86d6c936624a745954a69febb9e9c354"
+                "reference": "7e0cac1b47a71dfdf2636242323bbff332b66ac5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/880a3c1a86d6c936624a745954a69febb9e9c354",
-                "reference": "880a3c1a86d6c936624a745954a69febb9e9c354",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/7e0cac1b47a71dfdf2636242323bbff332b66ac5",
+                "reference": "7e0cac1b47a71dfdf2636242323bbff332b66ac5",
                 "shasum": ""
             },
             "replace": {
@@ -2637,7 +2637,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-01-16 01:45:50"
+            "time": "2016-01-20 10:10:54"
         },
         {
             "name": "twig/extensions",
@@ -2877,7 +2877,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0"
+        "php": ">=5.5.0"
     },
     "platform-dev": []
 }
