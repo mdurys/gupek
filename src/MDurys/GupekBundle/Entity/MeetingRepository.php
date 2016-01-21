@@ -22,7 +22,7 @@ class MeetingRepository extends EntityRepository
     {
         return $this->getEntityManager()->createQueryBuilder()
             ->select('m')
-            ->from($this->getEntityName(), 'm')
+            ->from(Meeting::class, 'm')
             ->where('m.season = :season')
             ->setParameter('season', $season);
     }

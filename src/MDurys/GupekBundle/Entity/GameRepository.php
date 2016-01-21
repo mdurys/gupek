@@ -22,7 +22,7 @@ class GameRepository extends EntityRepository
     {
         return $this->getEntityManager()->createQueryBuilder()
             ->select('g')
-            ->from($this->getEntityName(), 'g')
+            ->from(Game::class, 'g')
             ->where('m.slug = :slug')
             ->setParameter('slug', $slug);
     }

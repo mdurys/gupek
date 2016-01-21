@@ -25,7 +25,7 @@ class MeetingUserRepository extends EntityRepository
     {
         return $this->getEntityManager()->createQueryBuilder()
             ->select('mu')
-            ->from($this->getEntityName(), 'mu')
+            ->from(MeetingUser::class, 'mu')
             ->where('mu.meeting = :meeting')
             ->andWhere('mu.user = :user')
             ->setParameter('meeting', $meeting)
@@ -75,7 +75,7 @@ class MeetingUserRepository extends EntityRepository
     {
         return $this->getEntityManager()->createQueryBuilder()
             ->select('mu')
-            ->from($this->getEntityName(), 'mu')
+            ->from(MeetingUser::class, 'mu')
             ->where('mu.bout = :bout')
             ->andWhere('mu.user = :user')
             ->setParameter('bout', $bout)

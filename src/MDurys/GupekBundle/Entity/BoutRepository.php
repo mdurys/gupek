@@ -22,7 +22,7 @@ class BoutRepository extends EntityRepository
     {
         return $this->getEntityManager()->createQueryBuilder()
             ->select('b')
-            ->from($this->getEntityName(), 'b')
+            ->from(Bout::class, 'b')
             ->where('b.meeting = :meeting')
             ->setParameter('meeting', $meeting);
     }
