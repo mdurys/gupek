@@ -15,6 +15,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $em)
     {
         $data = [
+            'antarctica' => ['Antarctica', 2, 4],
             'apacze' => ['Apacze i Komancze', 2, 4],
             'atak_zombie' => ['Atak zombie', 2, 4],
             'basketboss' => ['BasketBoss', 2, 5],
@@ -22,8 +23,10 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'catan' => ['Osadnicy z Catanu', 2, 4],
             'colt' => ['Colt Express', 2, 6],
             'drake' => ['Francis Drake', 3, 5],
+            'gaucho' => ['El Gaucho', 2, 4],
             'finca' => ['Finca', 2, 4],
             'hacienda' => ['Hacienda', 2, 5],
+            'hansa' => ['Hansa Teutonica', 2, 5],
             'hollywood' => ['Hollywood', 2, 6],
             'imperial2030' => ['Imperial 2030', 2, 6],
             'keyflower' => ['Keyflower', 2, 6],
