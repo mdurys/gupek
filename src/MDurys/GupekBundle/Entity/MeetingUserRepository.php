@@ -38,7 +38,7 @@ class MeetingUserRepository extends EntityRepository
      *
      * @param Meeting | int $meeting
      * @param User | int $user
-     * @return \Doctrine\ORM\QueryBuilder
+     * @return MeetingUser[]
      */
     public function getByMeetingAndUser($meeting, $user)
     {
@@ -88,7 +88,7 @@ class MeetingUserRepository extends EntityRepository
      *
      * @param User | int $user
      * @param Bout | int $bout
-     * @return array
+     * @return MeetingUser | null
      */
     public function getByBoutAndUser($bout, $user)
     {

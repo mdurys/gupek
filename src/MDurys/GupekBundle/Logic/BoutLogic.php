@@ -79,7 +79,7 @@ class BoutLogic extends BaseLogic
             throw new Exception\BoutException('no_meeting');
         }
 
-        if (null === $meetingUsers = $this->getRepository('MeetingUser')->getByBoutAndUser($bout, $user)) {
+        if (null === $meetingUsers = $this->getRepository('MeetingUser')->getByMeetingAndUser($meeting, $user)) {
             throw new Exception\BoutException('user_not_joined');
         }
 
@@ -96,7 +96,6 @@ class BoutLogic extends BaseLogic
                     // delete MeetingUser entity
                     $em->remove($mu);
                 }
-                $em->persist($bout);
 
                 return true;
             }
