@@ -5,6 +5,7 @@ namespace MDurys\GupekBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use MDurys\GupekBundle\Entity\Bout;
 
 class BoutScoreType extends AbstractType
@@ -16,7 +17,12 @@ class BoutScoreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('meetingUsers', 'collection', ['type' => new MeetingUserType()])
+            ->add('meetingUsers', CollectionType::class, [
+                'entry_type' => MeetingUserType::class,
+                'entry_options' => [
+                    'required' => true
+                ],
+            ])
         ;
     }
     
@@ -35,6 +41,6 @@ class BoutScoreType extends AbstractType
      */
     public function getName()
     {
-        return 'mdurys_gupekbundle_bout_score';
+        return 'bout_score';
     }
 }

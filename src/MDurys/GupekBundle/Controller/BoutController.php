@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use MDurys\GupekBundle\Entity\Bout;
 use MDurys\GupekBundle\Entity\Meeting;
 use MDurys\GupekBundle\Form\BoutType;
@@ -298,6 +299,7 @@ class BoutController extends Controller
      * Assign scores to players in given bout.
      *
      * @Route("/{id}/score", name="bout_score")
+     * @ParamConverter("id", class="MDurysGupekBundle:Bout", options={"repository_method" = "getJoinUser"})
      * @Method({"GET", "POST"})
      *
      * @param Request $request

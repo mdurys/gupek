@@ -5,6 +5,8 @@ namespace MDurys\GupekBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\Form\FormInterface;
 use MDurys\GupekBundle\Entity\MeetingUser;
 
 class MeetingUserType extends AbstractType
@@ -16,14 +18,18 @@ class MeetingUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            // ->add('id', 'hidden')
             ->add('place', 'integer')
-            // ->add('score')
-            // ->add('win')
-            // ->add('meeting')
-            // ->add('user')
-            // ->add('bout')
         ;
+    }
+
+    /**
+     * @param FormView      $view
+     * @param FormInterface $form
+     * @param array         $options
+     */
+    public function finishView(FormView $view, FormInterface $form, array $options)
+    {
+        $view->children['place']->vars['label'] =  $form->getData()->getUser()->getUsername();
     }
 
     /**
@@ -41,6 +47,6 @@ class MeetingUserType extends AbstractType
      */
     public function getName()
     {
-        return 'mdurys_gupekbundle_meetinguser';
+        return 'meetinguser';
     }
 }

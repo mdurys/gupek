@@ -13,9 +13,23 @@ use Doctrine\ORM\EntityRepository;
 class BoutRepository extends EntityRepository
 {
     /**
+     * @param Bout | int $bout
+     *
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function queryByBout($bout)
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+            ->from(Bout::class, 'b')
+            ->where('b.id = :bout')
+            ->setParameter('bout', $bout);
+    }
+
+    /**
      * Get query builder, which selects a bouts for given meeting.
      *
-     * @param int $meeting
+     * @param Meeting | int $meeting
+     *
      * @return \Doctrine\ORM\QueryBuilder
      */
     public function queryByMeeting($meeting)
@@ -28,8 +42,9 @@ class BoutRepository extends EntityRepository
     }
 
     /**
-     * @param int $meeting
-     * @return array
+     * @param Meeting | int $meeting
+     *
+     * @return Bout[]
      */
     public function getJoinUserAndGameByMeeting($meeting)
     {
@@ -42,5 +57,21 @@ class BoutRepository extends EntityRepository
             ->orderBy('b.id, mu.place, u.username')
             ->getQuery()
             ->getResult();
+    }
+
+    /**
+     * @param $bout
+     *
+     * @return Bout | null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getJoinUser($bout)
+    {
+        return $this->queryByBout($bout)
+            ->select('b, mu, u')
+            ->leftJoin('b.meetingUsers', 'mu')
+            ->leftJoin('mu.user', 'u')
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }
