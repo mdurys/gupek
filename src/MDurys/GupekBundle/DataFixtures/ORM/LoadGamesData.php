@@ -23,6 +23,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'catan' => ['Osadnicy z Catanu', 2, 4],
             'colt' => ['Colt Express', 2, 6],
             'drake' => ['Francis Drake', 3, 5],
+            'evolution' => ['Evolution', 2, 6],
             'gaucho' => ['El Gaucho', 2, 4],
             'finca' => ['Finca', 2, 4],
             'hacienda' => ['Hacienda', 2, 5],
