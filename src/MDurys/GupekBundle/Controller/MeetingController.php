@@ -302,7 +302,7 @@ class MeetingController extends Controller
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('meeting_delete', ['id' => $id]))
-            ->setMethod('DELETE')
+            ->setMethod(Request::METHOD_DELETE)
             ->add('submit', 'submit', ['label' => 'form.button.delete'])
             ->getForm();
     }

@@ -2,6 +2,8 @@
 
 namespace MDurys\GupekBundle\Logic;
 
+use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\Request;
 use MDurys\GupekBundle\Entity\Bout;
 use MDurys\GupekBundle\Entity\User;
 use MDurys\GupekBundle\Entity\MeetingUser;
@@ -161,5 +163,35 @@ class BoutLogic extends BaseLogic
 
         $bout->setStatus(Bout::STATUS_FINISHED);
         $em->persist($bout);
+    }
+
+    /**
+     * @param $bout
+     *
+     * @return FormView
+     */
+    public function createJoinForm($bout)
+    {
+        return $this->createPresenceForm($bout, Request::METHOD_PUT);
+    }
+
+    /**
+     * @param $bout
+     *
+     * @return FormView
+     */
+    public function createLeaveForm($bout)
+    {
+        return $this->createPresenceForm($bout, Request::METHOD_DELETE);
+    }
+
+    private function createPresenceForm($bout, $method)
+    {
+        return $this->getFormFactory()->createBuilder()
+            ->setAction($this->generateUrl('bout_presence', ['id' => $bout]))
+            ->setMethod($method)
+            ->add('submit', 'submit', ['label' => Request::METHOD_PUT == $method ? 'form.button.join' : 'form.button.leave'])
+            ->getForm()
+            ->createView();
     }
 }

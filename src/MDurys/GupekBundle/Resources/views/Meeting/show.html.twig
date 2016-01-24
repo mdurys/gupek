@@ -45,6 +45,8 @@
         <p>Players: {{ bout.meetingUsers|length }} / {{ bout.maxPlayers }}</p>
 
         {% if bout.isNew %}
+            {{ form(bout_logic.createJoinForm(bout.id)) }}
+            {{ form(bout_logic.createLeaveForm(bout.id)) }}
             <a href="{{ path("bout_join", { "id": bout.id }) }}" class="btn btn-success" role="button">
                 {{ "form.button.join"|trans }}
             </a>

@@ -296,11 +296,47 @@ class BoutController extends Controller
     }
 
     /**
+     * Add or remove currently logged in user from bout.
+     *
+     * @Route("/{id}/presence", name="bout_presence")
+     * @Method({"PUT", "DELETE"})
+     *
+     * @param Bout $bout
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function presenceAction(Request $request, Bout $bout)
+    {
+        try {
+            $logic = $this->get('gupek.logic.bout');
+            $user = $this->getUser();
+
+            switch ($request->getMethod()) {
+                case Request::METHOD_PUT:
+                    $logic->addUser($bout, $user);
+                    $this->getDoctrine()->getManager()->flush();
+                    $this->get('braincrafted_bootstrap.flash')->success('bout.message.user_join');
+                    break;
+                case Request::METHOD_DELETE:
+                    $logic->removeUser($bout, $user);
+                    $this->getDoctrine()->getManager()->flush();
+                    $this->get('braincrafted_bootstrap.flash')->success('bout.message.user_leave');
+                    break;
+            }
+        } catch (BoutException $e) {
+            $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
+        } catch (MeetingException $e) {
+            $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
+        }
+
+        return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]);
+    }
+
+    /**
      * Assign scores to players in given bout.
      *
      * @Route("/{id}/score", name="bout_score")
      * @ParamConverter("id", class="MDurysGupekBundle:Bout", options={"repository_method" = "getJoinUser"})
-     * @Method({"GET", "POST"})
+     * @Method({"GET", "PUT"})
      *
      * @param Request $request
      * @param Bout $bout
@@ -310,7 +346,7 @@ class BoutController extends Controller
     {
         $form = $this->createForm(new BoutScoreType(), $bout, [
             'action' => $this->generateUrl('bout_score', ['id' => $bout->getId()]),
-            'method' => 'POST',
+            'method' => 'PUT',
         ]);
 
         $form->add('submit', 'submit', ['label' => 'form.button.update']);
@@ -319,9 +355,7 @@ class BoutController extends Controller
         if ($form->isValid()) {
             try {
                 $this->get('gupek.logic.bout')->calculateScores($bout);
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($bout);
-                $em->flush();
+                $this->getDoctrine()->getManager()->flush();
 
                 $this->get('braincrafted_bootstrap.flash')->success('bout.message.scores_added');
             } catch (BoutException $e) {
