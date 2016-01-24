@@ -47,6 +47,8 @@ services:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        bout_logic:   @gupek.logic.bout
 
 # Assetic Configuration
 assetic:
