@@ -2,6 +2,7 @@
 
 namespace MDurys\GupekBundle\Controller;
 
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -74,7 +75,7 @@ class MeetingController extends Controller
     {
         /** @var \Symfony\Component\Form\Form $form */
         $form = $this->get('gupek.logic.meeting')->createCreateForm($entity);
-        $form->add('submit', 'submit', ['label' => 'form.button.create']);
+        $form->add('submit', SubmitType::class, ['label' => 'form.button.create']);
 
         return $form;
     }
@@ -134,12 +135,12 @@ class MeetingController extends Controller
      */
     private function createEditForm(Meeting $entity)
     {
-        $form = $this->createForm(new MeetingType(), $entity, [
+        $form = $this->createForm(MeetingType::class, $entity, [
             'action' => $this->generateUrl('mdurys_gupek_meeting_update', ['id' => $entity->getId()]),
             'method' => 'PUT',
         ]);
 
-        $form->add('submit', 'submit', ['label' => 'form.button.update']);
+        $form->add('submit', SubmitType::class, ['label' => 'form.button.update']);
 
         return $form;
     }

@@ -2,6 +2,7 @@
 
 namespace MDurys\GupekBundle\Controller;
 
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -60,12 +61,12 @@ class BoutController extends Controller
      */
     private function createCreateForm(Bout $bout)
     {
-        $form = $this->createForm(new BoutType(), $bout, [
+        $form = $this->createForm(BoutType::class, $bout, [
             'action' => $this->generateUrl('bout_create', ['meeting' => $bout->getMeeting()->getId()]),
             'method' => 'POST',
         ]);
 
-        $form->add('submit', 'submit', ['label' => 'form.button.create']);
+        $form->add('submit', SubmitType::class, ['label' => 'form.button.create']);
 
         return $form;
     }
@@ -148,12 +149,12 @@ class BoutController extends Controller
     */
     private function createEditForm(Bout $bout)
     {
-        $form = $this->createForm(new BoutType(), $bout, [
+        $form = $this->createForm(BoutType::class, $bout, [
             'action' => $this->generateUrl('bout_update', ['id' => $bout->getId()]),
             'method' => 'PUT',
         ]);
 
-        $form->add('submit', 'submit', ['label' => 'Update']);
+        $form->add('submit', SubmitType::class, ['label' => 'Update']);
 
         return $form;
     }
@@ -344,7 +345,7 @@ class BoutController extends Controller
      */
     public function scoreAction(Request $request, Bout $bout)
     {
-        $form = $this->createForm(new BoutScoreType(), $bout, [
+        $form = $this->createForm(BoutScoreType::class, $bout, [
             'action' => $this->generateUrl('bout_score', ['id' => $bout->getId()]),
             'method' => 'PUT',
         ]);

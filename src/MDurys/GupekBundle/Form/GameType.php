@@ -3,6 +3,8 @@
 namespace MDurys\GupekBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use MDurys\GupekBundle\Entity\Game;
@@ -16,13 +18,13 @@ class GameType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', [
+            ->add('name', TextType::class, [
                 'label' => 'form.game.name',
             ])
-            ->add('minPlayers', 'integer', [
+            ->add('minPlayers', IntegerType::class, [
                 'label' => 'form.game.min_players',
             ])
-            ->add('maxPlayers', 'integer', [
+            ->add('maxPlayers', IntegerType::class, [
                 'label' => 'form.game.max_players',
             ])
         ;

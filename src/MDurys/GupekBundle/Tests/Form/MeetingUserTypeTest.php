@@ -14,8 +14,7 @@ class MeetingUserTypeTest extends TypeTestCase
             'place' => 2,
             ];
 
-        $type = new MeetingUserType();
-        $form = $this->factory->create($type);
+        $form = $this->factory->create(MeetingUserType::class);
 
         // submit the data to the form directly
         $form->submit($formData);

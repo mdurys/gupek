@@ -5,6 +5,7 @@ namespace MDurys\GupekBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use MDurys\GupekBundle\Entity\Game;
 use MDurys\GupekBundle\Form\GameType;
@@ -65,12 +66,12 @@ class GameController extends Controller
      */
     private function createCreateForm(Game $game)
     {
-        $form = $this->createForm(new GameType(), $game, [
+        $form = $this->createForm(GameType::class, $game, [
             'action' => $this->generateUrl('game_create'),
             'method' => 'POST',
         ]);
 
-        $form->add('submit', 'submit', ['label' => 'form.button.create']);
+        $form->add('submit', SubmitType::class, ['label' => 'form.button.create']);
 
         return $form;
     }
@@ -123,12 +124,12 @@ class GameController extends Controller
      */
     private function createEditForm(Game $game)
     {
-        $form = $this->createForm(new GameType(), $game, [
+        $form = $this->createForm(GameType::class, $game, [
             'action' => $this->generateUrl('game_update', ['id' => $game->getId()]),
             'method' => 'PUT',
         ]);
 
-        $form->add('submit', 'submit', ['label' => 'form.button.update']);
+        $form->add('submit', SubmitType::class, ['label' => 'form.button.update']);
 
         return $form;
     }

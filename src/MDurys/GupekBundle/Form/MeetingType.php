@@ -3,6 +3,7 @@
 namespace MDurys\GupekBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use MDurys\GupekBundle\Entity\Meeting;
@@ -16,7 +17,7 @@ class MeetingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', 'datetime', ['label' => 'form.meeting.date', 'minutes' => [0, 30]])
+            ->add('date', DateTimeType::class, ['label' => 'form.meeting.date', 'minutes' => [0, 30]])
             ->add('season')
         ;
     }

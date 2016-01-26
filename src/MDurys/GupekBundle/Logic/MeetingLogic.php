@@ -128,7 +128,7 @@ class MeetingLogic extends BaseLogic
     public function createCreateForm(Meeting $meeting)
     {
         return $this->getFormFactory()
-            ->create(new MeetingType(), $meeting, [
+            ->create(MeetingType::class, $meeting, [
                 'action' => $this->generateUrl('meeting_create', ['season' => $meeting->getSeason()->getId()]),
                 'method' => 'POST'
             ])

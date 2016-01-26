@@ -2,7 +2,9 @@
 
 namespace MDurys\GupekBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use MDurys\GupekBundle\Entity\Bout;
@@ -16,12 +18,12 @@ class BoutType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('game', 'entity', [
+            ->add('game', EntityType::class, [
                 'class' => 'MDurysGupekBundle:Game',
-                'property' => 'name',
+                'choice_label' => 'name',
                 'label' => 'form.bout.game',
                 ])
-            ->add('maxPlayers', 'integer', [
+            ->add('maxPlayers', IntegerType::class, [
                 'label' => 'form.bout.max_players',
                 'attr' => [
                     'help_text' => 'form.bout.max_players_help'
