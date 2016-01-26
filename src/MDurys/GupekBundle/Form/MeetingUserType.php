@@ -29,7 +29,9 @@ class MeetingUserType extends AbstractType
      */
     public function finishView(FormView $view, FormInterface $form, array $options)
     {
-        $view->children['place']->vars['label'] =  $form->getData()->getUser()->getUsername();
+        if ($form->getData() && $form->getData()->getUser()) {
+            $view->children['place']->vars['label'] =  $form->getData()->getUser()->getUsername();
+        }
     }
 
     /**
