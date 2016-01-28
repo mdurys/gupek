@@ -255,18 +255,18 @@ class BoutController extends Controller
      */
     public function joinAction(Bout $bout)
     {
-        $logic = $this->get('gupek.logic.bout');
-        $user = $this->getUser();
-
         try {
+            $logic = $this->get('gupek.logic.bout');
+            $user = $this->getUser();
+
             $logic->addUser($bout, $user);
             $this->getDoctrine()->getManager()->flush();
             $this->get('braincrafted_bootstrap.flash')->success('bout.message.user_join');
         } catch (MeetingException $e) {
             $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
+        } finally {
+            return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]);
         }
-
-        return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]);
     }
 
     /**
@@ -280,10 +280,10 @@ class BoutController extends Controller
      */
     public function leaveAction(Bout $bout)
     {
-        $logic = $this->get('gupek.logic.bout');
-        $user = $this->getUser();
-
         try {
+            $logic = $this->get('gupek.logic.bout');
+            $user = $this->getUser();
+
             $logic->removeUser($bout, $user);
             $this->getDoctrine()->getManager()->flush();
             $this->get('braincrafted_bootstrap.flash')->success('bout.message.user_leave');
@@ -291,9 +291,9 @@ class BoutController extends Controller
             $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
         } catch (MeetingException $e) {
             $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
+        } finally {
+            return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]);
         }
-
-        return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]);
     }
 
     /**
@@ -327,9 +327,9 @@ class BoutController extends Controller
             $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
         } catch (MeetingException $e) {
             $this->get('braincrafted_bootstrap.flash')->error($e->getTransMessage());
+        } finally {
+            return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]);
         }
-
-        return $this->redirectToRoute('mdurys_gupek_meeting_show', ['id' => $bout->getMeeting()->getId()]);
     }
 
     /**
