@@ -137,7 +137,7 @@ class MeetingController extends Controller
     {
         $form = $this->createForm(MeetingType::class, $entity, [
             'action' => $this->generateUrl('mdurys_gupek_meeting_update', ['id' => $entity->getId()]),
-            'method' => 'PUT',
+            'method' => Request::METHOD_PUT,
         ]);
 
         $form->add('submit', SubmitType::class, ['label' => 'form.button.update']);

@@ -151,7 +151,7 @@ class BoutController extends Controller
     {
         $form = $this->createForm(BoutType::class, $bout, [
             'action' => $this->generateUrl('bout_update', ['id' => $bout->getId()]),
-            'method' => 'PUT',
+            'method' => Request::METHOD_PUT,
         ]);
 
         $form->add('submit', SubmitType::class, ['label' => 'Update']);
@@ -347,7 +347,7 @@ class BoutController extends Controller
     {
         $form = $this->createForm(BoutScoreType::class, $bout, [
             'action' => $this->generateUrl('bout_score', ['id' => $bout->getId()]),
-            'method' => 'PUT',
+            'method' => Request::METHOD_PUT,
         ]);
 
         $form->add('submit', 'submit', ['label' => 'form.button.update']);

@@ -8,6 +8,7 @@ use MDurys\GupekBundle\Entity\MeetingUser;
 use MDurys\GupekBundle\Entity\MeetingUserRepository;
 use MDurys\GupekBundle\Entity\User;
 use MDurys\GupekBundle\Form\MeetingType;
+use Symfony\Component\HttpFoundation\Request;
 
 class MeetingLogic extends BaseLogic
 {
@@ -130,7 +131,7 @@ class MeetingLogic extends BaseLogic
         return $this->getFormFactory()
             ->create(MeetingType::class, $meeting, [
                 'action' => $this->generateUrl('meeting_create', ['season' => $meeting->getSeason()->getId()]),
-                'method' => 'POST'
+                'method' => Request::METHOD_POST
             ])
             ->remove('season');
     }

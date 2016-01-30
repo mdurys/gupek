@@ -68,7 +68,7 @@ class GameController extends Controller
     {
         $form = $this->createForm(GameType::class, $game, [
             'action' => $this->generateUrl('game_create'),
-            'method' => 'POST',
+            'method' => Request::METHOD_POST,
         ]);
 
         $form->add('submit', SubmitType::class, ['label' => 'form.button.create']);
@@ -126,7 +126,7 @@ class GameController extends Controller
     {
         $form = $this->createForm(GameType::class, $game, [
             'action' => $this->generateUrl('game_update', ['id' => $game->getId()]),
-            'method' => 'PUT',
+            'method' => Request::METHOD_PUT,
         ]);
 
         $form->add('submit', SubmitType::class, ['label' => 'form.button.update']);
