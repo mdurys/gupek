@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8959b740060715ad2dccda3fe1a1f1a2",
-    "content-hash": "3a1a4aedd1f7f91f2fc27e6433fec381",
+    "hash": "21303758eac8f144016d8ffb98f865c8",
+    "content-hash": "e34cb9800d210cd9983243827d31a47e",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -49,17 +49,17 @@
         },
         {
             "name": "braincrafted/bootstrap-bundle",
-            "version": "dev-fix-composer-hhvm",
+            "version": "v2.2.0",
             "target-dir": "Braincrafted/Bundle/BootstrapBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mdurys/bootstrap-bundle.git",
-                "reference": "d04c5a9c66d06f3b417298450a3ae37ed06d4129"
+                "url": "https://github.com/braincrafted/bootstrap-bundle.git",
+                "reference": "23ae42061668d0fdc999b63db55c264265e037ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mdurys/bootstrap-bundle/zipball/d04c5a9c66d06f3b417298450a3ae37ed06d4129",
-                "reference": "d04c5a9c66d06f3b417298450a3ae37ed06d4129",
+                "url": "https://api.github.com/repos/braincrafted/bootstrap-bundle/zipball/23ae42061668d0fdc999b63db55c264265e037ab",
+                "reference": "23ae42061668d0fdc999b63db55c264265e037ab",
                 "shasum": ""
             },
             "require": {
@@ -91,6 +91,7 @@
                     "Braincrafted\\Bundle\\BootstrapBundle": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -105,10 +106,7 @@
             "keywords": [
                 "bootstrap"
             ],
-            "support": {
-                "source": "https://github.com/mdurys/bootstrap-bundle/tree/fix-composer-hhvm"
-            },
-            "time": "2016-01-07 14:10:40"
+            "time": "2016-01-23 17:44:32"
         },
         {
             "name": "components/jquery",
@@ -1089,7 +1087,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/6ccff96434c0ac7fee077d1dce90966341dfd278",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/8f1fc2273b37c61ddcc1620abf4500320a23763e",
                 "reference": "6ccff96434c0ac7fee077d1dce90966341dfd278",
                 "shasum": ""
             },
@@ -2434,7 +2432,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/eb8cb2158a38de31e6f3ab8a669cb80c3fa93df4",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/91c8929b28f1fc45223d6422804f895ece107261",
                 "reference": "eb8cb2158a38de31e6f3ab8a669cb80c3fa93df4",
                 "shasum": ""
             },
@@ -3632,19 +3630,11 @@
             "time": "2015-12-15 02:03:07"
         }
     ],
-    "aliases": [
-        {
-            "alias": "2.1.2.0",
-            "alias_normalized": "2.1.2.0",
-            "version": "dev-fix-composer-hhvm",
-            "package": "braincrafted/bootstrap-bundle"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "symfony/polyfill-apcu": 20,
         "friendsofsymfony/user-bundle": 20,
-        "braincrafted/bootstrap-bundle": 20,
         "twbs/bootstrap": 20
     },
     "prefer-stable": false,
