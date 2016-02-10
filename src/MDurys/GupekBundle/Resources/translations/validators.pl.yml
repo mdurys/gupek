@@ -2,3 +2,4 @@ bout:
     max_players:
         too_few: Liczba graczy jest zbyt mała do wybranej gry
         too_many: Liczba graczy jest zbyt duża do wybranej gry
+    illegal_place: Nieprawidłowe miejsce
