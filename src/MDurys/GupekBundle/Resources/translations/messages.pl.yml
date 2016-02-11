@@ -17,6 +17,18 @@ season:
     button:
         meeting_add: Dodaj spotkanie
 
+meeting:
+    bout_table:
+        place: '#'
+        player: 'Gracz'
+        points: 'Punkty'
+        win: 'Wygrana'
+    header:
+        new: Dodawanie spotkania
+    message:
+        user_join: Gracz dołączył do spotkania.
+        user_leave: Gracz został wypisane ze spotkania.
+
 form:
     meeting:
         date: Data i godzina
