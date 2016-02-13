@@ -27,7 +27,16 @@ meeting:
         new: Dodawanie spotkania
     message:
         user_join: Gracz dołączył do spotkania.
-        user_leave: Gracz został wypisane ze spotkania.
+        user_leave: Gracz został wypisany ze spotkania.
+
+bout:
+    header:
+        new: Dodawanie rozgrywki
+        score: Wyniki rozgrywki
+    message:
+        user_join: Gracz dołączył do rozgrywki.
+        user_leave: Gracz został wypisany z rozgrywki.
+        scores_added: Wyniki rozgrywki zostały zaktualizowane.
 
 form:
     meeting:
