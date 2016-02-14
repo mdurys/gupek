@@ -11,6 +11,9 @@ use MDurys\GupekBundle\Logic\Exception\BoutException;
 
 class BoutLogicTest extends LogicTestCase
 {
+    /**
+     * @var \MDurys\GupekBundle\Logic\BoutLogic
+     */
     private $logic;
 
     public function setUp()
@@ -81,7 +84,7 @@ class BoutLogicTest extends LogicTestCase
     }
 
     /**
-     * @expectedException MDurys\GupekBundle\Logic\Exception\BoutException
+     * @expectedException \MDurys\GupekBundle\Logic\Exception\BoutException
      * @expectedExceptionMessage no_meeting
      */
     public function testRemoveUserNoMeeting()
