@@ -1087,7 +1087,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/140cc28026304d3023c880f441689986f99b913b",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/e770bfa2fd0fc665f55cd7cfeb34bddeffb892f4",
                 "reference": "140cc28026304d3023c880f441689986f99b913b",
                 "shasum": ""
             },
@@ -2432,7 +2432,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/38a70e4a275ef4d0c838c714b6e5e3270984dab4",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ad5e6565cc854e7d36aa5875cd93a387f01b143a",
                 "reference": "38a70e4a275ef4d0c838c714b6e5e3270984dab4",
                 "shasum": ""
             },

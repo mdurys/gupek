@@ -2,7 +2,6 @@
 
 namespace MDurys\GupekBundle\Tests\Logic;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use MDurys\GupekBundle\Entity\Bout;
 use MDurys\GupekBundle\Entity\Meeting;
 use MDurys\GupekBundle\Entity\MeetingUser;
@@ -37,7 +36,7 @@ class BoutLogicTest extends LogicTestCase
 
         for ($n = 1; $n <= 4; $n++) {
             $var = 'user'.$n;
-            $$var = $this->prophesize('MDurys\GupekBundle\Entity\User');
+            $$var = $this->prophesize(User::class);
             $$var->getId()->willReturn($n);
         }
 
@@ -52,12 +51,12 @@ class BoutLogicTest extends LogicTestCase
         // this time user should be added to bout
         $bout->setMeeting($meeting);
         $mu = $this->logic->addUser($bout, $user1->reveal());
-        $this->assertInstanceOf('MDurys\GupekBundle\Entity\MeetingUser', $mu);
+        $this->assertInstanceOf(MeetingUser::class, $mu);
         $this->assertCount(1, $bout->getMeetingUsers());
 
         // $bout->getMeeting()->willReturn($meeting);
         // $bout->getMeetingUsers()->willReturn([]);
-        // $bout->addMeetingUser(\Prophecy\Argument::type('MDurys\GupekBundle\Entity\MeetingUser'))->shouldBeCalled();
+        // $bout->addMeetingUser(\Prophecy\Argument::type(MeetingUser::class))->shouldBeCalled();
 
         // it should not possible to add the same user twice
         try {
@@ -89,8 +88,8 @@ class BoutLogicTest extends LogicTestCase
      */
     public function testRemoveUserNoMeeting()
     {
-        $user = $this->prophesize('MDurys\GupekBundle\Entity\User')->reveal();
-        $bout = $this->prophesize('MDurys\GupekBundle\Entity\Bout')->reveal();
+        $user = $this->prophesize(User::class)->reveal();
+        $bout = $this->prophesize(Bout::class)->reveal();
         $this->logic->removeUser($bout, $user);
     }
 
