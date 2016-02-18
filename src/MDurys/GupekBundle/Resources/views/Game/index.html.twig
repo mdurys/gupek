@@ -2,6 +2,27 @@
 
 {% block body %}
 
-Game controller
+    Game controller
+    <div class="count">
+        {{ pagination.getTotalItemCount }}
+    </div>
+
+    <table class="table table-striped table-hover">
+
+{% for game in pagination %}
+    <tr>
+        <td>
+            <a href="{{ path('game_show', { 'slug': game.slug }) }}">{{ game.name }}</a>
+        </td>
+        <td>
+            {{ game.minPlayers }} - {{ game.maxPlayers }}
+        </td>
+    </tr>
+{% endfor %}
+
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
 
 {% endblock %}

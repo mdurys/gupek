@@ -23,9 +23,13 @@ class GameController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        return $this->render('MDurysGupekBundle:Game:index.html.twig', []);
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT g FROM MDurysGupekBundle:Game g");
+        $pagination = $this->get('knp_paginator')->paginate($query, $request->query->getInt('page', 1), 10);
+
+        return $this->render('MDurysGupekBundle:Game:index.html.twig', ['pagination' => $pagination]);
     }
 
     /**
