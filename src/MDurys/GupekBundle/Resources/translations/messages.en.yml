@@ -42,6 +42,9 @@ game:
     header:
         new: Game creation
         edit: Game edit
+    list_table:
+        name: Name
+        players: No. players
     message:
         created: Game has been created
         updated: Game has been updated

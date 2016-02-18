@@ -8,17 +8,21 @@
     </div>
 
     <table class="table table-striped table-hover">
+        <tr>
+            <th>{{ "game.list_table.name"|trans }}</th>
+            <th>{{ "game.list_table.players"|trans }}</th>
+        </tr>
 
-{% for game in pagination %}
-    <tr>
-        <td>
-            <a href="{{ path('game_show', { 'slug': game.slug }) }}">{{ game.name }}</a>
-        </td>
-        <td>
-            {{ game.minPlayers }} - {{ game.maxPlayers }}
-        </td>
-    </tr>
-{% endfor %}
+        {% for game in pagination %}
+            <tr>
+                <td>
+                    <a href="{{ path('game_show', { 'slug': game.slug }) }}">{{ game.name }}</a>
+                </td>
+                <td>
+                    {{ game.minPlayers }} - {{ game.maxPlayers }}
+                </td>
+            </tr>
+        {% endfor %}
 
     </table>
     <div class="navigation">
