@@ -18,16 +18,18 @@ use MDurys\GupekBundle\Form\GameType;
 class GameController extends Controller
 {
     /**
-     * @Route("/", name="game_index")
+     * @Route("/{page}", defaults={"page" = 1}, name="game_index")
      * @Method("GET")
+     *
+     * @param int     $page
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(Request $request)
+    public function indexAction($page)
     {
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery("SELECT g FROM MDurysGupekBundle:Game g");
-        $pagination = $this->get('knp_paginator')->paginate($query, $request->query->getInt('page', 1), 10);
+        $pagination = $this->get('knp_paginator')->paginate($query, $page, 10);
 
         return $this->render('MDurysGupekBundle:Game:index.html.twig', ['pagination' => $pagination]);
     }
