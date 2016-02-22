@@ -18,7 +18,7 @@ use MDurys\GupekBundle\Form\GameType;
 class GameController extends Controller
 {
     /**
-     * @Route("/{page}", defaults={"page" = 1}, name="game_index")
+     * @Route("/{page}", defaults={"page": 1}, requirements={"page": "\d+"}, name="game_index")
      * @Method("GET")
      *
      * @param int     $page
