@@ -27,8 +27,7 @@ class GameController extends Controller
      */
     public function indexAction($page)
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery("SELECT g FROM MDurysGupekBundle:Game g");
+        $query = $this->getDoctrine()->getManager()->getRepository(Game::class)->queryAll();
         $pagination = $this->get('knp_paginator')->paginate($query, $page, 10);
 
         return $this->render('MDurysGupekBundle:Game:index.html.twig', ['pagination' => $pagination]);

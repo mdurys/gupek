@@ -13,6 +13,20 @@ use Doctrine\ORM\EntityRepository;
 class GameRepository extends EntityRepository
 {
     /**
+     * Get query builder, which selects all games order by name.
+     *
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function queryAll()
+    {
+        return $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('g')
+            ->from(Game::class, 'g')
+            ->orderBy('g.name');
+    }
+
+    /**
      * Get query builder, which selects a game by slug.
      *
      * @param string $slug
