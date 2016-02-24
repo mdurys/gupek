@@ -16,6 +16,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
     {
         $data = [
             'antarctica' => ['Antarctica', 2, 4],
+            'antike' => ['Antike', 2, 6],
             'apacze' => ['Apacze i Komancze', 2, 4],
             'atak_zombie' => ['Atak zombie', 2, 4],
             'basketboss' => ['BasketBoss', 2, 5],
