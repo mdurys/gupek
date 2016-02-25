@@ -5,6 +5,7 @@ namespace MDurys\GupekBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use MDurys\GupekBundle\Entity\Meeting;
 use MDurys\GupekBundle\Entity\Season;
 
 /**
@@ -33,10 +34,10 @@ class SeasonController extends Controller
     public function showAction(Season $season)
     {
         $ranking = $this->getDoctrine()
-            ->getRepository('MDurysGupekBundle:Season')
+            ->getRepository(Season::class)
             ->getUserRanking($season);
         $meetings = $this->getDoctrine()
-            ->getRepository('MDurysGupekBundle:Meeting')
+            ->getRepository(Meeting::class)
             ->getDetailsBySeason($season->getId());
 
         return $this->render('MDurysGupekBundle:Season:show.html.twig', compact('season', 'ranking', 'meetings'));
