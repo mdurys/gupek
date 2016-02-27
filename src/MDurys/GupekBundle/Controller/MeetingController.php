@@ -160,7 +160,7 @@ class MeetingController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MDurysGupekBundle:Meeting')->find($id);
+        $entity = $em->getRepository(Meeting::class)->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Meeting entity.');
@@ -279,7 +279,7 @@ class MeetingController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('MDurysGupekBundle:Meeting')->find($id);
+            $entity = $em->getRepository(Meeting::class)->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Meeting entity.');
