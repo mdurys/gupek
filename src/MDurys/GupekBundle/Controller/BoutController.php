@@ -106,7 +106,7 @@ class BoutController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MDurysGupekBundle:Bout')->find($id);
+        $entity = $em->getRepository(Bout::class)->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Bout entity.');
@@ -173,7 +173,7 @@ class BoutController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MDurysGupekBundle:Bout')->find($id);
+        $entity = $em->getRepository(Bout::class)->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Bout entity.');
@@ -214,7 +214,7 @@ class BoutController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $bout = $em->getRepository('MDurysGupekBundle:Bout')->find($id);
+            $bout = $em->getRepository(Bout::class)->find($id);
 
             if (!$bout) {
                 throw $this->createNotFoundException('Unable to find Bout entity.');
