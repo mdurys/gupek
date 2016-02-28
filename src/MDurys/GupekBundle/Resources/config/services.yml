@@ -17,6 +17,8 @@ services:
     gupek.logic.bout:
         class:      MDurys\GupekBundle\Logic\BoutLogic
         parent:     gupek.logic.base
+        arguments:
+            - "@gupek.repository.meeting_user"
 
     gupek.repository.meeting:
         class: MDurys\GupekBundle\Entity\MeetingRepository

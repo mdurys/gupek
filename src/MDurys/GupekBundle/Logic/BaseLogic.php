@@ -41,14 +41,6 @@ abstract class BaseLogic
     }
 
     /**
-     * @return \Doctrine\ORM\EntityRepository
-     */
-    public function getRepository($name)
-    {
-        return $this->entityManager->getRepository('MDurysGupekBundle:'.$name);
-    }
-
-    /**
      * @param FormFactory $formFactory
      */
     public function setFormFactory(FormFactory $formFactory)

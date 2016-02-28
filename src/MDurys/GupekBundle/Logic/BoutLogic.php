@@ -7,9 +7,26 @@ use Symfony\Component\HttpFoundation\Request;
 use MDurys\GupekBundle\Entity\Bout;
 use MDurys\GupekBundle\Entity\User;
 use MDurys\GupekBundle\Entity\MeetingUser;
+use MDurys\GupekBundle\Entity\MeetingUserRepository;
 
 class BoutLogic extends BaseLogic
 {
+    /**
+     * @var MeetingUserRepository
+     */
+    private $meetingUserRepository;
+
+
+    /**
+     * BoutLogic constructor.
+     *
+     * @param MeetingUserRepository $meetingUserRepository
+     */
+    public function __construct(MeetingUserRepository $meetingUserRepository)
+    {
+        $this->meetingUserRepository = $meetingUserRepository;
+    }
+
     /**
      * Add user to bout.
      *
@@ -81,7 +98,7 @@ class BoutLogic extends BaseLogic
             throw new Exception\BoutException('no_meeting');
         }
 
-        if (null === $meetingUsers = $this->getRepository('MeetingUser')->getByMeetingAndUser($meeting, $user)) {
+        if (null === $meetingUsers = $this->meetingUserRepository->getByMeetingAndUser($meeting, $user)) {
             throw new Exception\BoutException('user_not_joined');
         }
 
