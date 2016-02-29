@@ -183,7 +183,7 @@ class BoutLogic extends BaseLogic
     }
 
     /**
-     * @param $bout
+     * @param int $bout
      *
      * @return FormView
      */
@@ -193,7 +193,7 @@ class BoutLogic extends BaseLogic
     }
 
     /**
-     * @param $bout
+     * @param int $bout
      *
      * @return FormView
      */
