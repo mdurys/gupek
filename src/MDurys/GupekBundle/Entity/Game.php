@@ -3,6 +3,7 @@
 namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use MDurys\GupekBundle\Domain\Game\GameInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -12,7 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Table(name="games")
  * @ORM\Entity(repositoryClass="MDurys\GupekBundle\Entity\GameRepository")
  */
-class Game
+class Game implements GameInterface
 {
     /**
      * @var integer
@@ -60,7 +61,7 @@ class Game
      *
      * @return integer 
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -70,7 +71,7 @@ class Game
      *
      * @return string
      */
-    public function getSlug()
+    public function getSlug(): string
     {
         return $this->slug;
     }
@@ -81,7 +82,7 @@ class Game
      * @param string $name
      * @return Game
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
 
@@ -93,7 +94,7 @@ class Game
      *
      * @return string 
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -104,7 +105,7 @@ class Game
      * @param integer $minPlayers
      * @return Game
      */
-    public function setMinPlayers($minPlayers)
+    public function setMinPlayers(int $minPlayers)
     {
         $this->minPlayers = $minPlayers;
 
@@ -116,7 +117,7 @@ class Game
      *
      * @return integer 
      */
-    public function getMinPlayers()
+    public function getMinPlayers(): int
     {
         return $this->minPlayers;
     }
@@ -127,7 +128,7 @@ class Game
      * @param integer $maxPlayers
      * @return Game
      */
-    public function setMaxPlayers($maxPlayers)
+    public function setMaxPlayers(int $maxPlayers)
     {
         $this->maxPlayers = $maxPlayers;
 
@@ -137,9 +138,9 @@ class Game
     /**
      * Get maxPlayers
      *
-     * @return integer 
+     * @return integer
      */
-    public function getMaxPlayers()
+    public function getMaxPlayers(): int
     {
         return $this->maxPlayers;
     }
