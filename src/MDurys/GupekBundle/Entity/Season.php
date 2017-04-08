@@ -3,6 +3,7 @@
 namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use MDurys\GupekBundle\Domain\Meeting\SeasonInterface;
 
 /**
  * Season
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="seasons")
  * @ORM\Entity(repositoryClass="MDurys\GupekBundle\Entity\SeasonRepository")
  */
-class Season
+class Season implements SeasonInterface
 {
     // attendence required to be classified in a season
     const MIN_ATTENDANCE = 10;
@@ -33,9 +34,9 @@ class Season
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }

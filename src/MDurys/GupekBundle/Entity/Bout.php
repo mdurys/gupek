@@ -4,6 +4,7 @@ namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use MDurys\GupekBundle\Domain\Meeting\BoutInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

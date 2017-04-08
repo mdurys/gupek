@@ -29,4 +29,28 @@ interface MeetingInterface
      * @return bool
      */
     public function removePlayer(PlayerInterface $player): bool;
+
+    /**
+     * @return PlayerInterface[]
+     */
+    public function getPlayers(): array;
+
+    /**
+     * @param BoutInterface $bout
+     *
+     * @return bool
+     */
+    public function addBout(BoutInterface $bout): bool;
+
+    /**
+     * @param BoutInterface $bout
+     *
+     * @return bool
+     */
+    public function removeBout(BoutInterface $bout): bool;
+
+    /**
+     * @return BoutInterface[]
+     */
+    public function getBouts(): array;
 }
