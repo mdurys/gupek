@@ -23,6 +23,10 @@ Vagrant.configure("2") do |config|
     aptitude update
     aptitude --assume-yes safe-upgrade
     aptitude --assume-yes install php7.0-cli php7.0-curl php7.0-fpm php7.0-intl php7.0-json php7.0-mysql php7.0-xml php7.0-zip php-xdebug git
+    aptitude install nginx-full
+    aptitude --assume-yes install mariadb-server
+    mysql -u root --execute "CREATE DATABASE gupek;"
+    mysql -u root --execute "GRANT ALL ON gupek.* TO gupek@localhost IDENTIFIED BY 'qwe123';"
   SHELL
 
 end
