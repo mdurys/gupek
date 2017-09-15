@@ -97,6 +97,9 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: MDurys\GupekBundle\Entity\User
+    from_email:
+            address:        noreply@gupek.com
+            sender_name:    GUPEK
 
 braincrafted_bootstrap:
 #    less_filter: less

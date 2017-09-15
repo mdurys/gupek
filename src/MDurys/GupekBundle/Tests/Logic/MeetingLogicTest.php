@@ -9,7 +9,7 @@ use MDurys\GupekBundle\Entity\User;
 use MDurys\GupekBundle\Entity\MeetingUser;
 use MDurys\GupekBundle\Logic\MeetingLogic;
 
-class MeetingLogicTest extends \PHPUnit_Framework_TestCase
+class MeetingLogicTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var MeetingLogic
@@ -61,12 +61,12 @@ class MeetingLogicTest extends \PHPUnit_Framework_TestCase
         $this->logic->addUser($this->meeting, $this->user);
     }
 
-    public function testRemoveUserSuccess()
-    {
+//    public function testRemoveUserSuccess()
+//    {
 //        $this->givenUserParticipatesInMeeting();
 //        $result = $this->logic->removeUser($this->meeting, $this->user);
 //        $this->assertInstanceOf(MeetingUser::class, $result);
-    }
+//    }
 
     private function givenUserParticipatesInMeeting()
     {
