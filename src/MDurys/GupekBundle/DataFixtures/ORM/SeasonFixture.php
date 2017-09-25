@@ -55,18 +55,18 @@ abstract class SeasonFixture extends AbstractFixture implements OrderedFixtureIn
                     ->setStatus(Bout::STATUS_FINISHED);
                 $em->persist($bout);
 
-                foreach ($boutData['players'] as $playerId => $playerData) {
-                    $meetingUser = new MeetingUser();
-                    $meetingUser
-                        ->setMeeting($meeting)
-                        ->setUser($this->getReference('user-'.$playerId))
-                        ->setBout($bout)
-                        ->setPlace($playerData[0]);
-                    $em->persist($meetingUser);
-                    $bout->addMeetingUser($meetingUser);
-                }
+//                foreach ($boutData['players'] as $playerId => $playerData) {
+//                    $meetingUser = new MeetingUser();
+//                    $meetingUser
+//                        ->setMeeting($meeting)
+//                        ->setUser($this->getReference('user-'.$playerId))
+//                        ->setBout($bout)
+//                        ->setPlace($playerData[0]);
+//                    $em->persist($meetingUser);
+//                    $bout->addMeetingUser($meetingUser);
+//                }
 
-                $boutLogic->calculateScores($bout);
+//                $boutLogic->calculateScores($bout);
             }
 
             $em->flush();

@@ -30,7 +30,7 @@ class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface, 
     public function load(ObjectManager $em)
     {
         $data = [
-            'md' => ['michal@migmail.pl', 'Player MD'],
+            'md' => ['michal@durys.pl', 'Michał Durys'],
             'rj' => ['rafal@migmail.pl', 'Player RJ'],
             'jg' => ['janek@migmail.pl', 'Player JG'],
             'tk' => ['tomek@migmail.pl', 'Player TK'],
