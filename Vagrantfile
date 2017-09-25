@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
     aptitude install nginx-full
     aptitude --assume-yes install mariadb-server
     mysql -u root --execute "CREATE DATABASE gupek;"
-    mysql -u root --execute "GRANT ALL ON gupek.* TO gupek@localhost IDENTIFIED BY 'qwe123';"
+    mysql -u root --execute "GRANT ALL ON gupek.* TO gupek@'%' IDENTIFIED BY 'qwe123';"
   SHELL
 
 end
