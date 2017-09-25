@@ -48,6 +48,7 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'tikal' => ['Tikal', 2, 4],
             'trajan' => ['Trajan', 2, 4],
             'tytus' => ['Tytus, Romek i A\'tomek', 2, 5],
+            'yamatai' => ['Yamataï', 2, 4],
             'waterdeep' => ['Lords of Waterdeep', 2, 5],
             'wysokie_napiecie' => ['Wysokie napięcie', 2, 6],
         ];
