@@ -2,6 +2,7 @@
 
 namespace MDurys\GupekBundle\DataFixtures\ORM;
 
+use MDurys\GupekBundle\Entity\BoutUser;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -10,7 +11,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 use MDurys\GupekBundle\Entity\Season;
 use MDurys\GupekBundle\Entity\Bout;
 use MDurys\GupekBundle\Entity\Meeting;
-use MDurys\GupekBundle\Entity\MeetingUser;
 
 abstract class SeasonFixture extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -55,18 +55,16 @@ abstract class SeasonFixture extends AbstractFixture implements OrderedFixtureIn
                     ->setStatus(Bout::STATUS_FINISHED);
                 $em->persist($bout);
 
-//                foreach ($boutData['players'] as $playerId => $playerData) {
-//                    $meetingUser = new MeetingUser();
-//                    $meetingUser
-//                        ->setMeeting($meeting)
-//                        ->setUser($this->getReference('user-'.$playerId))
-//                        ->setBout($bout)
-//                        ->setPlace($playerData[0]);
-//                    $em->persist($meetingUser);
-//                    $bout->addMeetingUser($meetingUser);
-//                }
-
 //                $boutLogic->calculateScores($bout);
+
+                foreach ($boutData['players'] as $playerId => $playerData) {
+                    $boutUser = new BoutUser();
+                    $boutUser
+                        ->setBout($bout)
+                        ->setUser($this->getReference('user-' . $playerId))
+                        ->setPlace($playerData[0]);
+                    $em->persist($boutUser);
+                }
             }
 
             $em->flush();
