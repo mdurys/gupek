@@ -17,7 +17,6 @@ framework:
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_hosts:   ~
-    trusted_proxies: ~
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
@@ -103,6 +102,6 @@ fos_user:
 
 braincrafted_bootstrap:
 #    less_filter: less
-    assets_dir: %kernel.root_dir%/../vendor/twbs/bootstrap
-    jquery_path: %kernel.root_dir%/../vendor/components/jquery/jquery.js
+    assets_dir: "%kernel.root_dir%/../vendor/twbs/bootstrap"
+    jquery_path: "%kernel.root_dir%/../vendor/components/jquery/jquery.js"
     icon_prefix: fa
