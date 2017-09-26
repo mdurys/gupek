@@ -62,4 +62,20 @@ class MeetingRepository extends EntityRepository implements MeetingRepositoryInt
 
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * @param int $limit
+     * @return array
+     */
+    public function getUpcoming(int $limit = 5)
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+            ->select('m')
+            ->from(Meeting::class, 'm')
+            ->where('m.date > CURRENT_TIMESTAMP()')
+            ->orderBy('m.date', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
 }
