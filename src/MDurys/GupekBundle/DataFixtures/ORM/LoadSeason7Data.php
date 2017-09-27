@@ -21,7 +21,7 @@ class LoadSeason7Data extends SeasonFixture
     {
         return [
             [
-                '2017-09-21 19:00:00',
+                'date' => '2017-09-21 19:00:00',
                 'bouts' => [
                     [
                         'game' => 'yamatai',

@@ -3,6 +3,7 @@
 namespace MDurys\GupekBundle\DataFixtures\ORM;
 
 use MDurys\GupekBundle\Entity\BoutUser;
+use MDurys\GupekBundle\Entity\MeetingUser;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -42,8 +43,10 @@ abstract class SeasonFixture extends AbstractFixture implements OrderedFixtureIn
             $meeting = new Meeting();
             $meeting
                 ->setSeason($season)
-                ->setDate(new \DateTime($row[0]));
+                ->setDate(new \DateTime($row['date']));
             $em->persist($meeting);
+
+            $players = [];
 
             foreach ($row['bouts'] as $boutData) {
                 $game = $this->getReference('game-'.$boutData['game']);
@@ -64,7 +67,19 @@ abstract class SeasonFixture extends AbstractFixture implements OrderedFixtureIn
                         ->setUser($this->getReference('user-' . $playerId))
                         ->setPlace($playerData[0]);
                     $em->persist($boutUser);
+
+                    $players[] = $playerId;
                 }
+            }
+
+            foreach (array_unique($players) as $playerId) {
+                $meetingUser = new MeetingUser();
+                $meetingUser
+                    ->setMeeting($meeting)
+                    ->setUser($this->getReference('user-' . $playerId))
+                    ->setStatus(\MDurys\GupekBundle\Domain\Meeting\Presence::PRESENT);
+
+                $em->persist($meetingUser);
             }
 
             $em->flush();

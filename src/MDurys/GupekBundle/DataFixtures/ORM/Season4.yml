@@ -1,0 +1,82 @@
+---
+- date: '2013-09-05 19:30:00'
+  bouts:
+    - game: imie_rozy
+      players:
+        jb: [1 ,4]
+        ml: [2 ,4]
+        jd2: [3 ,4]
+        ab: [4 ,4]
+    - game: aquileia
+      players:
+        tp: [1 ,4]
+        jg: [2 ,4]
+        tk: [3 ,4]
+        eg: [4 ,4]
+        kc: [5 ,4]
+- date: '2013-09-12 19:30:00'
+  bouts:
+    - game: notre_dame
+      players:
+        eg: [1 ,4]
+        jg: [2 ,4]
+        tk: [3 ,4]
+        ab: [4 ,4]
+    - game: aquileia
+      players:
+        md: [1 ,4]
+        jd2: [2 ,4]
+        tp: [3 ,4]
+        mk: [4 ,4]
+        rj: [5 ,4]
+- date: '2013-09-19 19:30:00'
+  bouts:
+    - game: casador
+      players:
+        tp: [1 ,4]
+        jb: [2 ,4]
+        kc: [3 ,4]
+        tk: [4 ,4]
+        rj: [5 ,4]
+    - game: notre_dame
+      players:
+        eg: [1 ,4]
+        ml: [2 ,4]
+        md: [3 ,4]
+        ab: [4 ,4]
+- date: '2013-09-26 19:30:00'
+  bouts:
+    - game: stone_age
+      players:
+        sh: [1 ,4]
+        md: [2 ,4]
+        mk: [3 ,4]
+        ab: [4 ,4]
+    - game: heart_of_africa
+      players:
+        tk: [1 ,4]
+        rj: [2 ,4]
+        eg: [3 ,4]
+- date: '2013-10-03 19:30:00'
+  bouts:
+    - game: stone_age
+      players:
+        tk: [1 ,4]
+        ml: [2 ,4]
+        kc: [3 ,4]
+        md: [4 ,4]
+    - game: planet_steam
+      players:
+        mk: [1 ,4]
+        tp: [2 ,4]
+        ab: [3 ,4]
+        rj: [4 ,4]
+- date: '2013-10-10 19:30:00'
+  bouts:
+    - game: stone_age
+      players:
+        mn: [1 ,4]
+        jb: [2 ,4]
+        md: [3 ,4]
+        eg: [4 ,4]
+        jg: [5 ,4]

@@ -12,7 +12,7 @@ class LoadSeason6Data extends SeasonFixture
         return
         [
             [
-                '2016-01-14 19:30:00',
+                'date' => '2016-01-14 19:30:00',
                 'bouts' => [
                     [
                         'game' => 'antarctica',
@@ -36,7 +36,7 @@ class LoadSeason6Data extends SeasonFixture
                 ]
             ],
             [
-                '2016-01-21 19:30:00',
+                'date' => '2016-01-21 19:30:00',
                 'bouts' => [
                     [
                         'game' => 'gaucho',

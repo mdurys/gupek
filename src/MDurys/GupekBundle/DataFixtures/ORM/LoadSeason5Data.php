@@ -12,7 +12,7 @@ class LoadSeason5Data extends SeasonFixture
         return
         [
             [
-                '2014-09-04 19:30:00',
+                'date' => '2014-09-04 19:30:00',
                 'bouts' => [
                     [
                         'game' => 'imperial2030',
@@ -44,7 +44,7 @@ class LoadSeason5Data extends SeasonFixture
                 ]
             ],
             [
-                '2014-09-11 19:30:00',
+                'date' => '2014-09-11 19:30:00',
                 'bouts' => [
                     [
                         'game' => 'hacienda',
@@ -69,7 +69,7 @@ class LoadSeason5Data extends SeasonFixture
                 ]
             ],
             [
-                '2014-09-18 19:30:00',
+                'date' => '2014-09-18 19:30:00',
                 'bouts' => [
                     [
                         'game' => 'wysokie_napiecie',
@@ -84,7 +84,7 @@ class LoadSeason5Data extends SeasonFixture
                 ]
             ],
             [
-                '2014-10-09 19:30:00',
+                'date' => '2014-10-09 19:30:00',
                 'bouts' => [
                     [
                         'game' => 'pokolenia',
@@ -105,7 +105,7 @@ class LoadSeason5Data extends SeasonFixture
                 ]
             ],
             [
-                '2014-10-16 19:30:00',
+                'date' => '2014-10-16 19:30:00',
                 'bouts' => [
                     [
                         'game' => 'waterdeep',
@@ -118,7 +118,7 @@ class LoadSeason5Data extends SeasonFixture
                 ]
             ],
             [
-                '2014-11-13 19:30:00',
+                'date' => '2014-11-13 19:30:00',
                 'bouts' => [
                     [
                         'game' => 'keyflower',
@@ -134,7 +134,7 @@ class LoadSeason5Data extends SeasonFixture
                 ]
             ],
             [
-                '2014-11-20 19:30:00',
+                'date' => '2014-11-20 19:30:00',
                 'bouts' => [
                     [
                         'game' => 'rheinlander',
@@ -169,7 +169,7 @@ class LoadSeason5Data extends SeasonFixture
                 ]
             ],
             [
-                '2014-12-04 19:30:00',
+                'date' => '2014-12-04 19:30:00',
                 'bouts' => [
                     [
                         'game' => 'atak_zombie',
