@@ -44,6 +44,23 @@ class LoadSeason7Data extends SeasonFixture
                     ],
                 ],
             ],
+            [
+                'date' => '2017-09-28 19:00:00',
+                'bouts' => [
+                    [
+                        'game' => 'formula_d',
+                        'players' => [
+                            'al' => [1, 4],
+                            'tk' => [2, 4],
+                            'ab' => [3, 4],
+                            'jb' => [4, 4],
+                            'rj' => [5, 3],
+                            'sh' => [6, 4],
+                            'md' => [7, 5],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 }

@@ -29,8 +29,9 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'drake' => ['Francis Drake', 3, 5],
             'el_grande' => ['El Grande', 2, 5],
             'evolution' => ['Evolution', 2, 6],
-            'gaucho' => ['El Gaucho', 2, 4],
             'finca' => ['Finca', 2, 4],
+            'formula_d' => ['Formula D', 2, 10],
+            'gaucho' => ['El Gaucho', 2, 4],
             'hacienda' => ['Hacienda', 2, 5],
             'hansa' => ['Hansa Teutonica', 2, 5],
             'heart_of_africa' => ['Heart of Africa', 2, 5],
@@ -56,9 +57,9 @@ class LoadGamesData extends AbstractFixture implements OrderedFixtureInterface
             'tikal' => ['Tikal', 2, 4],
             'trajan' => ['Trajan', 2, 4],
             'tytus' => ['Tytus, Romek i A\'tomek', 2, 5],
-            'yamatai' => ['Yamataï', 2, 4],
             'waterdeep' => ['Lords of Waterdeep', 2, 5],
             'wysokie_napiecie' => ['Wysokie napięcie', 2, 6],
+            'yamatai' => ['Yamataï', 2, 4],
         ];
 
         foreach ($data as $id => $row) {
