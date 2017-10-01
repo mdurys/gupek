@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;

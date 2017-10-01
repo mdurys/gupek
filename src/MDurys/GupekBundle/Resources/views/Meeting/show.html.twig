@@ -1,10 +1,10 @@
 {% extends '::base.html.twig' %}
 
 {#
-## @var Meeting $meeting       Meeting object
-## @var User[]  $users         Users particpiating in this meeting
-## @var Bout[]  $bouts         Bouts assigned to given meeting
-## @var bool    $hasUserJoined TRUE if currently logged user is participating in a meeting
+## @var Meeting        $meeting       Meeting object
+## @var MeetingUser[]  $meetingUsers  Users particpiating in this meeting
+## @var Bout[]         $bouts         Bouts assigned to given meeting
+## @var bool           $hasUserJoined TRUE if currently logged user is participating in a meeting
 #}
 
 {% block body %}
@@ -31,18 +31,21 @@
         {{ "form.button.bout"|trans }}
     </a>
 
-    <p>
-        Participants <span class="label label-info">{{ users|length }}</span>:
-        {% for user in users %}
-            {{ user.username }}
+    <h3>Attendance</h3>
+
+    <ol>
+        {% for meetingUser in meetingUsers %}
+            <li>
+                {{ meetingUser.user.username }} - {{ meetingUser.status }}
+            </li>
         {% endfor %}
-    </p>
+    </ol>
 
     {% for bout in bouts %}
         <h3>
             <a href="{{ path("game_show", { "slug": bout.game.slug }) }}">{{ bout.game.name }}</a>
         </h3>
-        <p>Players: {{ bout.meetingUsers|length }} / {{ bout.maxPlayers }}</p>
+        <p>Players: {{ bout.boutUsers|length }} / {{ bout.maxPlayers }}</p>
 
         {% if bout.isNew %}
             {{ form(bout_logic.createJoinForm(bout.id)) }}
@@ -64,12 +67,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for mu in bout.meetingUsers %}
+                {% for mu in bout.boutUsers %}
                     <tr>
                         <td>{{ mu.place|localizednumber('ordinal') }}</td>
                         <td>{{ mu.user.username }}</td>
-                        <td>{{ mu.score|round(2)|localizednumber }}</td>
-                        <td>{% if mu.win > 0 %}{{ mu.win|round(2)|localizednumber }}{% endif %}</td>
                     </tr>
                 {% endfor %}
                 </tbody>

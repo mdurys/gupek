@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -45,10 +47,10 @@ class Bout
     private $game;
 
     /**
-     * @ORM\OneToMany(targetEntity="MeetingUser", mappedBy="bout")
+     * @ORM\OneToMany(targetEntity="BoutUser", mappedBy="bout")
      * @Assert\Valid
      */
-    private $meetingUsers;
+    private $boutUsers;
 
     /**
      * @var integer
@@ -71,14 +73,13 @@ class Bout
      */
     public function __construct()
     {
-        $this->meetingUsers = new ArrayCollection();
         $this->status = self::STATUS_NEW;
     }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -101,7 +102,7 @@ class Bout
     /**
      * Get maxPlayers
      *
-     * @return integer 
+     * @return integer
      */
     public function getMaxPlayers()
     {
@@ -124,7 +125,7 @@ class Bout
     /**
      * Get meeting
      *
-     * @return \MDurys\GupekBundle\Entity\Meeting 
+     * @return \MDurys\GupekBundle\Entity\Meeting
      */
     public function getMeeting()
     {
@@ -147,7 +148,7 @@ class Bout
     /**
      * Get game
      *
-     * @return \MDurys\GupekBundle\Entity\Game 
+     * @return \MDurys\GupekBundle\Entity\Game
      */
     public function getGame()
     {
@@ -155,36 +156,22 @@ class Bout
     }
 
     /**
-     * Add meetingUser
-     *
-     * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
+     * @return mixed
+     */
+    public function getBoutUsers()
+    {
+        return $this->boutUsers;
+    }
+
+    /**
+     * @param mixed $boutUsers
      * @return Bout
      */
-    public function addMeetingUser(MeetingUser $meetingUser)
+    public function setBoutUsers(array $boutUsers)
     {
-        $this->meetingUsers[] = $meetingUser;
+        $this->boutUsers = $boutUsers;
 
         return $this;
-    }
-
-    /**
-     * Remove meetingUser
-     *
-     * @param \MDurys\GupekBundle\Entity\MeetingUser $meetingUser
-     */
-    public function removeMeetingUser(MeetingUser $meetingUser)
-    {
-        $this->meetingUsers->removeElement($meetingUser);
-    }
-
-    /**
-     * Get meetingUsers
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMeetingUsers()
-    {
-        return $this->meetingUsers;
     }
 
     /**

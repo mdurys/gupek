@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
@@ -22,7 +24,6 @@ class UserRepository extends EntityRepository
      */
     public function getByMeeting(Meeting $meeting)
     {
-        $qb = $this->getEntityManager()->createQueryBuilder();
         return $this
             ->getEntityManager()
             ->createQueryBuilder()

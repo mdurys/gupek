@@ -26,7 +26,7 @@ class BoutUser
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Bout")
+     * @ORM\ManyToOne(targetEntity="Bout", inversedBy="boutUsers")
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     private $bout;
@@ -67,7 +67,7 @@ class BoutUser
      * @param mixed $bout
      * @return BoutUser
      */
-    public function setBout($bout)
+    public function setBout($bout): self
     {
         $this->bout = $bout;
         return $this;
@@ -85,7 +85,7 @@ class BoutUser
      * @param mixed $user
      * @return BoutUser
      */
-    public function setUser($user)
+    public function setUser($user): self
     {
         $this->user = $user;
         return $this;
@@ -103,10 +103,9 @@ class BoutUser
      * @param int $place
      * @return BoutUser
      */
-    public function setPlace(int $place): BoutUser
+    public function setPlace(int $place): self
     {
         $this->place = $place;
         return $this;
     }
-
 }

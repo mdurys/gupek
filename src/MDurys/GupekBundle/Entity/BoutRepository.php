@@ -50,11 +50,11 @@ class BoutRepository extends EntityRepository
     {
         $qb = $this->queryByMeeting($meeting);
         return $qb
-            ->select('b, mu, u, g')
-            ->leftJoin('b.meetingUsers', 'mu')
-            ->leftJoin('mu.user', 'u')
+            ->select('b', 'bu', 'u', 'g')
+            ->innerJoin('b.boutUsers', 'bu')
+            ->innerJoin('bu.user', 'u')
             ->innerJoin('b.game', 'g')
-            ->orderBy('b.id, mu.place, u.username')
+            ->orderBy('b.id, bu.place, u.username')
             ->getQuery()
             ->getResult();
     }

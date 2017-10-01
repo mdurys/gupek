@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
@@ -95,5 +97,17 @@ class MeetingUserRepository extends EntityRepository
         return $this->queryByBoutAndUser($bout, $user)
             ->getQuery()
             ->getOneOrNullResult();
+    }
+
+    public function getByMeetingId(int $meetingId)
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+            ->select('mu', 'u')
+            ->from(MeetingUser::class, 'mu')
+            ->leftJoin('mu.user', 'u')
+            ->where('mu.meeting = :meetingId')->setParameter('meetingId', $meetingId)
+            ->orderBy('u.username')
+            ->getQuery()
+            ->getResult();
     }
 }

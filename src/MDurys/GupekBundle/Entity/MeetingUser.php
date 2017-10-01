@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -25,7 +27,7 @@ class MeetingUser
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Meeting", inversedBy="meetingUsers")
+     * @ORM\ManyToOne(targetEntity="Meeting")
      * @ORM\JoinColumn(referencedColumnName="id", nullable=false)
      * @Assert\NotNull()
      */
@@ -39,46 +41,16 @@ class MeetingUser
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Bout", inversedBy="meetingUsers")
-     * @ORM\JoinColumn(referencedColumnName="id")
+     * @var int
+     *
+     * @ORM\Column(name="status", type="smallint", nullable=false)
      */
-    private $bout;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="place", type="smallint", nullable=true)
-     * @Assert\Range(min="1", minMessage="bout.illegal_place")
-     * @Assert\Expression("this.getPlace() <= this.getBout().getMeetingUsers().count()", message="bout.illegal_place")
-     */
-    private $place;
-
-    /**
-     * Number of points scored in this bout. Usually it is an integer but in
-     * case of a draw it can be a decimal number.
-     *
-     * @var float
-     *
-     * @ORM\Column(name="score", type="decimal", scale=4, nullable=true)
-     */
-    private $score;
-
-    /**
-     * Share of win for this bout. Usually only one user wins a game and that
-     * counts as 1 win in statistics. If more than one user wins a game 1
-     * "win point" is shared between all winning players.
-     *
-     * @var float
-     *
-     * @ORM\Column(name="win", type="decimal", scale=4, nullable=true)
-     * @Assert\Range(min=0, max=1)
-     */
-    private $win;
+    private $status;
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -101,7 +73,7 @@ class MeetingUser
     /**
      * Get meeting
      *
-     * @return \MDurys\GupekBundle\Entity\Meeting 
+     * @return \MDurys\GupekBundle\Entity\Meeting
      */
     public function getMeeting()
     {
@@ -124,7 +96,7 @@ class MeetingUser
     /**
      * Get user
      *
-     * @return \MDurys\GupekBundle\Entity\User 
+     * @return \MDurys\GupekBundle\Entity\User
      */
     public function getUser()
     {
@@ -132,94 +104,22 @@ class MeetingUser
     }
 
     /**
-     * Set bout
+     * @return int
+     */
+    public function getStatus(): int
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
      *
-     * @param \MDurys\GupekBundle\Entity\Bout $bout
      * @return MeetingUser
      */
-    public function setBout(Bout $bout = null)
+    public function setStatus(int $status)
     {
-        $this->bout = $bout;
+        $this->status = $status;
 
         return $this;
-    }
-
-    /**
-     * Get bout
-     *
-     * @return \MDurys\GupekBundle\Entity\Bout 
-     */
-    public function getBout()
-    {
-        return $this->bout;
-    }
-
-    /**
-     * Set place
-     *
-     * @param integer $place
-     * @return MeetingUser
-     */
-    public function setPlace($place)
-    {
-        $this->place = $place;
-
-        return $this;
-    }
-
-    /**
-     * Get place
-     *
-     * @return integer 
-     */
-    public function getPlace()
-    {
-        return $this->place;
-    }
-
-    /**
-     * Set score
-     *
-     * @param float $score
-     * @return MeetingUser
-     */
-    public function setScore($score)
-    {
-        $this->score = $score;
-
-        return $this;
-    }
-
-    /**
-     * Get score
-     *
-     * @return float
-     */
-    public function getScore()
-    {
-        return $this->score;
-    }
-
-    /**
-     * Set win
-     *
-     * @param float $win
-     * @return MeetingUser
-     */
-    public function setWin($win)
-    {
-        $this->win = $win;
-
-        return $this;
-    }
-
-    /**
-     * Get win
-     *
-     * @return float
-     */
-    public function getWin()
-    {
-        return $this->win;
     }
 }

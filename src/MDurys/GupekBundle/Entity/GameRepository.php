@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MDurys\GupekBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
@@ -32,7 +34,7 @@ class GameRepository extends EntityRepository
      * @param string $slug
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function queryBySlug($slug)
+    public function queryBySlug(string $slug)
     {
         return $this->getEntityManager()->createQueryBuilder()
             ->select('g')
@@ -47,7 +49,7 @@ class GameRepository extends EntityRepository
      * @param string $slug
      * @return null | Game
      */
-    public function getBySlug($slug)
+    public function getBySlug(string $slug)
     {
         return $this->queryBySlug($slug)
             ->getQuery()

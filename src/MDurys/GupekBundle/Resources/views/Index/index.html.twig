@@ -4,12 +4,15 @@
 
     <h1>GUPEK</h1>
 
+    <a class="btn btn-default" href="{{ path('mdurys_gupek_meeting_new', { 'season': 3 } ) }}">
+        {{ "season.button.meeting_add"|trans }}
+    </a>
+
     {% if meetings is not empty %}
         <h2>Upcoming meetings</h2>
         {% for meeting in meetings %}
             <a href="{{ path('mdurys_gupek_meeting_show', { 'id': meeting.id }) }}">{{ meeting.date|localizeddate('long', 'none') }}</a>
         {% endfor %}
-        {{ dump(meetings) }}
     {% endif %}
 
 {% endblock %}

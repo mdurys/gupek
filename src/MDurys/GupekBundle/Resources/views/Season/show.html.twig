@@ -25,7 +25,8 @@
             <td class="hidden-xs">{{ player.meetings }}</td>
             <td class="hidden-xs">{{ player.bouts }}</td>
             <td>{{ player.power|round(2)|localizednumber }}</td>
-            <td>{{ player.efficiency|round(2)|localizednumber('percent') }}</td>
+            <td>{{ player.efficiency|round(2)|loca        {{ dump(meetings) }}
+lizednumber('percent') }}</td>
         </tr>
 {% endfor %}
     </tbody>
