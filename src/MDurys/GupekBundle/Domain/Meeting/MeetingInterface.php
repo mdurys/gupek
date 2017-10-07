@@ -6,6 +6,10 @@ use MDurys\GupekBundle\Domain\Player\PlayerInterface;
 
 interface MeetingInterface
 {
+    const NEW = 0;
+    const FINISHED = 1;
+    const ABORTED = 2;
+
     /**
      * @return int
      */

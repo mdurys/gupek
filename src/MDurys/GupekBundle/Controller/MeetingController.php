@@ -2,6 +2,7 @@
 
 namespace MDurys\GupekBundle\Controller;
 
+use MDurys\GupekBundle\Entity\MeetingUser;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -252,13 +253,14 @@ class MeetingController extends Controller
         $em = $this->getDoctrine()->getManager();
         $bouts = $em->getRepository(Bout::class)
             ->getJoinUserAndGameByMeeting($meeting);
-        $users = $em->getRepository(User::class)
-            ->getByMeeting($meeting);
+//        $bouts = [];
+        $meetingUsers = $em->getRepository(MeetingUser::class)->getByMeetingId($meeting->getId());
 
         $logic = $this->get('gupek.logic.meeting');
-        $hasUserJoined = $logic->isUserParticipating($meeting, $this->getUser());
+//        $hasUserJoined = $logic->isUserParticipating($meeting, $this->getUser());
+        $hasUserJoined = false;
 
-        return $this->render('MDurysGupekBundle:Meeting:show.html.twig', compact('meeting', 'users', 'bouts', 'hasUserJoined'));
+        return $this->render('MDurysGupekBundle:Meeting:show.html.twig', compact('meeting', 'users', 'meetingUsers', 'bouts', 'hasUserJoined'));
     }
 
     /**
@@ -286,6 +288,7 @@ class MeetingController extends Controller
             }
 
             $em->remove($entity);
+
             $em->flush();
         }
 

@@ -1,8 +1,8 @@
 <?php
 
-use MDurys\GupekBundle\Tests\Domain\Meeting;
+namespace MDurys\GupekBundle\Tests\Domain\Meeting;
 
-class MeetingServiceTest extends \PHPUnit_Framework_TestCase
+class MeetingServiceTest extends \PHPUnit\Framework\TestCase
 {
     public function setUp()
     {

@@ -1,3 +1,7 @@
+homepage:
+    upcoming_meetings: Nadchodzące spotkania
+    recent_meetings: Ostatnie meetings
+
 season:
     ranking: Ranking
     ranking_table:
@@ -21,8 +25,6 @@ meeting:
     bout_table:
         place: '#'
         player: 'Gracz'
-        points: 'Punkty'
-        win: 'Wygrana'
     header:
         new: Dodawanie spotkania
     message:
