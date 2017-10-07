@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
 #  end
 
   config.vm.provision "shell", inline: <<-SHELL
-    apt-get --yes install aptitude
+    apt-get --yes install aptitude curl
     aptitude update
     aptitude --assume-yes safe-upgrade
     aptitude --assume-yes install php7.0-cli php7.0-curl php7.0-fpm php7.0-intl php7.0-json php7.0-mbstring php7.0-mysql php7.0-xml php7.0-zip php-xdebug git
@@ -27,6 +27,9 @@ Vagrant.configure("2") do |config|
     aptitude --assume-yes install mariadb-server
     mysql -u root --execute "CREATE DATABASE gupek;"
     mysql -u root --execute "GRANT ALL ON gupek.* TO gupek@'%' IDENTIFIED BY 'qwe123';"
+    curl -sL https://deb.nodesource.com/setup_6.x | bash -
+    aptitude install --assume-yes nodejs
+    npm install --global less
   SHELL
 
 end
