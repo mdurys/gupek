@@ -9,10 +9,25 @@
     </a>
 
     {% if meetings is not empty %}
-        <h2>Upcoming meetings</h2>
-        {% for meeting in meetings %}
-            <a href="{{ path('mdurys_gupek_meeting_show', { 'id': meeting.id }) }}">{{ meeting.date|localizeddate('long', 'none') }}</a>
-        {% endfor %}
+        <h2>{{ 'homepage.upcoming_meetings'|trans }}</h2>
+        <ul>
+            {% for meeting in meetings %}
+                <li>
+                    <a href="{{ path('mdurys_gupek_meeting_show', { 'id': meeting.id }) }}">{{ meeting.date|localizeddate('long', 'none') }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if recentMeetings is not empty %}
+        <h2>{{ 'homepage.recent_meetings'|trans }}</h2>
+        <ul>
+            {% for meeting in recentMeetings %}
+                <li>
+                    <a href="{{ path('mdurys_gupek_meeting_show', { 'id': meeting.id }) }}">{{ meeting.date|localizeddate('long', 'none') }}</a>
+                </li>
+            {% endfor %}
+        </ul>
     {% endif %}
 
 {% endblock %}

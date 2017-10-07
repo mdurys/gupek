@@ -20,12 +20,15 @@ class IndexController extends Controller
      */
     public function indexAction(): Response
     {
-        $meetings = $this->getDoctrine()
-            ->getRepository(Meeting::class)
-            ->getUpcoming();
+        /** @var \MDurys\GupekBundle\Entity\MeetingRepository $meetingRepository */
+        $meetingRepository = $this->getDoctrine()
+            ->getRepository(Meeting::class);
+        $meetings = $meetingRepository->getUpcoming();
+        $recentMeetings = $meetingRepository->getRecent();
 
         return $this->render('MDurysGupekBundle:Index:index.html.twig', [
-            'meetings' => $meetings
+            'meetings' => $meetings,
+            'recentMeetings' => $recentMeetings,
         ]);
     }
 }
