@@ -61,6 +61,41 @@ class LoadSeason7Data extends SeasonFixture
                     ],
                 ],
             ],
+            [
+                'date' => '2017-10-05 19:00:00',
+                'bouts' => [
+//                    [
+//                        'game' => 'edo',  // @todo Edo is for 4 players, expansion was used?
+//                        'players' => [
+//                            'md2' => [1, ?],
+//                            'tk' => [?, ?],
+//                            'rj' => [?, ?],
+//                            'kc' => [?, ?],
+//                            'jb' => [?, ?],
+//                        ],
+//                    ],
+                    [
+                        'game' => 'na_chwale_rzymu',
+                        'players' => [
+                            'jd2' => [1, 4],
+                            'sh' => [1, 4],
+                            'mn' => [3, 3],
+                            'md' => [4, 4],
+                            'eg' => [5, 4],
+                        ],
+                    ],
+                    [
+                        'game' => 'na_chwale_rzymu',
+                        'players' => [
+                            'eg' => [1, 4],
+                            'jd2' => [1, 4],
+                            'mn' => [3, 3],
+                            'md' => [4, 4],
+                            'sh' => [5, 3],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 }
