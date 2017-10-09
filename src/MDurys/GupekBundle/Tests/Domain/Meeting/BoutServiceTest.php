@@ -22,6 +22,9 @@ class BoutServiceTest extends TestCase
      */
     private $bout;
 
+    /**
+     * @inheritdoc
+     */
     public function setUp()
     {
         $this->boutService = new BoutService();
@@ -31,14 +34,36 @@ class BoutServiceTest extends TestCase
     /**
      * @param array $places
      *
+     * @dataProvider validDataProvider
+     */
+    public function testAssignValidPlaces(array $places)
+    {
+        $this->givenBoutWithPlayers(4);
+
+        $results = $this->boutService->assignPlaces($this->bout, $places);
+
+        $this->assertCount(4, $results);
+    }
+
+    /**
+     * @param array $places
+     *
      * @expectedException \RuntimeException
      * @dataProvider invalidDataProvider
      */
-    public function testAssignPlacesWithInvalidData(array $places)
+    public function testAssignInvalidPlaces(array $places)
     {
         $this->givenBoutWithPlayers(4);
 
         $this->boutService->assignPlaces($this->bout, $places);
+    }
+
+    public function validDataProvider()
+    {
+        return [
+            'normal' => [[1 => 1, 2 => 2, 3 => 3, 4 => 4]],
+            'ex aequo' => [[1 => 1, 2 => 1, 3 => 3, 4 => 4]],
+        ];
     }
 
     public function invalidDataProvider()
@@ -60,7 +85,7 @@ class BoutServiceTest extends TestCase
         for ($i = 1; $i <= $noPlayers; $i++) {
             $player = $this->createMock(BoutPlayerInterface::class);
             $player->method('getPlayerId')->willReturn($i);
-            $player->method('setPlace')->with($this->anything())->willReturn($this->returnSelf());
+            $player->method('setPlace')->with($this->anything())->willReturn($player);
             $players[] = $player;
         }
 
