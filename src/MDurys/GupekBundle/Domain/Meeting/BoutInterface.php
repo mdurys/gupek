@@ -38,7 +38,7 @@ interface BoutInterface
     public function removePlayer(PlayerInterface $player): bool;
 
     /**
-     * @return PlayerInterface[]
+     * @return BoutPlayerInterface[]
      */
     public function getPlayers(): array;
 }
