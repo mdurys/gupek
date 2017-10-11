@@ -23,15 +23,20 @@ class BoutService
             throw new \RuntimeException('There are more players than places');
         }
 
+        asort($places);
+        $expectedPlace = 1;
+        $previousPlace = null;
+        foreach ($places as $place) {
+            if ($place !== $expectedPlace && $place !== $previousPlace) {
+                throw new \RuntimeException('Unexpected place');
+            }
+            $previousPlace = $place;
+            $expectedPlace++;
+        }
+
         foreach ($players as $player) {
             if (!isset($places[$player->getPlayerId()])) {
                 throw new \RuntimeException("Player {$player->getPlayerId()} was not assigned a place");
-            }
-            if ($noPlayers < $places[$player->getPlayerId()]) {
-                throw new \RuntimeException('Place is outside range');
-            }
-            if (0 >= $places[$player->getPlayerId()]) {
-                throw new \RuntimeException('Place is outside range');
             }
             $player->setPlace($places[$player->getPlayerId()]);
         }

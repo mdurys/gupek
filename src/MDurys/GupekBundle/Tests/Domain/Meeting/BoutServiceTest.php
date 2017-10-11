@@ -62,7 +62,11 @@ class BoutServiceTest extends TestCase
     {
         return [
             'normal' => [[1 => 1, 2 => 2, 3 => 3, 4 => 4]],
-            'ex aequo' => [[1 => 1, 2 => 1, 3 => 3, 4 => 4]],
+            'draw 1st' => [[1 => 1, 2 => 1, 3 => 3, 4 => 4]],
+            'triple draw 1st' => [[1 => 1, 2 => 1, 3 => 1, 4 => 4]],
+            'only 1st' => [[1 => 1, 2 => 1, 3 => 1, 4 => 1]],
+            'draw 2nd' => [[1 => 1, 2 => 2, 3 => 2, 4 => 4]],
+            'unordered' => [[1 => 3, 2 => 1, 3 => 4, 4 => 2]],
         ];
     }
 
@@ -75,6 +79,8 @@ class BoutServiceTest extends TestCase
             'place out of range' => [[1 => 9, 2 => 2, 3 => 3, 4 => 4]],
             'negative place' => [[1 => -3, 2 => 2, 3 => 3, 4 => 4]],
             '0 place' => [[1 => 0, 2 => 2, 3 => 3, 4 => 4]],
+            'illegal 2nd place' => [[1 => 1, 2 => 1, 3 => 2, 4 => 3]],
+            'only 2nd' => [[1 => 2, 2 => 2, 3 => 2, 4 => 2]],
         ];
     }
 
