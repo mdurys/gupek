@@ -26,20 +26,20 @@ class LoadSeason7Data extends SeasonFixture
                     [
                         'game' => 'yamatai',
                         'players' => [
-                            'rj' => [1, 3],
-                            'tk' => [2, 4],
-                            'eg' => [3, 4],
-                            'md' => [4, 5],
+                            'rafalj' => [1, 3],
+                            'tomekk' => [2, 4],
+                            'erykg' => [3, 4],
+                            'michald' => [4, 5],
                         ],
                     ],
                     [
                         'game' => 'evolution',
                         'players' => [
-                            'ab' => [1, 4],  // @todo
-                            'mk' => [2, 4],  // @todo
-                            'kc' => [2, 4],  // @todo
-                            'sh' => [2, 4],  // @todo
-                            'jb' => [2, 4],  // @todo
+                            'adamb' => [1, 4],  // @todo
+                            'macieknk' => [2, 4],  // @todo
+                            'krzysiekc' => [2, 4],  // @todo
+                            'szymonh' => [2, 4],  // @todo
+                            'jarekb' => [2, 4],  // @todo
                         ],
                     ],
                 ],
@@ -50,13 +50,13 @@ class LoadSeason7Data extends SeasonFixture
                     [
                         'game' => 'formula_d',
                         'players' => [
-                            'al' => [1, 4],
-                            'tk' => [2, 4],
-                            'ab' => [3, 4],
-                            'jb' => [4, 4],
-                            'rj' => [5, 3],
-                            'sh' => [6, 4],
-                            'md' => [7, 5],
+                            'andrzejl' => [1, 4],
+                            'tomekk' => [2, 4],
+                            'adamb' => [3, 4],
+                            'jarekb' => [4, 4],
+                            'rafalj' => [5, 3],
+                            'szymonh' => [6, 4],
+                            'michald' => [7, 5],
                         ],
                     ],
                 ],
@@ -67,31 +67,62 @@ class LoadSeason7Data extends SeasonFixture
                     [
                         'game' => 'edo',  // @todo Edo is for 4 players, expansion was used?
                         'players' => [
-                            'md2' => [1, 4],
-                            'kc' => [2, 4],
-                            'rj' => [3, 4],
-                            'tk' => [4, 5],
-                            'jb' => [5, 3],
+                            'maciekd' => [1, 4],
+                            'krzysiekc' => [2, 4],
+                            'rafalj' => [3, 4],
+                            'tomekk' => [4, 5],
+                            'jarekb' => [5, 3],
                         ],
                     ],
                     [
                         'game' => 'na_chwale_rzymu',
                         'players' => [
-                            'jd2' => [1, 4],
-                            'sh' => [1, 4],
-                            'mn' => [3, 3],
-                            'md' => [4, 4],
-                            'eg' => [5, 4],
+                            'jacekd' => [1, 4],
+                            'szymonh' => [1, 4],
+                            'macieknk' => [3, 3],
+                            'michald' => [4, 4],
+                            'erykg' => [5, 4],
                         ],
                     ],
                     [
                         'game' => 'na_chwale_rzymu',
                         'players' => [
-                            'eg' => [1, 4],
-                            'jd2' => [1, 4],
-                            'mn' => [3, 3],
-                            'md' => [4, 4],
-                            'sh' => [5, 3],
+                            'erykg' => [1, 4],
+                            'jacekd' => [1, 4],
+                            'macieknk' => [3, 3],
+                            'michald' => [4, 4],
+                            'szymonh' => [5, 3],
+                        ],
+                    ],
+                ],
+            ],
+            // meeting 2017-10-12 was cancelled
+            [
+                'date' => '2017-10-19 19:00:00',
+                'bouts' => [
+                    [
+                        'game' => 'java',
+                        'players' => [
+                            'tomekk' => [1, 4],
+                            'krzysiekc' => [2, 4],
+                            'macieknk' => [3, 4],
+                            'michald' => [4, 5],
+                        ],
+                    ],
+                    [
+                        'game' => 'rialto',
+                        'players' => [
+                            'rafalj' => [1, 4],
+                            'janekg' => [2, 4],
+                            'travis' => [3, 4],
+                        ],
+                    ],
+                    [
+                        'game' => 'rialto',
+                        'players' => [
+                            'janekg' => [1, 4],
+                            'travis' => [2, 4],
+                            'rafalj' => [3, 4],
                         ],
                     ],
                 ],

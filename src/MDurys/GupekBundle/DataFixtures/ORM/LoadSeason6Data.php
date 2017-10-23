@@ -17,20 +17,20 @@ class LoadSeason6Data extends SeasonFixture
                     [
                         'game' => 'antarctica',
                         'players' => [
-                            'mk' => [1, 5],
-                            'sh' => [2, 4],
-                            'tk' => [3, 4],
-                            'md' => [4, 5],
+                            'maciekk' => [1, 5],
+                            'szymonh' => [2, 4],
+                            'tomekk' => [3, 4],
+                            'michald' => [4, 5],
                         ]
                     ],
                     [
                         'game' => 'evolution',
                         'players' => [
-                            'kc' => [1, 5],
-                            'jd2' => [2, 5],
-                            'eg' => [3, 5],
-                            'md2' => [4, 5],
-                            'mn' => [5, 5],
+                            'krzysiekc' => [1, 5],
+                            'jacekd' => [2, 5],
+                            'erykg' => [3, 5],
+                            'maciekd' => [4, 5],
+                            'macieknk' => [5, 5],
                         ]
                     ],
                 ]
@@ -41,10 +41,10 @@ class LoadSeason6Data extends SeasonFixture
                     [
                         'game' => 'gaucho',
                         'players' => [
-                            'sh' => [1, 4],
-                            'md' => [2, 4],
-                            'tk' => [3, 4],
-                            'kc' => [4, 4],
+                            'szymonh' => [1, 4],
+                            'michald' => [2, 4],
+                            'tomekk' => [3, 4],
+                            'krzysiekc' => [4, 4],
                         ]
                     ],
                 ]

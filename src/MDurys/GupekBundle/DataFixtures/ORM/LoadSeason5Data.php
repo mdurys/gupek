@@ -17,28 +17,28 @@ class LoadSeason5Data extends SeasonFixture
                     [
                         'game' => 'imperial2030',
                         'players' => [
-                            'jg' => [1, 4],
-                            'kc' => [2, 4],
-                            'md' => [3, 4],
-                            'eg' => [4, 4],
+                            'janekg' => [1, 4],
+                            'krzysiekc' => [2, 4],
+                            'michald' => [3, 4],
+                            'erykg' => [4, 4],
                         ]
                     ],
                     [
                         'game' => 'tikal',
                         'players' => [
-                            'ml' => [1, 4],
-                            'mk' => [2, 4],
-                            'ab' => [3, 4],
-                            'tk' => [4, 4],
+                            'marekl' => [1, 4],
+                            'maciekk' => [2, 4],
+                            'adamb' => [3, 4],
+                            'tomekk' => [4, 4],
                         ]
                     ],
                     [
                         'game' => 'finca',
                         'players' => [
-                            'tp' => [1, 4],
-                            'jb' => [2, 4],
-                            'sh' => [3, 4],
-                            'rj' => [4, 4],
+                            'tomekp' => [1, 4],
+                            'jarekb' => [2, 4],
+                            'szymonh' => [3, 4],
+                            'rafalj' => [4, 4],
                         ]
                     ],
                 ]
@@ -49,21 +49,21 @@ class LoadSeason5Data extends SeasonFixture
                     [
                         'game' => 'hacienda',
                         'players' => [
-                            'kc' => [1, 5],
-                            'jg' => [2, 5],
-                            'tk' => [3, 5],
-                            'eg' => [4, 5],
-                            'md' => [5, 4],
+                            'krzysiekc' => [1, 5],
+                            'janekg' => [2, 5],
+                            'tomekk' => [3, 5],
+                            'erykg' => [4, 5],
+                            'michald' => [5, 4],
                         ]
                     ],
                     [
                         'game' => 'navigator',
                         'players' => [
-                            'mk' => [1, 4],
-                            'jd' => [2, 4],
-                            'jb' => [3, 4],
-                            'ab' => [4, 4],
-                            'al' => [5, 4],
+                            'maciekk' => [1, 4],
+                            'jakubd' => [2, 4],
+                            'jarekb' => [3, 4],
+                            'adamb' => [4, 4],
+                            'andrzejl' => [5, 4],
                         ]
                     ],
                 ]
@@ -74,11 +74,11 @@ class LoadSeason5Data extends SeasonFixture
                     [
                         'game' => 'wysokie_napiecie',
                         'players' => [
-                            'md' => [1, 5],
-                            'sh' => [2, 5],
-                            'rj' => [3, 5],
-                            'jb' => [4, 5],
-                            'jg' => [5, 4],
+                            'michald' => [1, 5],
+                            'szymonh' => [2, 5],
+                            'rafalj' => [3, 5],
+                            'jarekb' => [4, 5],
+                            'janekg' => [5, 4],
                         ]
                     ],
                 ]
@@ -89,17 +89,17 @@ class LoadSeason5Data extends SeasonFixture
                     [
                         'game' => 'pokolenia',
                         'players' => [
-                            'mk' => [1, 5],
-                            'md' => [2, 5],
-                            'mn' => [3, 5],
+                            'maciekk' => [1, 5],
+                            'michald' => [2, 5],
+                            'macieknk' => [3, 5],
                         ]
                     ],
                     [
                         'game' => 'pokolenia',
                         'players' => [
-                            'tp' => [1, 5],
-                            'kc' => [2, 5],
-                            'ab' => [3, 5],
+                            'tomekp' => [1, 5],
+                            'krzysiekc' => [2, 5],
+                            'adamb' => [3, 5],
                         ]
                     ],
                 ]
@@ -110,9 +110,9 @@ class LoadSeason5Data extends SeasonFixture
                     [
                         'game' => 'waterdeep',
                         'players' => [
-                            'eg' => [1, 5],
-                            'mn' => [2, 5],
-                            'md' => [3, 5],
+                            'erykg' => [1, 5],
+                            'macieknk' => [2, 5],
+                            'michald' => [3, 5],
                         ]
                     ],
                 ]
@@ -123,12 +123,12 @@ class LoadSeason5Data extends SeasonFixture
                     [
                         'game' => 'keyflower',
                         'players' => [
-                            'md' => [1, 5],
-                            'tk' => [2, 5],
-                            'mn' => [2, 5],
-                            'tp' => [4, 5],
-                            'rj' => [5, 5],
-                            'al' => [6, 5],
+                            'michald' => [1, 5],
+                            'tomekk' => [2, 5],
+                            'macieknk' => [2, 5],
+                            'tomekp' => [4, 5],
+                            'rafalj' => [5, 5],
+                            'andrzejl' => [6, 5],
                         ]
                     ],
                 ]
@@ -140,30 +140,30 @@ class LoadSeason5Data extends SeasonFixture
                         'game' => 'rheinlander',
                         // @todo check stats, 5 players?
                         'players' => [
-                            'jb' => [1, 5],
-                            'jg' => [2, 5],
-                            'tp' => [3, 5],
-                            'sh' => [4, 5],
+                            'jarekb' => [1, 5],
+                            'janekg' => [2, 5],
+                            'tomekp' => [3, 5],
+                            'szymonh' => [4, 5],
                         ]
                     ],
                     [
                         'game' => 'rheinlander',
                         'players' => [
-                            'jg' => [1, 5],
-                            'sh' => [2, 5],
-                            'jb' => [3, 5],
-                            'mn' => [4, 5],
+                            'janekg' => [1, 5],
+                            'szymonh' => [2, 5],
+                            'jarekb' => [3, 5],
+                            'macieknk' => [4, 5],
                         ]
                     ],
                     [
                         'game' => 'mumia',
                         'players' => [
-                            'md' => [1, 5],
-                            'al' => [2, 5],
-                            'eg' => [3, 5],
-                            'md2' => [3, 5],
-                            'jd' => [5, 5],
-                            'tk' => [5, 5],
+                            'michald' => [1, 5],
+                            'andrzejl' => [2, 5],
+                            'erykg' => [3, 5],
+                            'maciekd' => [3, 5],
+                            'jakubd' => [5, 5],
+                            'tomekk' => [5, 5],
                         ]
                     ],
                 ]
@@ -174,19 +174,19 @@ class LoadSeason5Data extends SeasonFixture
                     [
                         'game' => 'atak_zombie',
                         'players' => [
-                            'mk' => [1, 5],
-                            'md' => [2, 4],
-                            'tk' => [3, 4],
-                            'ab' => [4, 4],
+                            'maciekk' => [1, 5],
+                            'michald' => [2, 4],
+                            'tomekk' => [3, 4],
+                            'adamb' => [4, 4],
                         ]
                     ],
                     [
                         'game' => 'szogun',
                         'players' => [
-                            'jg' => [1, 5],
-                            'al' => [2, 5],
-                            'rj' => [3, 5],
-                            'sh' => [4, 5],
+                            'janekg' => [1, 5],
+                            'andrzejl' => [2, 5],
+                            'rafalj' => [3, 5],
+                            'szymonh' => [4, 5],
                         ]
                     ],
                 ]

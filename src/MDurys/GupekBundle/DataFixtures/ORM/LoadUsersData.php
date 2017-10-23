@@ -7,7 +7,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use MDurys\GupekBundle\Entity\User;
 
 class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -30,23 +29,24 @@ class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface, 
     public function load(ObjectManager $em)
     {
         $data = [
-            'md' => ['michal@durys.pl', 'Michał Durys'],
-            'rj' => ['rafal@migmail.pl', 'Player RJ'],
-            'jg' => ['janek@migmail.pl', 'Player JG'],
-            'tk' => ['tomek@migmail.pl', 'Player TK'],
-            'jb' => ['jarek@migmail.pl', 'Player JB'],
-            'kc' => ['krzysiek@migmail.pl', 'Player KC'],
-            'eg' => ['eryk@migmail.pl', 'Player EG'],
-            'ml' => ['marek@migmail.pl', 'Player ML'],
-            'mk' => ['maciek@migmail.pl', 'Player MK'],
-            'ab' => ['adam@migmail.pl', 'Player AB'],
-            'sh' => ['szymon@migmail.pl', 'Player SH'],
-            'tp' => ['tomekp@migmail.pl', 'Player TP'],
-            'jd' => ['jakub@migmail.pl', 'Player JD'],
-            'al' => ['andrzej@migmail.pl', 'Player AL'],
-            'mn' => ['maciekn@migmail.pl', 'Player MN'],
-            'md2' => ['maciekd@migmail.pl', 'Player MD2'],
-            'jd2' => ['jacek@migmail.pl', 'Player JD2'],
+            'michald' => ['michal@durys.pl', 'Michał D.'],
+            'rafalj' => ['rafal@migmail.pl', 'Rafał J.'],
+            'janekg' => ['janek@migmail.pl', 'Janek G.'],
+            'tomekk' => ['tomek@migmail.pl', 'Tomek K.'],
+            'jarekb' => ['jarek@migmail.pl', 'Jarek B.'],
+            'krzysiekc' => ['krzysiek@migmail.pl', 'Krzysiek C.'],
+            'erykg' => ['eryk@migmail.pl', 'Eryk G.'],
+            'marekl' => ['marek@migmail.pl', 'Marek L.'],
+            'maciekk' => ['maciek@migmail.pl', 'Maciek K.'],
+            'adamb' => ['adam@migmail.pl', 'Adam B.'],
+            'szymonh' => ['szymon@migmail.pl', 'Szymon H.'],
+            'tomekp' => ['tomekp@migmail.pl', 'Tomek P.'],
+            'jakubd' => ['jakub@migmail.pl', 'Jakub D.'],
+            'andrzejl' => ['andrzej@migmail.pl', 'Andrzej L.'],
+            'macieknk' => ['maciekn@migmail.pl', 'Maciek N-K.'],
+            'maciekd' => ['maciekd@migmail.pl', 'Maciek D.'],
+            'jacekd' => ['jacek@migmail.pl', 'Jacek D.'],
+            'travis' => ['travis@migmail.pl', 'Travis'],
         ];
 
         $userManager = $this->container->get('fos_user.user_manager');
