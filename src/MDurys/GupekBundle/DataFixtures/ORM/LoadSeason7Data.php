@@ -127,6 +127,33 @@ class LoadSeason7Data extends SeasonFixture
                     ],
                 ],
             ],
+            [
+                'date' => '2017-11-16 19:00:00',
+                'bouts' => [
+                    [
+                        'game' => 'condottiere',
+                        'players' => [
+                            'erykg' => [1, 5],
+                            'michald' => [2, 5],
+                            'tomekk' => [3, 5],
+                            'krzysiekc' => [4, 4],
+                            'macieknk' => [5, 4],
+                            'adamb' => [5, 5],
+                        ],
+                    ],
+                    [
+                        'game' => 'condottiere',
+                        'players' => [
+                            'michald' => [1, 5], // -1 dignity
+                            'krzysiekc' => [2, 4],
+                            'erykg' => [3, 5],
+                            'tomekk' => [3, 5], // -1 dignity
+                            'adamb' => [3, 5],
+                            'macieknk' => [6, 5],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 }
