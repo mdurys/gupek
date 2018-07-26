@@ -1,0 +1,30 @@
+version: '3.2'
+
+services:
+  web:
+    image: "nginx:1.15"
+    ports:
+     - "8080:80"
+    volumes:
+     - "./config/nginx.conf:/etc/nginx/conf.d/default.conf"
+     - ".:/var/www/gupek"
+    depends_on:
+     - php
+     - db
+  php:
+    image: "php:7.2-fpm"
+    volumes:
+     - ".:/var/www/gupek"
+  db:
+    image: "mysql:8.0"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: qwe123
+      MYSQL_USER: gupek
+      MYSQL_PASSWORD: qwe123
+      MYSQL_DATABASE: gupek
+  composer:
+    image: "composer"
+    volumes:
+     - ".:/app"
+    command: install
