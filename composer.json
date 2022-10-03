@@ -4,7 +4,7 @@
     "type": "project",
     "description": "Scores and statistics tracking application for GUPEK meetings.",
     "autoload": {
-        "psr-4": { "": "src/" },
+        "psr-4": { "MDurys\\GupekBundle\\": "src/MDurys/GupekBundle/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
